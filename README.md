@@ -3,7 +3,7 @@
  
 
 ![FTC Ultimate Goal Logo](https://www.firstinspires.org/sites/default/files/uploads/resource_library/ftc/2020-2021/ultimate-goal-logo.png)
-
+![FTC Logo](https://www.firstinspires.org/sites/default/files/uploads/resource_library/brand/FIRSTTech_iconHorz_RGB.jpg)
 <pre>
              ,----------------,              ,---------,
         ,-----------------------,          ,"        ,"|
