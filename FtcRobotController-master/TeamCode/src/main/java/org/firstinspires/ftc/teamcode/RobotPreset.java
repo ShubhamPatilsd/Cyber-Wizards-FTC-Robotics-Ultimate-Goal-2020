@@ -62,7 +62,7 @@ public class RobotPreset
     public DcMotor  frontleft = null;
     public DcMotor  frontright = null;
     public DcMotor  downleft = null;
-    public DcMotor  downright = null
+    public DcMotor  downright = null;
 
 
 
