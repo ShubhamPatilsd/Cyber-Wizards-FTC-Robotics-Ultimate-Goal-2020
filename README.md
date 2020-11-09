@@ -5,5 +5,6 @@
 ![FTC Ultimate Goal Logo](https://www.firstinspires.org/sites/default/files/uploads/resource_library/ftc/2020-2021/ultimate-goal-logo.png)
 ![FTC Logo](https://www.firstinspires.org/sites/default/files/uploads/resource_library/brand/FIRSTTech_iconHorz_RGB.jpg)
 
-<img align="left" width="460" height="450" src="http://blog.idrsolutions.com/wp-content/uploads/2014/06/java_logo.jpg">
+
+<img align="left" width="512" height="384" src="http://blog.idrsolutions.com/wp-content/uploads/2014/06/java_logo.jpg">
 
