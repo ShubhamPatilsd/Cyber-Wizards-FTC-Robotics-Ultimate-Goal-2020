@@ -151,7 +151,7 @@ public class EncoderVisiontest extends LinearOpMode {
 
         // Wait for the game to start (driver presses PLAY)
         waitForStart();
-        
+
         //sleep(2000);
         if(pipeline.position== SkystoneDeterminationPipeline.RingPosition.ONE) {
             robot.frontright.setPower(1.0);
