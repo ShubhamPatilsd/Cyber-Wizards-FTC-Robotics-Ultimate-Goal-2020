@@ -161,7 +161,7 @@ public class EncoderVisiontest extends LinearOpMode {
                 robot.frontright.setPower(0.0);
                 telemetry.addData("Count of ring bois: ", "Sup gamer pog there is four rings yeet");
                 telemetry.update();
->>>>>>> 2ece2aece50fbe9640d4002a1436c0d54754dec7
+
 
             }
             if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.NONE) {
