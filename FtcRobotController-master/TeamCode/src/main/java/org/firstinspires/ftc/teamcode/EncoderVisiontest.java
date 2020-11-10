@@ -78,10 +78,10 @@ import org.openftc.easyopencv.OpenCvPipeline;
 public class EncoderVisiontest extends LinearOpMode {
 
     /* Declare OpMode members. */
-    HardwareTest         robot   = new HardwareTest();   // Use a Pushbot's hardware
-    private ElapsedTime     runtime = new ElapsedTime();
+    HardwareTest robot   = new HardwareTest();   // Use a Pushbot's hardware
+    private ElapsedTime runtime = new ElapsedTime();
     OpenCvCamera phoneCam;
-    EasyOpenCVExample.SkystoneDeterminationPipeline pipeline;
+    SkystoneDeterminationPipeline pipeline;
 
     static final double     COUNTS_PER_MOTOR_REV    = 480 ;    // eg: TETRIX Motor Encoder
     static final double     DRIVE_GEAR_REDUCTION    = 0.585 ;     // This is < 1.0 if geared UP
@@ -99,7 +99,7 @@ public class EncoderVisiontest extends LinearOpMode {
         phoneCam = OpenCvCameraFactory.getInstance().createInternalCamera(OpenCvInternalCamera.CameraDirection.BACK, cameraMonitorViewId);
         //Change this to the next comment line to get webcam working
         //phoneCam = OpenCvCameraFactory.getInstance().createWebcam(hardwareMap.get(WebcamName.class, "Webcam 1"), cameraMonitorViewId);
-        pipeline = new EasyOpenCVExample.SkystoneDeterminationPipeline();
+        pipeline = new SkystoneDeterminationPipeline();
         phoneCam.setPipeline(pipeline);
 
 
@@ -129,44 +129,46 @@ public class EncoderVisiontest extends LinearOpMode {
         telemetry.addData("Status", "Resetting Encoders");    //
         telemetry.update();
 
-        robot.frontleft.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        //robot.frontleft.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         robot.frontright.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        robot.downleft.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        robot.downright.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        //robot.downleft.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        //robot.downright.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-        robot.frontleft.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        //robot.frontleft.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         robot.frontright.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        robot.downleft.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        robot.downright.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        //robot.downleft.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        //robot.downright.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
 
         // Send telemetry message to indicate successful Encoder reset
         telemetry.addData("Path0",  "Starting at %7d :%7d",
-                          robot.frontleft.getCurrentPosition(),
-                          robot.frontright.getCurrentPosition(),
-                          robot.downleft.getCurrentPosition(),
-                          robot.downright.getCurrentPosition());
+                          //robot.frontleft.getCurrentPosition(),
+                          robot.frontright.getCurrentPosition()
+                          //,robot.downleft.getCurrentPosition(),
+                          //robot.downright.getCurrentPosition();
+        );
         telemetry.update();
 
         // Wait for the game to start (driver presses PLAY)
         waitForStart();
 
+        sleep(2000);
+        if(pipeline.position== SkystoneDeterminationPipeline.RingPosition.ONE) {
+            robot.frontright.setPower(1.0);
+        }
+        if(pipeline.position== SkystoneDeterminationPipeline.RingPosition.FOUR) {
+            telemetry.addData("Count of ring bois: ","Sup gamer pog there is four rings yeet");
+            telemetry.update();
+
+        }
+        if(pipeline.position==SkystoneDeterminationPipeline.RingPosition.NONE){
+            robot.frontright.setPower(0.0);
+        }
         // Step through each leg of the path,
         // Note: Reverse movement is obtained by setting a negative distance (not speed)
 
-        encoderDrive(DRIVE_SPEED,-30,30,30,-30,5.0);
-        encoderDrive(DRIVE_SPEED3,5,5,5,5,5.0);
-        encoderDrive(DRIVE_SPEED,-45,-45,-45,-45,5.0);
-        robot.FoundationGrabber1.setPosition(0.0);
-        robot.FoundationGrabber2.setPosition(1.0);
-        sleep(1000);
-        encoderDrive(DRIVE_SPEED2,52,52,52,52,10.0);
-        robot.FoundationGrabber1.setPosition(1.0);
-        robot.FoundationGrabber2.setPosition(0.0);
-        sleep(1000);
-        encoderDrive(DRIVE_SPEED4,98,-98,-98,98,10.0);
-        encoderDrive(DRIVE_SPEED3,15,15,15,15,5.0);
 
+        //This be da home of the encoderDrive method. Protecc the home of the encoderDrive method...
 
 
 
@@ -186,7 +188,7 @@ public class EncoderVisiontest extends LinearOpMode {
      *  2) Move runs out of time
      *  3) Driver stops the opmode running.
      */
-    public void encoderDrive(double speed,
+    /*public void encoderDrive(double speed,
                              double frontleftInches, double frontrightInches,double downleftInches, double downrightInches,
                              double timeoutS) {
         int newfrontleftTarget;
@@ -266,7 +268,7 @@ public class EncoderVisiontest extends LinearOpMode {
             //  sleep(250);   // optional pause after each move
         }
 
-    }
+    }*/
     public static class SkystoneDeterminationPipeline extends OpenCvPipeline
     {
         /*
@@ -312,7 +314,7 @@ public class EncoderVisiontest extends LinearOpMode {
         int avg1;
 
         // Volatile since accessed by OpMode thread w/o synchronization
-        private volatile EasyOpenCVExample.SkystoneDeterminationPipeline.RingPosition position = EasyOpenCVExample.SkystoneDeterminationPipeline.RingPosition.FOUR;
+        private volatile SkystoneDeterminationPipeline.RingPosition position = SkystoneDeterminationPipeline.RingPosition.FOUR;
 
         /*
          * This function takes the RGB frame, converts to YCrCb,
@@ -346,13 +348,13 @@ public class EncoderVisiontest extends LinearOpMode {
                     BLUE, // The color the rectangle is drawn in
                     2); // Thickness of the rectangle lines
 
-            position = EasyOpenCVExample.SkystoneDeterminationPipeline.RingPosition.FOUR; // Record our analysis
+            position = SkystoneDeterminationPipeline.RingPosition.FOUR; // Record our analysis
             if(avg1 > FOUR_RING_THRESHOLD){
-                position = EasyOpenCVExample.SkystoneDeterminationPipeline.RingPosition.FOUR;
+                position = SkystoneDeterminationPipeline.RingPosition.FOUR;
             }else if (avg1 > ONE_RING_THRESHOLD){
-                position = EasyOpenCVExample.SkystoneDeterminationPipeline.RingPosition.ONE;
+                position = SkystoneDeterminationPipeline.RingPosition.ONE;
             }else{
-                position = EasyOpenCVExample.SkystoneDeterminationPipeline.RingPosition.NONE;
+                position = SkystoneDeterminationPipeline.RingPosition.NONE;
             }
 
             Imgproc.rectangle(
