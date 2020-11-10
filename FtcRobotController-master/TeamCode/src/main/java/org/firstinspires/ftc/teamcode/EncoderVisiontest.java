@@ -155,7 +155,7 @@ public class EncoderVisiontest extends LinearOpMode {
         sleep(2000);
         while(opModeIsActive()) {
             if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.ONE) {
-                robot.frontright.setPower(1.0);
+                robot.frontright.setPower(0.2);
             }
             if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.FOUR) {
                 robot.frontright.setPower(0.0);
