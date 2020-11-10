@@ -59,15 +59,15 @@ import com.qualcomm.robotcore.hardware.DistanceSensor;
 public class HardwareTest
 {
     /* Public OpMode members. */
-     public DcMotor  frontleft = null;
+     //public DcMotor  frontleft = null;
      public DcMotor  frontright = null;
-     public DcMotor  downleft = null;
-     public DcMotor  downright = null;
-     public Servo FrontCollector = null;
-     public Servo FoundationGrabber1 = null;
-     public Servo FoundationGrabber2 = null;
-     public ColorSensor sensorColor;
-     public DistanceSensor sensorDistance ;
+     //public DcMotor  downleft = null;
+     //public DcMotor  downright = null;
+     //public Servo FrontCollector = null;
+     //public Servo FoundationGrabber1 = null;
+     //public Servo FoundationGrabber2 = null;
+     //public ColorSensor sensorColor;
+     //public DistanceSensor sensorDistance ;
 
 
 
@@ -90,26 +90,26 @@ public class HardwareTest
         hwMap = hwMap;
 
         // Define and Initialize Motors
-        frontleft = hwMap.get(DcMotor.class, "frontleft");
-        downleft = hwMap.get(DcMotor.class, "downleft");
+        //frontleft = hwMap.get(DcMotor.class, "frontleft");
+        //downleft = hwMap.get(DcMotor.class, "downleft");
         frontright = hwMap.get(DcMotor.class, "frontright");
-        downright = hwMap.get(DcMotor.class, "downright");
-        FrontCollector = hwMap.get(Servo.class,"FrontCollector");
-        FoundationGrabber1 = hwMap.get(Servo.class,"FoundationGrabber1");
-        FoundationGrabber2 = hwMap.get(Servo.class,"FoundationGrabber2");
-        sensorColor = hwMap.get(ColorSensor.class, "color");
-        sensorDistance = hwMap.get(DistanceSensor.class, "color");
+        //downright = hwMap.get(DcMotor.class, "downright");
+        //FrontCollector = hwMap.get(Servo.class,"FrontCollector");
+        //FoundationGrabber1 = hwMap.get(Servo.class,"FoundationGrabber1");
+        //FoundationGrabber2 = hwMap.get(Servo.class,"FoundationGrabber2");
+        //sensorColor = hwMap.get(ColorSensor.class, "color");
+        //sensorDistance = hwMap.get(DistanceSensor.class, "color");
 
 
 
-        frontleft.setDirection(DcMotor.Direction.FORWARD);
+        //frontleft.setDirection(DcMotor.Direction.FORWARD);
         frontright.setDirection(DcMotor.Direction.REVERSE);
-        downleft.setDirection(DcMotor.Direction.FORWARD);
-        downright.setDirection(DcMotor.Direction.REVERSE);
+        //downleft.setDirection(DcMotor.Direction.FORWARD);
+        //downright.setDirection(DcMotor.Direction.REVERSE);
 
-        FrontCollector.setPosition(1.0);
-        FoundationGrabber1.setPosition(1.0);
-        FoundationGrabber2.setPosition(0.0);
+        //FrontCollector.setPosition(1.0);
+        //FoundationGrabber1.setPosition(1.0);
+        //FoundationGrabber2.setPosition(0.0);
 
 
 
@@ -121,18 +121,18 @@ public class HardwareTest
 
 
         // Set all motors to zero power
-        frontleft.setPower(0.0);
+        //frontleft.setPower(0.0);
         frontright.setPower(0.0);
-        downleft.setPower(0.0);
-        downleft.setPower(0.0);
+        //downleft.setPower(0.0);
+        //downleft.setPower(0.0);
 
 
         // Set all motors to run without encoders.
         // May want to use RUN_USING_ENCODERS if encoders are installed.
-        frontleft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        //frontleft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         frontright.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        downleft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        downright.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        //downleft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        //downright.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
     }
  }
