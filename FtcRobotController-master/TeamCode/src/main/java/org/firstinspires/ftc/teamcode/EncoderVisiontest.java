@@ -152,18 +152,20 @@ public class EncoderVisiontest extends LinearOpMode {
         // Wait for the game to start (driver presses PLAY)
         waitForStart();
         
-        //sleep(2000);
-        if(pipeline.position== SkystoneDeterminationPipeline.RingPosition.ONE) {
-            robot.frontright.setPower(1.0);
-        }
-        if(pipeline.position== SkystoneDeterminationPipeline.RingPosition.FOUR) {
-            robot.frontright.setPower(0.0);
-            telemetry.addData("Count of ring bois: ","Sup gamer pog there is four rings yeet");
-            telemetry.update();
+        sleep(2000);
+        while(opModeIsActive()) {
+            if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.ONE) {
+                robot.frontright.setPower(1.0);
+            }
+            if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.FOUR) {
+                robot.frontright.setPower(0.0);
+                telemetry.addData("Count of ring bois: ", "Sup gamer pog there is four rings yeet");
+                telemetry.update();
 
-        }
-        if(pipeline.position==SkystoneDeterminationPipeline.RingPosition.NONE){
-            robot.frontright.setPower(0.0);
+            }
+            if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.NONE) {
+                robot.frontright.setPower(0.0);
+            }
         }
         // Step through each leg of the path,
         // Note: Reverse movement is obtained by setting a negative distance (not speed)
