@@ -172,7 +172,7 @@ public class EncoderVisiontest extends LinearOpMode {
         // Note: Reverse movement is obtained by setting a negative distance (not speed)
 
 
-        //This be da home of the encoderDrive method. Protecc the home of the encoderDrive method...
+        //This be da home of the encoderDrive method. Protecc the home of the encoderDrive method...Respecc
 
 
 
