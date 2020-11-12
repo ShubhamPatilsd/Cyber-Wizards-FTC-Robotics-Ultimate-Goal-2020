@@ -96,7 +96,7 @@ public class TeleOpCWV1 extends LinearOpMode {
 
             telemetry.addData("Status", "Run Time: " + runtime.toString());
             telemetry.update();
-
+            /*
             if (gamepad1.left_stick_y > 0.0){
                 frontleft.setPower(1.0);
                 downleft.setPower(1.0);
@@ -156,7 +156,24 @@ public class TeleOpCWV1 extends LinearOpMode {
                 downleft.setPower(0.0);
                 frontright.setPower(0.0);
                 downright.setPower(0.0);
-            }
+            }*/
+            //double forward = -gamepad1.left_stick_y; // these are desired speeds
+            double forward = gamepad1.left_stick_y; // these are desired speeds
+            double right = gamepad1.left_stick_x;
+            double clockwise = gamepad1.right_stick_x;
+
+            double slowdown=1.0-gamepad1.right_trigger;
+
+            double lf = forward + right + clockwise;
+            double lb = forward - right + clockwise;
+            double rf = forward - right - clockwise;
+            double rb = forward + right - clockwise;
+
+            //This is a test
+            frontleft.setPower(lf*slowdown);
+            downleft.setPower(lb*slowdown);
+            frontright.setPower(rf*slowdown);
+            downright.setPower(rb*slowdown);
 
 
 
