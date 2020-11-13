@@ -141,13 +141,13 @@ public class EncoderVisiontest extends LinearOpMode {
 
 
         // Send telemetry message to indicate successful Encoder reset
-        //telemetry.addData("Path0",  "Starting at %7d :%7d",
+        telemetry.addData("Path0",  "Starting at %7d :%7d",
                           //robot.frontleft.getCurrentPosition(),
-                          //robot.frontright.getCurrentPosition()
+                          robot.frontright.getCurrentPosition()
                           //,robot.downleft.getCurrentPosition(),
                           //robot.downright.getCurrentPosition();
-        //);
-        //telemetry.update();
+        );
+        telemetry.update();
 
         // Wait for the game to start (driver presses PLAY)
         waitForStart();
