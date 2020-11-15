@@ -161,7 +161,7 @@ public class TeleOpCWV1 extends LinearOpMode {
             double right = gamepad1.left_stick_x;
             double clockwise = gamepad1.right_stick_x;
 
-            double slowdown=1.0-gamepad1.right_trigger;
+            double slowdown=1.0-gamepad1.left_trigger;
 
             double lf = forward + right + clockwise;
             double lb = forward - right + clockwise;
