@@ -157,8 +157,7 @@ public class TeleOpCWV1 extends LinearOpMode {
                 frontright.setPower(0.0);
                 downright.setPower(0.0);
             }*/
-            //double forward = -gamepad1.left_stick_y; // these are desired speeds
-            double forward = gamepad1.left_stick_y; // these are desired speeds
+            double forward = -gamepad1.left_stick_y; // these are desired speeds
             double right = gamepad1.left_stick_x;
             double clockwise = gamepad1.right_stick_x;
 
