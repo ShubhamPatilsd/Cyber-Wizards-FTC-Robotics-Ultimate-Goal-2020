@@ -59,10 +59,10 @@ import com.qualcomm.robotcore.hardware.DistanceSensor;
 public class HardwareTest
 {
     /* Public OpMode members. */
-     //public DcMotor  frontleft = null;
+     public DcMotor  frontleft = null;
      public DcMotor  frontright = null;
-     //public DcMotor  downleft = null;
-     //public DcMotor  downright = null;
+     public DcMotor  downleft = null;
+     public DcMotor  downright = null;
      //public Servo FrontCollector = null;
      //public Servo FoundationGrabber1 = null;
      //public Servo FoundationGrabber2 = null;
