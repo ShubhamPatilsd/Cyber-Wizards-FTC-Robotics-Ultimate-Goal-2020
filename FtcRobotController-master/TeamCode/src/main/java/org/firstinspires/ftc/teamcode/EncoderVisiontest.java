@@ -109,7 +109,7 @@ public class EncoderVisiontest extends LinearOpMode {
         // We set the viewport policy to optimized view so the preview doesn't appear 90 deg
         // out when the RC activity is in portrait. We do our actual image processing assuming
         // landscape orientation, though.
-        phoneCam.setViewportRenderingPolicy(OpenCvCamera.ViewportRenderingPolicy.OPTIMIZE_VIEW);
+        //phoneCam.setViewportRenderingPolicy(OpenCvCamera.ViewportRenderingPolicy.OPTIMIZE_VIEW);
 
         phoneCam.openCameraDeviceAsync(new OpenCvCamera.AsyncCameraOpenListener()
         {
@@ -141,12 +141,12 @@ public class EncoderVisiontest extends LinearOpMode {
 
 
         // Send telemetry message to indicate successful Encoder reset
-        telemetry.addData("Path0",  "Starting at %7d :%7d",
+       /* telemetry.addData("Path0",  "Starting at %7d :%7d",
                           //robot.frontleft.getCurrentPosition(),
                           robot.frontright.getCurrentPosition()
                           //,robot.downleft.getCurrentPosition(),
                           //robot.downright.getCurrentPosition();
-        );
+        );*/
         telemetry.update();
 
         // Wait for the game to start (driver presses PLAY)
