@@ -116,7 +116,7 @@ public class EncoderVisiontest extends LinearOpMode {
             @Override
             public void onOpened()
             {
-                phoneCam.startStreaming(320,240, OpenCvCameraRotation.SIDEWAYS_LEFT);
+                phoneCam.startStreaming(320,240, OpenCvCameraRotation.UPRIGHT);
             }
         });
         /*
