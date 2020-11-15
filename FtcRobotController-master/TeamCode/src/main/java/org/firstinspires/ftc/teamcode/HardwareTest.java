@@ -90,10 +90,10 @@ public class HardwareTest
         hwMap = hwMap;
 
         // Define and Initialize Motors
-        //frontleft = hwMap.get(DcMotor.class, "frontleft");
-        //downleft = hwMap.get(DcMotor.class, "downleft");
+        frontleft = hwMap.get(DcMotor.class, "frontleft");
+        downleft = hwMap.get(DcMotor.class, "downleft");
         frontright = hwMap.get(DcMotor.class, "frontright");
-        //downright = hwMap.get(DcMotor.class, "downright");
+        downright = hwMap.get(DcMotor.class, "downright");
         //FrontCollector = hwMap.get(Servo.class,"FrontCollector");
         //FoundationGrabber1 = hwMap.get(Servo.class,"FoundationGrabber1");
         //FoundationGrabber2 = hwMap.get(Servo.class,"FoundationGrabber2");
@@ -102,10 +102,10 @@ public class HardwareTest
 
 
 
-        //frontleft.setDirection(DcMotor.Direction.FORWARD);
+        frontleft.setDirection(DcMotor.Direction.FORWARD);
         frontright.setDirection(DcMotor.Direction.REVERSE);
-        //downleft.setDirection(DcMotor.Direction.FORWARD);
-        //downright.setDirection(DcMotor.Direction.REVERSE);
+        downleft.setDirection(DcMotor.Direction.FORWARD);
+        downright.setDirection(DcMotor.Direction.REVERSE);
 
         //FrontCollector.setPosition(1.0);
         //FoundationGrabber1.setPosition(1.0);
@@ -121,10 +121,10 @@ public class HardwareTest
 
 
         // Set all motors to zero power
-        //frontleft.setPower(0.0);
+        frontleft.setPower(0.0);
         frontright.setPower(0.0);
-        //downleft.setPower(0.0);
-        //downleft.setPower(0.0);
+        downleft.setPower(0.0);
+        downleft.setPower(0.0);
 
 
         // Set all motors to run without encoders.

@@ -73,7 +73,7 @@ import org.openftc.easyopencv.OpenCvPipeline;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@Autonomous(name="FoundationAutonomousRedback", group="Pushbot")
+@Autonomous(name="EncoderVisionTest", group="Pushbot")
 //@Disabled
 public class EncoderVisiontest extends LinearOpMode {
 
