@@ -111,14 +111,7 @@ public class RedSideRight extends LinearOpMode {
         // landscape orientation, though.
         //phoneCam.setViewportRenderingPolicy(OpenCvCamera.ViewportRenderingPolicy.OPTIMIZE_VIEW);
 
-        phoneCam.openCameraDeviceAsync(new OpenCvCamera.AsyncCameraOpenListener()
-        {
-            @Override
-            public void onOpened()
-            {
-                phoneCam.startStreaming(320,240, OpenCvCameraRotation.UPRIGHT);
-            }
-        });
+
         /*
          * Initialize the drive system variables.
          * The init() method of the hardware class does all the work here
@@ -153,8 +146,17 @@ public class RedSideRight extends LinearOpMode {
         waitForStart();
         encoderDrive(DRIVE_SPEED,18,18,18,18,5.0);
         encoderDrive(DRIVE_SPEED4,0,46,0,46,5.0);
-        sleep(3000);
+        //sleep(3000);
 
+        phoneCam.openCameraDeviceAsync(new OpenCvCamera.AsyncCameraOpenListener()
+        {
+            @Override
+            public void onOpened()
+            {
+                phoneCam.startStreaming(320,240, OpenCvCameraRotation.UPRIGHT);
+            }
+        });
+        sleep(1000);
         if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.ONE) {
             encoderDrive(DRIVE_SPEED,30,-30,-30,30,5.0);
 
@@ -167,6 +169,12 @@ public class RedSideRight extends LinearOpMode {
         }else if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.NONE) {
             robot.frontright.setPower(0.0);
         }
+        phoneCam.closeCameraDeviceAsync(new OpenCvCamera.AsyncCameraCloseListener() {
+            @Override
+            public void onClose() {
+                phoneCam.stopStreaming();
+            }
+        });
 
         // Step through each leg of the path,
         // Note: Reverse movement is obtained by setting a negative distance (not speed)
