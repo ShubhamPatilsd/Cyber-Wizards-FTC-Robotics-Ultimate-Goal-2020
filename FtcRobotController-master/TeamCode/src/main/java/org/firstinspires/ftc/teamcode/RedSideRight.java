@@ -158,16 +158,19 @@ public class RedSideRight extends LinearOpMode {
         });
         sleep(1000);
         if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.ONE) {
+          encoderDrive(DRIVE_SPEED4,0,-46,0,-46,5.0);
             encoderDrive(DRIVE_SPEED,30,-30,-30,30,5.0);
 
         } else if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.FOUR) {
-            robot.frontright.setPower(0.0);
+          encoderDrive(DRIVE_SPEED4,0,-46,0,-46,5.0);
+            //robot.frontright.setPower(0.0);
             telemetry.addData("Count of ring bois: ", "Sup gamer pog there is four rings yeet");
             telemetry.update();
 
 
         }else if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.NONE) {
-            robot.frontright.setPower(0.0);
+          encoderDrive(DRIVE_SPEED4,0,-46,0,-46,5.0);
+            //robot.frontright.setPower(0.0);
         }
         phoneCam.closeCameraDeviceAsync(new OpenCvCamera.AsyncCameraCloseListener() {
             @Override
@@ -386,4 +389,3 @@ public class RedSideRight extends LinearOpMode {
     }
 
 }
-
