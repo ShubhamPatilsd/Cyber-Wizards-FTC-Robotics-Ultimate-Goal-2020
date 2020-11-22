@@ -101,7 +101,14 @@ public class RedSideRight extends LinearOpMode {
         phoneCam = OpenCvCameraFactory.getInstance().createWebcam(hardwareMap.get(WebcamName.class, "Webcam 1"), cameraMonitorViewId);
         pipeline = new SkystoneDeterminationPipeline();
         phoneCam.setPipeline(pipeline);
-
+        phoneCam.openCameraDeviceAsync(new OpenCvCamera.AsyncCameraOpenListener()
+        {
+            @Override
+            public void onOpened()
+            {
+                phoneCam.startStreaming(320,240, OpenCvCameraRotation.UPRIGHT);
+            }
+        });
 
         // Don't burn CPU cycles busy-looping in this sample
         sleep(50);
@@ -144,28 +151,27 @@ public class RedSideRight extends LinearOpMode {
 
         // Wait for the game to start (driver presses PLAY)
         waitForStart();
-        encoderDrive(DRIVE_SPEED,18,18,18,18,5.0);
-        encoderDrive(DRIVE_SPEED4,0,46,0,46,5.0);
-        //sleep(3000);
+        robot.frontleft.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        robot.frontright.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        robot.downleft.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        robot.downright.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        encoderDrive(DRIVE_SPEED,24,24,24,24,5.0);
+        encoderDrive(DRIVE_SPEED,-5,5,5,-5,5.0);
+        encoderDrive(DRIVE_SPEED,0,3,3,0,5.0);
 
-        phoneCam.openCameraDeviceAsync(new OpenCvCamera.AsyncCameraOpenListener()
-        {
-            @Override
-            public void onOpened()
-            {
-                phoneCam.startStreaming(320,240, OpenCvCameraRotation.UPRIGHT);
-            }
-        });
-        sleep(1000);
+        //encoderDrive(DRIVE_SPEED4,0,46,0,46,5.0);
+
+
+
+        sleep(100);
         if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.ONE) {
-          encoderDrive(DRIVE_SPEED4,0,-46,0,-46,5.0);
+
             encoderDrive(DRIVE_SPEED,30,-30,-30,30,5.0);
 
         } else if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.FOUR) {
-          encoderDrive(DRIVE_SPEED4,0,-46,0,-46,5.0);
+          encoderDrive(DRIVE_SPEED4,-10,-10,-10,-10,5.0);
             //robot.frontright.setPower(0.0);
-            telemetry.addData("Count of ring bois: ", "Sup gamer pog there is four rings yeet");
-            telemetry.update();
+
 
 
         }else if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.NONE) {
@@ -178,6 +184,7 @@ public class RedSideRight extends LinearOpMode {
                 phoneCam.stopStreaming();
             }
         });
+
 
         // Step through each leg of the path,
         // Note: Reverse movement is obtained by setting a negative distance (not speed)
