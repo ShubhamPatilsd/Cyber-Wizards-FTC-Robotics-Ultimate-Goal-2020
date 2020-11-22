@@ -163,27 +163,39 @@ public class RedSideRight extends LinearOpMode {
 
 
 
-        sleep(100);
+        sleep(1000);
         if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.ONE) {
-
+          phoneCam.closeCameraDeviceAsync(new OpenCvCamera.AsyncCameraCloseListener() {
+              @Override
+              public void onClose() {
+                  phoneCam.stopStreaming();
+              }
+          });
             encoderDrive(DRIVE_SPEED,30,-30,-30,30,5.0);
 
         } else if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.FOUR) {
+          phoneCam.closeCameraDeviceAsync(new OpenCvCamera.AsyncCameraCloseListener() {
+              @Override
+              public void onClose() {
+                  phoneCam.stopStreaming();
+              }
+          });
           encoderDrive(DRIVE_SPEED4,-10,-10,-10,-10,5.0);
             //robot.frontright.setPower(0.0);
 
 
 
         }else if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.NONE) {
+          phoneCam.closeCameraDeviceAsync(new OpenCvCamera.AsyncCameraCloseListener() {
+              @Override
+              public void onClose() {
+                  phoneCam.stopStreaming();
+              }
+          });
           encoderDrive(DRIVE_SPEED4,0,-46,0,-46,5.0);
             //robot.frontright.setPower(0.0);
         }
-        phoneCam.closeCameraDeviceAsync(new OpenCvCamera.AsyncCameraCloseListener() {
-            @Override
-            public void onClose() {
-                phoneCam.stopStreaming();
-            }
-        });
+
 
 
         // Step through each leg of the path,
