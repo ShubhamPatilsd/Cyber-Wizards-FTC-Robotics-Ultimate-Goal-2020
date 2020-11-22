@@ -156,7 +156,7 @@ public class RedSideRight extends LinearOpMode {
         robot.downleft.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         robot.downright.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         encoderDrive(DRIVE_SPEED,24,24,24,24,5.0);
-        encoderDrive(DRIVE_SPEED,-5,5,5,-5,5.0);
+        encoderDrive(DRIVE_SPEED,-20,20,20,-20,5.0);
         encoderDrive(DRIVE_SPEED,0,3,3,0,5.0);
 
         //encoderDrive(DRIVE_SPEED4,0,46,0,46,5.0);
@@ -326,8 +326,8 @@ public class RedSideRight extends LinearOpMode {
          */
         static final Point REGION1_TOPLEFT_ANCHOR_POINT = new Point(110,98);
 
-        static final int REGION_WIDTH = 130;
-        static final int REGION_HEIGHT = 110;
+        static final int REGION_WIDTH = 105;
+        static final int REGION_HEIGHT = 95;
 
         final int FOUR_RING_THRESHOLD = 150;
         final int ONE_RING_THRESHOLD = 135;
