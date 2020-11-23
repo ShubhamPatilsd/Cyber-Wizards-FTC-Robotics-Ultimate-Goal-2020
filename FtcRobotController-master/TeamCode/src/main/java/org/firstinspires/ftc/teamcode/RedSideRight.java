@@ -101,14 +101,7 @@ public class RedSideRight extends LinearOpMode {
         phoneCam = OpenCvCameraFactory.getInstance().createWebcam(hardwareMap.get(WebcamName.class, "Webcam 1"), cameraMonitorViewId);
         pipeline = new SkystoneDeterminationPipeline();
         phoneCam.setPipeline(pipeline);
-        phoneCam.openCameraDeviceAsync(new OpenCvCamera.AsyncCameraOpenListener()
-        {
-            @Override
-            public void onOpened()
-            {
-                phoneCam.startStreaming(320,240, OpenCvCameraRotation.UPRIGHT);
-            }
-        });
+
 
         // Don't burn CPU cycles busy-looping in this sample
         sleep(50);
@@ -139,7 +132,14 @@ public class RedSideRight extends LinearOpMode {
         robot.downleft.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         robot.downright.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
-
+        phoneCam.openCameraDeviceAsync(new OpenCvCamera.AsyncCameraOpenListener()
+        {
+            @Override
+            public void onOpened()
+            {
+                phoneCam.startStreaming(320,240, OpenCvCameraRotation.UPRIGHT);
+            }
+        });
         // Send telemetry message to indicate successful Encoder reset
         telemetry.addData("Path0",  "Starting at %7d :%7d",
                 robot.frontleft.getCurrentPosition(),
@@ -156,7 +156,7 @@ public class RedSideRight extends LinearOpMode {
         robot.downleft.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         robot.downright.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         encoderDrive(DRIVE_SPEED,24,24,24,24,5.0);
-        encoderDrive(DRIVE_SPEED,-20,20,20,-20,5.0);
+        encoderDrive(DRIVE_SPEED,-25,25,25,-25,5.0);
         encoderDrive(DRIVE_SPEED,0,3,3,0,5.0);
 
         //encoderDrive(DRIVE_SPEED4,0,46,0,46,5.0);
@@ -164,35 +164,35 @@ public class RedSideRight extends LinearOpMode {
 
 
         sleep(1000);
-        if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.ONE) {
-          phoneCam.closeCameraDeviceAsync(new OpenCvCamera.AsyncCameraCloseListener() {
-              @Override
-              public void onClose() {
-                  phoneCam.stopStreaming();
-              }
-          });
-            encoderDrive(DRIVE_SPEED,30,-30,-30,30,5.0);
+        SkystoneDeterminationPipeline.RingPosition positioncopy=pipeline.position;
+        phoneCam.closeCameraDeviceAsync(new OpenCvCamera.AsyncCameraCloseListener() {
+            @Override
+            public void onClose() {
+                //phoneCam.stopStreaming();
+            }
+        });
+        if (positioncopy == SkystoneDeterminationPipeline.RingPosition.ONE) {
+          phoneCam.stopStreaming();
+            encoderDrive(DRIVE_SPEED4,29,-29,-29,29,5.0);
+            encoderDrive(DRIVE_SPEED4,54,54,54,54,5.0);
 
-        } else if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.FOUR) {
-          phoneCam.closeCameraDeviceAsync(new OpenCvCamera.AsyncCameraCloseListener() {
-              @Override
-              public void onClose() {
-                  phoneCam.stopStreaming();
-              }
-          });
+            encoderDrive(DRIVE_SPEED4,0,36,36,0,5.0);
+            encoderDrive(DRIVE_SPEED4,5,5,5,5,5.0);
+            encoderDrive(DRIVE_SPEED4,-12,12,12,-12,5.0);
+            encoderDrive(DRIVE_SPEED4,25,25,25,25,5.0);
+
+        } else if (positioncopy == SkystoneDeterminationPipeline.RingPosition.FOUR) {
+          phoneCam.stopStreaming();
           encoderDrive(DRIVE_SPEED4,-10,-10,-10,-10,5.0);
             //robot.frontright.setPower(0.0);
 
 
 
-        }else if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.NONE) {
-          phoneCam.closeCameraDeviceAsync(new OpenCvCamera.AsyncCameraCloseListener() {
-              @Override
-              public void onClose() {
-                  phoneCam.stopStreaming();
-              }
-          });
-          encoderDrive(DRIVE_SPEED4,0,-46,0,-46,5.0);
+        }else if (positioncopy == SkystoneDeterminationPipeline.RingPosition.NONE) {
+            phoneCam.stopStreaming();
+
+          encoderDrive(DRIVE_SPEED4,29,-29,-29,29,5.0);
+            encoderDrive(DRIVE_SPEED4,54,54,54,54,5.0);
             //robot.frontright.setPower(0.0);
         }
 
@@ -326,8 +326,8 @@ public class RedSideRight extends LinearOpMode {
          */
         static final Point REGION1_TOPLEFT_ANCHOR_POINT = new Point(110,98);
 
-        static final int REGION_WIDTH = 105;
-        static final int REGION_HEIGHT = 95;
+        static final int REGION_WIDTH = 50;
+        static final int REGION_HEIGHT = 105;
 
         final int FOUR_RING_THRESHOLD = 150;
         final int ONE_RING_THRESHOLD = 135;
