@@ -156,10 +156,13 @@ public class TeleOpCWV1 extends LinearOpMode {
                 frontright.setPower(0.0);
                 downright.setPower(0.0);
             }*/
+
+            //Make it for omni-directional movement. It is confusing but once you run through it, it becomes easier
             double forward = -gamepad1.left_stick_y; // these are desired speeds
             double right = gamepad1.left_stick_x;
             double clockwise = gamepad1.right_stick_x;
 
+            //We do this for slowdown and fine movements
             double slowdown=1.0-gamepad1.left_trigger;
 
             double lf = forward + right + clockwise;
@@ -167,12 +170,14 @@ public class TeleOpCWV1 extends LinearOpMode {
             double rf = forward - right - clockwise;
             double rb = forward + right - clockwise;
 
-            //This is a test
+            //Where all the ingredients come together (we set the power here)
             robot.frontleft.setPower(lf*slowdown);
             robot.downleft.setPower(lb*slowdown);
             robot.frontright.setPower(rf*slowdown);
             robot.downright.setPower(rb*slowdown);
 
+            /*If the gamepad's right stick y value is greater than zero, give the sucker power.
+            If the y value is less than zero, give it negative power. If the y value is zero, we give it no power. */
             if(gamepad2.right_stick_y>0.0){
                 robot.sucker.setPower(1.0);
             }else if(gamepad2.right_stick_y<0.0){
@@ -181,8 +186,10 @@ public class TeleOpCWV1 extends LinearOpMode {
                 robot.sucker.setPower(0.0);
             }
 
+            //Set the wobble goal's arm to the value of the y value on gamepad2's left stick. (It is negative because the y value is negative for some reason)
             robot.wobblegoalarm.setPower(-gamepad2.left_stick_y/1.5);
 
+            //If gamepad2's "a" button is pressed, activate the shooters. Else, put them to rest
             if(gamepad2.a){
                 robot.shooterone.setPower(1.0);
                 robot.shootertwo.setPower(1.0);
