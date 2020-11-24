@@ -65,6 +65,9 @@ public class HardwareTest
      public DcMotor  downleft = null;
      public DcMotor  downright = null;
     public DcMotor  sucker = null;
+    public DcMotor  wobblegoalarm = null;
+    public DcMotor  shooterone = null;
+    public DcMotor  shootertwo = null;
      //public Servo FrontCollector = null;
      //public Servo FoundationGrabber1 = null;
      //public Servo FoundationGrabber2 = null;
@@ -97,6 +100,9 @@ public class HardwareTest
         frontright = this.hwMap.get(DcMotor.class, "frontright");
         downright = this.hwMap.get(DcMotor.class, "downright");
         sucker = this.hwMap.get(DcMotor.class, "sucker");
+        wobblegoalarm=this.hwMap.get(DcMotor.class,"wobblegoal");
+        shooterone=this.hwMap.get(DcMotor.class,"shooterone");
+        shootertwo=this.hwMap.get(DcMotor.class,"shootertwo");
         //FrontCollector = hwMap.get(Servo.class,"FrontCollector");
         //FoundationGrabber1 = hwMap.get(Servo.class,"FoundationGrabber1");
         //FoundationGrabber2 = hwMap.get(Servo.class,"FoundationGrabber2");
@@ -109,8 +115,10 @@ public class HardwareTest
         frontright.setDirection(DcMotor.Direction.REVERSE);
         downleft.setDirection(DcMotor.Direction.FORWARD);
         downright.setDirection(DcMotor.Direction.REVERSE);
-        sucker.setDirection(DcMotorSimple.Direction.FORWARD);
-
+        sucker.setDirection(DcMotor.Direction.FORWARD);
+        wobblegoalarm.setDirection(DcMotor.Direction.FORWARD);
+        shooterone.setDirection(DcMotor.Direction.FORWARD);
+        shootertwo.setDirection(DcMotor.Direction.FORWARD);
         //FrontCollector.setPosition(1.0);
         //FoundationGrabber1.setPosition(1.0);
         //FoundationGrabber2.setPosition(0.0);
@@ -130,6 +138,9 @@ public class HardwareTest
         downleft.setPower(0.0);
         downleft.setPower(0.0);
         sucker.setPower(0.0);
+        wobblegoalarm.setPower(0.0);
+        shooterone.setPower(0.0);
+        shootertwo.setPower(0.0);
 
 
         // Set all motors to run without encoders.

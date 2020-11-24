@@ -181,6 +181,15 @@ public class TeleOpCWV1 extends LinearOpMode {
                 robot.sucker.setPower(0.0);
             }
 
+            robot.wobblegoalarm.setPower(-gamepad2.left_stick_y/1.5);
+
+            if(gamepad2.a){
+                robot.shooterone.setPower(1.0);
+                robot.shootertwo.setPower(1.0);
+            }else{
+                robot.shooterone.setPower(0.0);
+                robot.shootertwo.setPower(0.0);
+            }
 
 
 
