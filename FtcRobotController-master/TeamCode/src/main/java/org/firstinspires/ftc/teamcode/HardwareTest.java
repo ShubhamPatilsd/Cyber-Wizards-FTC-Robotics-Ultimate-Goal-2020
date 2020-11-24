@@ -103,7 +103,7 @@ public class HardwareTest
         frontright = this.hwMap.get(DcMotor.class, "frontright");
         downright = this.hwMap.get(DcMotor.class, "downright");
         sucker = this.hwMap.get(DcMotor.class, "sucker");
-        wobblegoalarm=this.hwMap.get(DcMotor.class,"wobblegoal");
+        wobblegoalarm=this.hwMap.get(DcMotor.class,"wobblegoalarm");
         shooterone=this.hwMap.get(DcMotor.class,"shooterone");
         shootertwo=this.hwMap.get(DcMotor.class,"shootertwo");
         //FrontCollector = hwMap.get(Servo.class,"FrontCollector");
