@@ -34,6 +34,7 @@ import android.app.Activity;
 import android.graphics.Color;
 import android.view.View;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
@@ -63,6 +64,7 @@ public class HardwareTest
      public DcMotor  frontright = null;
      public DcMotor  downleft = null;
      public DcMotor  downright = null;
+    public DcMotor  sucker = null;
      //public Servo FrontCollector = null;
      //public Servo FoundationGrabber1 = null;
      //public Servo FoundationGrabber2 = null;
@@ -87,13 +89,14 @@ public class HardwareTest
     /* Initialize standard Hardware interfaces */
     public void init(HardwareMap hwMap) {
         // Save reference to Hardware map
-        hwMap = hwMap;
+        this.hwMap = hwMap;
 
         // Define and Initialize Motors
-        frontleft = hwMap.get(DcMotor.class, "frontleft");
-        downleft = hwMap.get(DcMotor.class, "downleft");
-        frontright = hwMap.get(DcMotor.class, "frontright");
-        downright = hwMap.get(DcMotor.class, "downright");
+        frontleft = this.hwMap.get(DcMotor.class, "frontleft");
+        downleft = this.hwMap.get(DcMotor.class, "downleft");
+        frontright = this.hwMap.get(DcMotor.class, "frontright");
+        downright = this.hwMap.get(DcMotor.class, "downright");
+        sucker = this.hwMap.get(DcMotor.class, "sucker");
         //FrontCollector = hwMap.get(Servo.class,"FrontCollector");
         //FoundationGrabber1 = hwMap.get(Servo.class,"FoundationGrabber1");
         //FoundationGrabber2 = hwMap.get(Servo.class,"FoundationGrabber2");
@@ -106,6 +109,7 @@ public class HardwareTest
         frontright.setDirection(DcMotor.Direction.REVERSE);
         downleft.setDirection(DcMotor.Direction.FORWARD);
         downright.setDirection(DcMotor.Direction.REVERSE);
+        sucker.setDirection(DcMotorSimple.Direction.FORWARD);
 
         //FrontCollector.setPosition(1.0);
         //FoundationGrabber1.setPosition(1.0);
@@ -125,14 +129,15 @@ public class HardwareTest
         frontright.setPower(0.0);
         downleft.setPower(0.0);
         downleft.setPower(0.0);
+        sucker.setPower(0.0);
 
 
         // Set all motors to run without encoders.
         // May want to use RUN_USING_ENCODERS if encoders are installed.
-        //frontleft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        frontleft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         frontright.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        //downleft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        //downright.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        downleft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        downright.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
     }
  }

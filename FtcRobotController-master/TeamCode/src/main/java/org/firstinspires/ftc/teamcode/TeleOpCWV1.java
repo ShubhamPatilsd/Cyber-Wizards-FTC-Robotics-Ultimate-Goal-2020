@@ -53,36 +53,35 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 //@Disabled
 public class TeleOpCWV1 extends LinearOpMode {
 
+    HardwareTest robot=new HardwareTest();
     // Declare OpMode members.
     private ElapsedTime runtime = new ElapsedTime();
-    DcMotor frontleft;
+    /*DcMotor frontleft;
     DcMotor frontright;
     DcMotor downleft;
-    DcMotor downright;
+    DcMotor downright;*/
+
 
 
 
 
     @Override
     public void runOpMode() {
+        robot.init(hardwareMap);
         telemetry.addData("Status", "Initialized");
         telemetry.update();
 
         // Initialize the hardware variables. Note that the strings used here as parameters
         // to 'get' must correspond to the names assigned during the robot configuration
         // step (using the FTC Robot Controller app on the phone).
-        frontleft = hardwareMap.get(DcMotor.class, "frontleft");
-        frontright = hardwareMap.get(DcMotor.class, "frontright");
-        downleft = hardwareMap.get(DcMotor.class, "downleft");
-        downright = hardwareMap.get(DcMotor.class, "downright");
 
 
         // Most robots need the motor on one side to be reversed to drive forward
         // Reverse the motor that runs backwards when connected directly to the battery
-        frontleft.setDirection(DcMotor.Direction.FORWARD);
-        frontright.setDirection(DcMotor.Direction.REVERSE);
-        downleft.setDirection(DcMotor.Direction.FORWARD);
-        downright.setDirection(DcMotor.Direction.REVERSE);
+        robot.frontleft.setDirection(DcMotor.Direction.FORWARD);
+        robot.frontright.setDirection(DcMotor.Direction.REVERSE);
+        robot.downleft.setDirection(DcMotor.Direction.FORWARD);
+        robot.downright.setDirection(DcMotor.Direction.REVERSE);
 
 
 
@@ -169,12 +168,18 @@ public class TeleOpCWV1 extends LinearOpMode {
             double rb = forward + right - clockwise;
 
             //This is a test
-            frontleft.setPower(lf*slowdown);
-            downleft.setPower(lb*slowdown);
-            frontright.setPower(rf*slowdown);
-            downright.setPower(rb*slowdown);
+            robot.frontleft.setPower(lf*slowdown);
+            robot.downleft.setPower(lb*slowdown);
+            robot.frontright.setPower(rf*slowdown);
+            robot.downright.setPower(rb*slowdown);
 
-
+            if(gamepad2.right_stick_y>0.0){
+                robot.sucker.setPower(1.0);
+            }else if(gamepad2.right_stick_y<0.0){
+                robot.sucker.setPower(-1.0);
+            }else{
+                robot.sucker.setPower(0.0);
+            }
 
 
 
