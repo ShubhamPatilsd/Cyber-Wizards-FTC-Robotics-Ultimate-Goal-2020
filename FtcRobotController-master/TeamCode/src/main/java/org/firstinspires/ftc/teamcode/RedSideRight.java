@@ -165,32 +165,43 @@ public class RedSideRight extends LinearOpMode {
 
         sleep(1000);
         SkystoneDeterminationPipeline.RingPosition positioncopy=pipeline.position;
-        phoneCam.closeCameraDeviceAsync(new OpenCvCamera.AsyncCameraCloseListener() {
-            @Override
-            public void onClose() {
-                //phoneCam.stopStreaming();
-            }
-        });
-        if (positioncopy == SkystoneDeterminationPipeline.RingPosition.ONE) {
+
+        if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.ONE) {
+
           phoneCam.stopStreaming();
+            phoneCam.closeCameraDeviceAsync(new OpenCvCamera.AsyncCameraCloseListener() {
+                @Override
+                public void onClose() {
+                    //phoneCam.stopStreaming();
+                }
+            });
             encoderDrive(DRIVE_SPEED4,29,-29,-29,29,5.0);
-            encoderDrive(DRIVE_SPEED4,54,54,54,54,5.0);
+            encoderDrive(DRIVE_SPEED4,100,100,100,100,5.0);
+            encoderDrive(DRIVE_SPEED4,-40,40,40,-40,5.0);
+            //encoderDrive(DRIVE_SPEED4,25,25,25,25,5.0);
 
-            encoderDrive(DRIVE_SPEED4,0,36,36,0,5.0);
-            encoderDrive(DRIVE_SPEED4,5,5,5,5,5.0);
-            encoderDrive(DRIVE_SPEED4,-12,12,12,-12,5.0);
-            encoderDrive(DRIVE_SPEED4,25,25,25,25,5.0);
-
-        } else if (positioncopy == SkystoneDeterminationPipeline.RingPosition.FOUR) {
+        } else if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.FOUR) {
           phoneCam.stopStreaming();
-          encoderDrive(DRIVE_SPEED4,-10,-10,-10,-10,5.0);
+            phoneCam.closeCameraDeviceAsync(new OpenCvCamera.AsyncCameraCloseListener() {
+                @Override
+                public void onClose() {
+                    //phoneCam.stopStreaming();
+                }
+            });
+            encoderDrive(DRIVE_SPEED4,29,-29,-29,29,5.0);
+            encoderDrive(DRIVE_SPEED4,125,125,125,125,5.0);
             //robot.frontright.setPower(0.0);
 
 
 
-        }else if (positioncopy == SkystoneDeterminationPipeline.RingPosition.NONE) {
+        }else if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.NONE) {
             phoneCam.stopStreaming();
-
+            phoneCam.closeCameraDeviceAsync(new OpenCvCamera.AsyncCameraCloseListener() {
+                @Override
+                public void onClose() {
+                    //phoneCam.stopStreaming();
+                }
+            });
           encoderDrive(DRIVE_SPEED4,29,-29,-29,29,5.0);
             encoderDrive(DRIVE_SPEED4,54,54,54,54,5.0);
             //robot.frontright.setPower(0.0);
