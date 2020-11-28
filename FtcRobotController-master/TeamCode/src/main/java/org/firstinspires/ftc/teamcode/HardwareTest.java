@@ -119,7 +119,7 @@ public class HardwareTest
         sucker.setDirection(DcMotor.Direction.FORWARD);
         wobblegoalarm.setDirection(DcMotor.Direction.FORWARD);
         shooterone.setDirection(DcMotor.Direction.FORWARD);
-        shootertwo.setDirection(DcMotor.Direction.FORWARD);
+        shootertwo.setDirection(DcMotor.Direction.REVERSE);
         intakepusher.setPosition(1.0);
         wobblegoaler1.setPosition(1.0);
         wobblegoaler2.setPosition(1.0);
@@ -154,4 +154,3 @@ public class HardwareTest
 
     }
  }
-
