@@ -156,14 +156,14 @@ public class RedSideRight extends LinearOpMode {
         robot.downleft.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         robot.downright.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         encoderDrive(DRIVE_SPEED,24,24,24,24,5.0);
-        encoderDrive(DRIVE_SPEED,-25,25,25,-25,5.0);
+        encoderDrive(DRIVE_SPEED,-21,21,21,-21,5.0);
         encoderDrive(DRIVE_SPEED,0,3,3,0,5.0);
 
         //encoderDrive(DRIVE_SPEED4,0,46,0,46,5.0);
 
 
 
-        sleep(1000);
+        sleep(1500);
         SkystoneDeterminationPipeline.RingPosition positioncopy=pipeline.position;
 
         if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.ONE) {
@@ -178,7 +178,15 @@ public class RedSideRight extends LinearOpMode {
             encoderDrive(DRIVE_SPEED4,29,-29,-29,29,5.0);
             encoderDrive(DRIVE_SPEED4,100,100,100,100,5.0);
             encoderDrive(DRIVE_SPEED4,-40,40,40,-40,5.0);
-            //encoderDrive(DRIVE_SPEED4,25,25,25,25,5.0);
+            sleep(500);
+            robot.wobblegoaler1.setPosition(0.0);
+            robot.wobblegoaler2.setPosition(0.0);
+            sleep(500);
+            encoderDrive(DRIVE_SPEED4,40,-40,-40,40,5.0);
+            encoderDrive(DRIVE_SPEED4,-100,-100,-100,-100,5.0);
+
+
+
 
         } else if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.FOUR) {
           phoneCam.stopStreaming();
@@ -190,8 +198,12 @@ public class RedSideRight extends LinearOpMode {
             });
             encoderDrive(DRIVE_SPEED4,29,-29,-29,29,5.0);
             encoderDrive(DRIVE_SPEED4,125,125,125,125,5.0);
-            //robot.frontright.setPower(0.0);
-
+            encoderDrive(DRIVE_SPEED,4,0,4,0,2.5);
+            sleep(500);
+            robot.wobblegoaler1.setPosition(0.0);
+            robot.wobblegoaler2.setPosition(0.0);
+            sleep(500);
+            encoderDrive(DRIVE_SPEED4,-125,-125,-125,-125,5.0);
 
 
         }else if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.NONE) {
@@ -204,9 +216,15 @@ public class RedSideRight extends LinearOpMode {
             });
           encoderDrive(DRIVE_SPEED4,29,-29,-29,29,5.0);
             encoderDrive(DRIVE_SPEED4,54,54,54,54,5.0);
-            //robot.frontright.setPower(0.0);
+            sleep(500);
+            robot.wobblegoaler1.setPosition(0.0);
+            robot.wobblegoaler2.setPosition(0.0);
+            sleep(500);
+            encoderDrive(DRIVE_SPEED4,-54,-54,-54,-54,5.0);
+
         }
 
+        encoderDrive(DRIVE_SPEED,17,17,17,17, 5.0);
 
 
         // Step through each leg of the path,

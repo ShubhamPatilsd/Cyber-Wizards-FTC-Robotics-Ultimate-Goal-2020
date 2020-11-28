@@ -64,15 +64,14 @@ public class HardwareTest
      public DcMotor  frontright = null;
      public DcMotor  downleft = null;
      public DcMotor  downright = null;
-    public DcMotor  sucker = null;
-    public DcMotor  wobblegoalarm = null;
-    public DcMotor  shooterone = null;
-    public DcMotor  shootertwo = null;
-     //public Servo FrontCollector = null;
-     //public Servo FoundationGrabber1 = null;
-     //public Servo FoundationGrabber2 = null;
-     //public ColorSensor sensorColor;
-     //public DistanceSensor sensorDistance ;
+     public DcMotor  sucker = null;
+     public DcMotor  wobblegoalarm = null;
+     public DcMotor  shooterone = null;
+     public DcMotor  shootertwo = null;
+     public Servo intakepusher = null;
+     public Servo wobblegoaler1 = null;
+     public Servo wobblegoaler2 = null;
+     public Servo extra = null;
 
 
 
@@ -106,11 +105,10 @@ public class HardwareTest
         wobblegoalarm=this.hwMap.get(DcMotor.class,"wobblegoalarm");
         shooterone=this.hwMap.get(DcMotor.class,"shooterone");
         shootertwo=this.hwMap.get(DcMotor.class,"shootertwo");
-        //FrontCollector = hwMap.get(Servo.class,"FrontCollector");
-        //FoundationGrabber1 = hwMap.get(Servo.class,"FoundationGrabber1");
-        //FoundationGrabber2 = hwMap.get(Servo.class,"FoundationGrabber2");
-        //sensorColor = hwMap.get(ColorSensor.class, "color");
-        //sensorDistance = hwMap.get(DistanceSensor.class, "color");
+        intakepusher = this.hwMap.get(Servo.class,"intakepusher");
+        wobblegoaler1 = this.hwMap.get(Servo.class,"wobblegoaler1");
+        wobblegoaler2 = this.hwMap.get(Servo.class,"wobblegoaler2");
+        extra = this.hwMap.get(Servo.class,"extra");
 
 
 
@@ -122,9 +120,10 @@ public class HardwareTest
         wobblegoalarm.setDirection(DcMotor.Direction.FORWARD);
         shooterone.setDirection(DcMotor.Direction.FORWARD);
         shootertwo.setDirection(DcMotor.Direction.FORWARD);
-        //FrontCollector.setPosition(1.0);
-        //FoundationGrabber1.setPosition(1.0);
-        //FoundationGrabber2.setPosition(0.0);
+        intakepusher.setPosition(1.0);
+        wobblegoaler1.setPosition(1.0);
+        wobblegoaler2.setPosition(1.0);
+        extra.setPosition(1.0);
 
 
 
