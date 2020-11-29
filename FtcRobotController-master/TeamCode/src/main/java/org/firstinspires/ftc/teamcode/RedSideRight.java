@@ -163,12 +163,12 @@ public class RedSideRight extends LinearOpMode {
 
 
 
-        sleep(1500);
-        SkystoneDeterminationPipeline.RingPosition positioncopy=pipeline.position;
+        sleep(2000);
 
+        phoneCam.stopStreaming();
         if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.ONE) {
 
-          phoneCam.stopStreaming();
+
             phoneCam.closeCameraDeviceAsync(new OpenCvCamera.AsyncCameraCloseListener() {
                 @Override
                 public void onClose() {
@@ -178,18 +178,20 @@ public class RedSideRight extends LinearOpMode {
             encoderDrive(DRIVE_SPEED4,29,-29,-29,29,5.0);
             encoderDrive(DRIVE_SPEED4,100,100,100,100,5.0);
             encoderDrive(DRIVE_SPEED4,-40,40,40,-40,5.0);
+            encoderDrive(DRIVE_SPEED,0,-15,0,-15,5.0);
             sleep(500);
             robot.wobblegoaler1.setPosition(0.0);
             robot.wobblegoaler2.setPosition(0.0);
             sleep(500);
             encoderDrive(DRIVE_SPEED4,40,-40,-40,40,5.0);
+            encoderDrive(DRIVE_SPEED4,0,-10,0,-10,5.0);
             encoderDrive(DRIVE_SPEED4,-100,-100,-100,-100,5.0);
 
 
 
 
         } else if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.FOUR) {
-          phoneCam.stopStreaming();
+
             phoneCam.closeCameraDeviceAsync(new OpenCvCamera.AsyncCameraCloseListener() {
                 @Override
                 public void onClose() {
@@ -207,7 +209,7 @@ public class RedSideRight extends LinearOpMode {
 
 
         }else if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.NONE) {
-            phoneCam.stopStreaming();
+
             phoneCam.closeCameraDeviceAsync(new OpenCvCamera.AsyncCameraCloseListener() {
                 @Override
                 public void onClose() {
@@ -220,11 +222,12 @@ public class RedSideRight extends LinearOpMode {
             robot.wobblegoaler1.setPosition(0.0);
             robot.wobblegoaler2.setPosition(0.0);
             sleep(500);
-            encoderDrive(DRIVE_SPEED4,-54,-54,-54,-54,5.0);
+            encoderDrive(DRIVE_SPEED,-41,-41,-41,-41,5.0);
+            encoderDrive(DRIVE_SPEED2,2,0,2,0,5.0);
 
         }
 
-        encoderDrive(DRIVE_SPEED,17,17,17,17, 5.0);
+        //encoderDrive(DRIVE_SPEED,17,17,17,17, 5.0);
 
 
         // Step through each leg of the path,
