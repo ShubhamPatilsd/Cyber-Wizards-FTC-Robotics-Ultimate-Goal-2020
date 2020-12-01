@@ -155,15 +155,15 @@ public class RedSideRight extends LinearOpMode {
         robot.frontright.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         robot.downleft.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         robot.downright.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        encoderDrive(DRIVE_SPEED,24,24,24,24,5.0);
+        encoderDrive(DRIVE_SPEED,26,26,26,26,5.0);
         encoderDrive(DRIVE_SPEED,-21,21,21,-21,5.0);
-        encoderDrive(DRIVE_SPEED,0,3,3,0,5.0);
+        encoderDrive(DRIVE_SPEED,0,1,0,1,5.0);
 
         //encoderDrive(DRIVE_SPEED4,0,46,0,46,5.0);
 
 
 
-        sleep(2000);
+        sleep(1250);
 
         phoneCam.stopStreaming();
         if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.ONE) {
@@ -177,15 +177,14 @@ public class RedSideRight extends LinearOpMode {
             });
             encoderDrive(DRIVE_SPEED4,29,-29,-29,29,5.0);
             encoderDrive(DRIVE_SPEED4,100,100,100,100,5.0);
-            encoderDrive(DRIVE_SPEED4,-40,40,40,-40,5.0);
-            encoderDrive(DRIVE_SPEED,0,-15,0,-15,5.0);
+            encoderDrive(DRIVE_SPEED4,-36,36,36,-36,5.0);
             sleep(500);
             robot.wobblegoaler1.setPosition(0.0);
             robot.wobblegoaler2.setPosition(0.0);
             sleep(500);
-            encoderDrive(DRIVE_SPEED4,40,-40,-40,40,5.0);
-            encoderDrive(DRIVE_SPEED4,0,-10,0,-10,5.0);
-            encoderDrive(DRIVE_SPEED4,-100,-100,-100,-100,5.0);
+            encoderDrive(DRIVE_SPEED4,42,-42,-42,42,5.0);
+            encoderDrive(DRIVE_SPEED4,4.5,0,4.5,0,5.0);
+            encoderDrive(DRIVE_SPEED2,-27,-27,-27,-32,5.0);
 
 
 
@@ -200,12 +199,12 @@ public class RedSideRight extends LinearOpMode {
             });
             encoderDrive(DRIVE_SPEED4,29,-29,-29,29,5.0);
             encoderDrive(DRIVE_SPEED4,125,125,125,125,5.0);
-            encoderDrive(DRIVE_SPEED,4,0,4,0,2.5);
+            encoderDrive(DRIVE_SPEED,2,0,2,0,2.5);
             sleep(500);
             robot.wobblegoaler1.setPosition(0.0);
             robot.wobblegoaler2.setPosition(0.0);
             sleep(500);
-            encoderDrive(DRIVE_SPEED4,-125,-125,-125,-125,5.0);
+            encoderDrive(DRIVE_SPEED2,-51,-51,-51,-51,5.0);
 
 
         }else if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.NONE) {
@@ -217,13 +216,11 @@ public class RedSideRight extends LinearOpMode {
                 }
             });
           encoderDrive(DRIVE_SPEED4,29,-29,-29,29,5.0);
-            encoderDrive(DRIVE_SPEED4,54,54,54,54,5.0);
+            encoderDrive(DRIVE_SPEED4,62,62,62,62,5.0);
             sleep(500);
             robot.wobblegoaler1.setPosition(0.0);
             robot.wobblegoaler2.setPosition(0.0);
             sleep(500);
-            encoderDrive(DRIVE_SPEED,-41,-41,-41,-41,5.0);
-            encoderDrive(DRIVE_SPEED2,2,0,2,0,5.0);
 
         }
 
@@ -356,9 +353,9 @@ public class RedSideRight extends LinearOpMode {
         /*
          * The core values which define the location and size of the sample regions
          */
-        static final Point REGION1_TOPLEFT_ANCHOR_POINT = new Point(110,98);
+        static final Point REGION1_TOPLEFT_ANCHOR_POINT = new Point(110,70);
 
-        static final int REGION_WIDTH = 50;
+        static final int REGION_WIDTH = 60;
         static final int REGION_HEIGHT = 105;
 
         final int FOUR_RING_THRESHOLD = 150;
