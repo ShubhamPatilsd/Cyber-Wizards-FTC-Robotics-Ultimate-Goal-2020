@@ -157,8 +157,8 @@ public class RedSideLeft extends LinearOpMode {
         robot.downleft.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         robot.downright.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         encoderDrive(DRIVE_SPEED,26,26,26,26,5.0);
-        encoderDrive(DRIVE_SPEED4,21,-21,-21,-1,5.0);
-        encoderDrive(DRIVE_SPEED,0,1,0,1,5.0);
+        encoderDrive(DRIVE_SPEED4,22,-22,-22,22,5.0);
+        encoderDrive(DRIVE_SPEED,0,2,0,2,5.0);
 
         //encoderDrive(DRIVE_SPEED4,0,46,0,46,5.0);
 
