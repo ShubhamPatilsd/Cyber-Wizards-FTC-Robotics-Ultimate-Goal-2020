@@ -33,17 +33,17 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
+
+import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.core.Point;
 import org.opencv.core.Rect;
 import org.opencv.core.Scalar;
 import org.opencv.imgproc.Imgproc;
-import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
 import org.openftc.easyopencv.OpenCvCamera;
 import org.openftc.easyopencv.OpenCvCameraFactory;
 import org.openftc.easyopencv.OpenCvCameraRotation;
-import org.openftc.easyopencv.OpenCvInternalCamera;
 import org.openftc.easyopencv.OpenCvPipeline;
 
 /**
@@ -73,9 +73,9 @@ import org.openftc.easyopencv.OpenCvPipeline;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@Autonomous(name="BlueSideRight", group="Pushbot")
+@Autonomous(name="BlueSideLeft", group="Pushbot")
 //@Disabled
-public class BlueSideRight extends LinearOpMode {
+public class BlueSideLeft extends LinearOpMode {
 
     /* Declare OpMode members. */
     HardwareTest robot   = new HardwareTest();   // Use a Pushbot's hardware
@@ -156,7 +156,7 @@ public class BlueSideRight extends LinearOpMode {
         robot.downleft.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         robot.downright.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         encoderDrive(DRIVE_SPEED,28,28,28,28,5.0);
-        encoderDrive(DRIVE_SPEED,-21,21,21,-21,5.0);
+        encoderDrive(DRIVE_SPEED,21,-21,-21,21,5.0);
         encoderDrive(DRIVE_SPEED,0,1,0,1,5.0);
 
         //encoderDrive(DRIVE_SPEED4,0,46,0,46,5.0);
@@ -377,7 +377,7 @@ public class BlueSideRight extends LinearOpMode {
         int avg1;
 
         // Volatile since accessed by OpMode thread w/o synchronization
-        private volatile SkystoneDeterminationPipeline.RingPosition position = SkystoneDeterminationPipeline.RingPosition.FOUR;
+        private volatile RingPosition position = RingPosition.FOUR;
 
         /*
          * This function takes the RGB frame, converts to YCrCb,
@@ -411,13 +411,13 @@ public class BlueSideRight extends LinearOpMode {
                     BLUE, // The color the rectangle is drawn in
                     2); // Thickness of the rectangle lines
 
-            position = SkystoneDeterminationPipeline.RingPosition.FOUR; // Record our analysis
+            position = RingPosition.FOUR; // Record our analysis
             if(avg1 > FOUR_RING_THRESHOLD){
-                position = SkystoneDeterminationPipeline.RingPosition.FOUR;
+                position = RingPosition.FOUR;
             }else if (avg1 > ONE_RING_THRESHOLD){
-                position = SkystoneDeterminationPipeline.RingPosition.ONE;
+                position = RingPosition.ONE;
             }else{
-                position = SkystoneDeterminationPipeline.RingPosition.NONE;
+                position = RingPosition.NONE;
             }
 
             Imgproc.rectangle(
