@@ -185,6 +185,7 @@ public class BlueSideRight extends LinearOpMode {
             encoderDrive(DRIVE_SPEED4,-42,42,42,-42,5.0);
             encoderDrive(DRIVE_SPEED4,0,4.5,0,4.5,5.0);
             encoderDrive(DRIVE_SPEED2,-27,-27,-27,-32,5.0);
+            encoderDrive(DRIVE_SPEED4,-24,24,24,-24,5.0);
 
 
 
@@ -197,14 +198,16 @@ public class BlueSideRight extends LinearOpMode {
                     //phoneCam.stopStreaming();
                 }
             });
-            encoderDrive(DRIVE_SPEED4,-29,29,29,-29,5.0);
-            encoderDrive(DRIVE_SPEED4,125,125,125,125,5.0);
-            encoderDrive(DRIVE_SPEED,0,2,0,2,2.5);
+            encoderDrive(DRIVE_SPEED4,-30,30,30,-30,5.0);
+            encoderDrive(DRIVE_SPEED4,120,120,120,120,5.0);
+            encoderDrive(DRIVE_SPEED,0,4,0,4,2.5);
             sleep(500);
             robot.wobblegoaler1.setPosition(0.0);
             robot.wobblegoaler2.setPosition(0.0);
             sleep(500);
             encoderDrive(DRIVE_SPEED2,-51,-51,-51,-51,5.0);
+            encoderDrive(DRIVE_SPEED2,-35,35,35,-35,5.0);
+            encoderDrive(DRIVE_SPEED4,7,7,7,7,5.0);
 
 
         }else if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.NONE) {
@@ -215,12 +218,15 @@ public class BlueSideRight extends LinearOpMode {
                     //phoneCam.stopStreaming();
                 }
             });
-            encoderDrive(DRIVE_SPEED4,-29,29,29,-29,5.0);
-            encoderDrive(DRIVE_SPEED4,62,62,62,62,5.0);
+            encoderDrive(DRIVE_SPEED4,-36,36,36,-36,5.0);
+            encoderDrive(DRIVE_SPEED4,72,72,72,72,5.0);
+            encoderDrive(DRIVE_SPEED3,-3,-3,-3,-3, 2.5);
             sleep(500);
             robot.wobblegoaler1.setPosition(0.0);
             robot.wobblegoaler2.setPosition(0.0);
             sleep(500);
+            encoderDrive(DRIVE_SPEED4,-20,20,20,-20,5.0);
+
 
         }
 
