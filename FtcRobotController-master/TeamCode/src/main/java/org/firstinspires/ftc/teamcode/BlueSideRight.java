@@ -175,6 +175,7 @@ public class BlueSideRight extends LinearOpMode {
                     //phoneCam.stopStreaming();
                 }
             });
+            
             encoderDrive(DRIVE_SPEED4,-29,29,29,-29,5.0);
             encoderDrive(DRIVE_SPEED4,100,100,100,100,5.0);
             encoderDrive(DRIVE_SPEED4,36,-36,-36,36,5.0);
@@ -230,7 +231,10 @@ public class BlueSideRight extends LinearOpMode {
 
         }
 
-        //encoderDrive(DRIVE_SPEED,17,17,17,17, 5.0);
+        encoderDrive(DRIVE_SPEED,40,-40,-40,40,5.0);
+        encoderDrive(DRIVE_SPEED2,-25,-25,-25,-25,5.0);
+        sleep(1000);
+        encoderDrive(DRIVE_SPEED4,19,19,19,19,5.0);
 
 
         // Step through each leg of the path,

@@ -185,7 +185,9 @@ public class RedSideLeft extends LinearOpMode {
             sleep(500);
             encoderDrive(DRIVE_SPEED4,42,-42,-42,42,5.0);
             encoderDrive(DRIVE_SPEED4,4.5,0,4.5,0,5.0);
-            encoderDrive(DRIVE_SPEED2,-27,-27,-27,-32,5.0);
+            encoderDrive(DRIVE_SPEED2,-28,-28,-28,-32,5.0);
+            encoderDrive(DRIVE_SPEED2,22,-22,-22,22,5.0);
+            encoderDrive(DRIVE_SPEED2,6.5,6.5,6.5,6.5,5.0);
 
 
 
@@ -205,7 +207,8 @@ public class RedSideLeft extends LinearOpMode {
             robot.wobblegoaler1.setPosition(0.0);
             robot.wobblegoaler2.setPosition(0.0);
             sleep(500);
-            encoderDrive(DRIVE_SPEED2,-51,-51,-51,-51,5.0);
+            encoderDrive(DRIVE_SPEED2,-50,-50,-50,-50,5.0);
+            encoderDrive(DRIVE_SPEED2,25,-25,-25,25,5.0);
 
 
         }else if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.NONE) {
@@ -217,17 +220,20 @@ public class RedSideLeft extends LinearOpMode {
                 }
             });
             encoderDrive(DRIVE_SPEED4,29,-29,-29,29,5.0);
-            encoderDrive(DRIVE_SPEED4,62,62,62,62,5.0);
+            encoderDrive(DRIVE_SPEED4,72,72,72,72,5.0);
+            encoderDrive(DRIVE_SPEED4,-1.5,-1.5,-1.5,-1.5,5.0);
             sleep(500);
             robot.wobblegoaler1.setPosition(0.0);
             robot.wobblegoaler2.setPosition(0.0);
             sleep(500);
 
+            encoderDrive(DRIVE_SPEED2,20,-20,-20,20,5.0);
+            encoderDrive(DRIVE_SPEED4,5,5,5,5,5.0);
         }
-
-        //encoderDrive(DRIVE_SPEED,17,17,17,17, 5.0);
-
-
+        encoderDrive(DRIVE_SPEED,-40,40,40,-40,5.0);
+        encoderDrive(DRIVE_SPEED2,-25,-25,-25,-25,5.0);
+        sleep(1000);
+        encoderDrive(DRIVE_SPEED4,19,19,19,19,5.0);
         // Step through each leg of the path,
         // Note: Reverse movement is obtained by setting a negative distance (not speed)
 
@@ -354,7 +360,7 @@ public class RedSideLeft extends LinearOpMode {
         /*
          * The core values which define the location and size of the sample regions
          */
-        static final Point REGION1_TOPLEFT_ANCHOR_POINT = new Point(110,70);
+        static final Point REGION1_TOPLEFT_ANCHOR_POINT = new Point(110,25);
 
         static final int REGION_WIDTH = 60;
         static final int REGION_HEIGHT = 105;
