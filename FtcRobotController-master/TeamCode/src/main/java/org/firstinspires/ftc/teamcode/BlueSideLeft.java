@@ -184,7 +184,7 @@ public class BlueSideLeft extends LinearOpMode {
             sleep(500);
             encoderDrive(DRIVE_SPEED4,-42,42,42,-42,5.0);
             encoderDrive(DRIVE_SPEED4,0,4.5,0,4.5,5.0);
-            encoderDrive(DRIVE_SPEED2,-27,-27,-27,-32,5.0);
+            encoderDrive(DRIVE_SPEED2,-31,-31,-31,-31,5.0);
             encoderDrive(DRIVE_SPEED4,-17,17,17,-17,5.0);
 
 
@@ -198,7 +198,7 @@ public class BlueSideLeft extends LinearOpMode {
                     //phoneCam.stopStreaming();
                 }
             });
-            encoderDrive(DRIVE_SPEED4,-29,29,29,-29,5.0);
+            encoderDrive(DRIVE_SPEED4,-40,40,40,-40,5.0);
             encoderDrive(DRIVE_SPEED4,125,125,125,125,5.0);
             encoderDrive(DRIVE_SPEED,0,2,0,2,2.5);
             sleep(500);
@@ -219,6 +219,8 @@ public class BlueSideLeft extends LinearOpMode {
             });
             encoderDrive(DRIVE_SPEED4,-36,36,36,-36,5.0);
             encoderDrive(DRIVE_SPEED4,65,65,65,65,5.0);
+            encoderDrive(DRIVE_SPEED4,-20,20,20,-20,5.0);
+
             sleep(500);
             robot.wobblegoaler1.setPosition(0.0);
             robot.wobblegoaler2.setPosition(0.0);
@@ -357,7 +359,7 @@ public class BlueSideLeft extends LinearOpMode {
         /*
          * The core values which define the location and size of the sample regions
          */
-        static final Point REGION1_TOPLEFT_ANCHOR_POINT = new Point(110,70);
+        static final Point REGION1_TOPLEFT_ANCHOR_POINT = new Point(110,25);
 
         static final int REGION_WIDTH = 60;
         static final int REGION_HEIGHT = 105;

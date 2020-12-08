@@ -187,7 +187,7 @@ public class RedSideLeft extends LinearOpMode {
             encoderDrive(DRIVE_SPEED4,4.5,0,4.5,0,5.0);
             encoderDrive(DRIVE_SPEED2,-28,-28,-28,-32,5.0);
             encoderDrive(DRIVE_SPEED2,22,-22,-22,22,5.0);
-            encoderDrive(DRIVE_SPEED2,6.5,6.5,6.5,6.5,5.0);
+            encoderDrive(DRIVE_SPEED2,5,5,5,5,5.0);
 
 
 
@@ -201,15 +201,15 @@ public class RedSideLeft extends LinearOpMode {
                 }
             });
             encoderDrive(DRIVE_SPEED4,29,-29,-29,29,5.0);
+            encoderDrive(DRIVE_SPEED4,0,4,0,4,5.0);
             encoderDrive(DRIVE_SPEED4,125,125,125,125,5.0);
-            encoderDrive(DRIVE_SPEED,2,0,2,0,2.5);
             sleep(500);
             robot.wobblegoaler1.setPosition(0.0);
             robot.wobblegoaler2.setPosition(0.0);
             sleep(500);
             encoderDrive(DRIVE_SPEED2,-50,-50,-50,-50,5.0);
             encoderDrive(DRIVE_SPEED2,25,-25,-25,25,5.0);
-
+            encoderDrive(DRIVE_SPEED2,3,3,3,3,2.5);
 
         }else if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.NONE) {
 

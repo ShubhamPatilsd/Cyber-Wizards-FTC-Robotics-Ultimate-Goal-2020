@@ -156,14 +156,14 @@ public class BlueSideRight extends LinearOpMode {
         robot.downleft.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         robot.downright.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         encoderDrive(DRIVE_SPEED,28,28,28,28,5.0);
-        encoderDrive(DRIVE_SPEED,-21,21,21,-21,5.0);
+        encoderDrive(DRIVE_SPEED,-20,20,20,-20,5.0);
         encoderDrive(DRIVE_SPEED,0,1,0,1,5.0);
 
         //encoderDrive(DRIVE_SPEED4,0,46,0,46,5.0);
 
 
 
-        sleep(1250);
+        sleep(1000);
 
         phoneCam.stopStreaming();
         if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.ONE) {
@@ -175,7 +175,7 @@ public class BlueSideRight extends LinearOpMode {
                     //phoneCam.stopStreaming();
                 }
             });
-            
+            sleep(500);
             encoderDrive(DRIVE_SPEED4,-29,29,29,-29,5.0);
             encoderDrive(DRIVE_SPEED4,100,100,100,100,5.0);
             encoderDrive(DRIVE_SPEED4,36,-36,-36,36,5.0);
@@ -199,7 +199,8 @@ public class BlueSideRight extends LinearOpMode {
                     //phoneCam.stopStreaming();
                 }
             });
-            encoderDrive(DRIVE_SPEED4,-30,30,30,-30,5.0);
+            sleep(500);
+            encoderDrive(DRIVE_SPEED4,-37,37,37,-37,5.0);
             encoderDrive(DRIVE_SPEED4,120,120,120,120,5.0);
             encoderDrive(DRIVE_SPEED,0,4,0,4,2.5);
             sleep(500);
@@ -219,8 +220,9 @@ public class BlueSideRight extends LinearOpMode {
                     //phoneCam.stopStreaming();
                 }
             });
+            sleep(500);
             encoderDrive(DRIVE_SPEED4,-36,36,36,-36,5.0);
-            encoderDrive(DRIVE_SPEED4,72,72,72,72,5.0);
+            encoderDrive(DRIVE_SPEED4,75,75,75,75,5.0);
             encoderDrive(DRIVE_SPEED3,-3,-3,-3,-3, 2.5);
             sleep(500);
             robot.wobblegoaler1.setPosition(0.0);
@@ -231,10 +233,10 @@ public class BlueSideRight extends LinearOpMode {
 
         }
 
-        encoderDrive(DRIVE_SPEED,40,-40,-40,40,5.0);
+        encoderDrive(DRIVE_SPEED2,40,-40,-40,40,5.0);
         encoderDrive(DRIVE_SPEED2,-25,-25,-25,-25,5.0);
         sleep(1000);
-        encoderDrive(DRIVE_SPEED4,19,19,19,19,5.0);
+        encoderDrive(DRIVE_SPEED4,24,24,24,24,5.0);
 
 
         // Step through each leg of the path,
@@ -363,7 +365,7 @@ public class BlueSideRight extends LinearOpMode {
         /*
          * The core values which define the location and size of the sample regions
          */
-        static final Point REGION1_TOPLEFT_ANCHOR_POINT = new Point(110,70);
+        static final Point REGION1_TOPLEFT_ANCHOR_POINT = new Point(110,25);
 
         static final int REGION_WIDTH = 60;
         static final int REGION_HEIGHT = 105;

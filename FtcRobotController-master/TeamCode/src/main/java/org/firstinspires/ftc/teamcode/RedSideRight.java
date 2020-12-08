@@ -156,7 +156,7 @@ public class RedSideRight extends LinearOpMode {
         robot.downleft.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         robot.downright.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         encoderDrive(DRIVE_SPEED,26,26,26,26,5.0);
-        encoderDrive(DRIVE_SPEED2,-21.5,21.5,21.5,-21.25,5.0);
+        encoderDrive(DRIVE_SPEED2,-22.5,22.5,22.5,-22.5,5.0);
         encoderDrive(DRIVE_SPEED,0,1,0,1,5.0);
 
         //encoderDrive(DRIVE_SPEED4,0,46,0,46,5.0);
@@ -368,7 +368,7 @@ public class RedSideRight extends LinearOpMode {
         /*
          * The core values which define the location and size of the sample regions
          */
-        static final Point REGION1_TOPLEFT_ANCHOR_POINT = new Point(110,70);
+        static final Point REGION1_TOPLEFT_ANCHOR_POINT = new Point(110,25);
 
         static final int REGION_WIDTH = 60;
         static final int REGION_HEIGHT = 105;
