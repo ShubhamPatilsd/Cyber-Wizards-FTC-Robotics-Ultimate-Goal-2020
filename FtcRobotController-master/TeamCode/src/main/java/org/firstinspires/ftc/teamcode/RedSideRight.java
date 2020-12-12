@@ -93,8 +93,11 @@ public class RedSideRight extends LinearOpMode {
     static final double     DRIVE_SPEED3            = 0.2;
     static final double     DRIVE_SPEED4            = 0.75;
 
+
+
     @Override
     public void runOpMode() {
+
         int cameraMonitorViewId = hardwareMap.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", hardwareMap.appContext.getPackageName());
         //phoneCam = OpenCvCameraFactory.getInstance().createInternalCamera(OpenCvInternalCamera.CameraDirection.BACK, cameraMonitorViewId);
         //Change this to the next comment line to get webcam working
@@ -234,11 +237,23 @@ public class RedSideRight extends LinearOpMode {
 
         }
 
+        //Go to place to shoot rings
         encoderDrive(DRIVE_SPEED,-40,40,40,-40,5.0);
         encoderDrive(DRIVE_SPEED2,-25,-25,-25,-25,5.0);
         sleep(1000);
         encoderDrive(DRIVE_SPEED4,19,19,19,19,5.0);
 
+        //FIRE THE TANKS COMRADE
+        for(int i=0;i<2;i++){
+            robot.intakepusher.setPosition(0.0);
+            sleep(500);
+            robot.intakepusher.setPosition(1.0);
+            sleep(500);
+
+            robot.shooterone.setPower(1.0);
+            robot.shootertwo.setPower(1.0);
+            sleep(3000);
+        }
 
 
 

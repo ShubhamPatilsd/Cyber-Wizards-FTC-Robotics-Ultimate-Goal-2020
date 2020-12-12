@@ -239,6 +239,17 @@ public class BlueSideRight extends LinearOpMode {
         encoderDrive(DRIVE_SPEED4,24,24,24,24,5.0);
 
 
+        for(int i=0;i<2;i++){
+            robot.intakepusher.setPosition(0.0);
+            sleep(500);
+            robot.intakepusher.setPosition(1.0);
+            sleep(500);
+
+            robot.shooterone.setPower(1.0);
+            robot.shootertwo.setPower(1.0);
+            sleep(3000);
+        }
+
         // Step through each leg of the path,
         // Note: Reverse movement is obtained by setting a negative distance (not speed)
 

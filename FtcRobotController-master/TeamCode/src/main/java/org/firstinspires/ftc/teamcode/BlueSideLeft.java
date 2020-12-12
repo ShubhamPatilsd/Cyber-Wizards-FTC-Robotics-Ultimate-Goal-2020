@@ -95,6 +95,7 @@ public class BlueSideLeft extends LinearOpMode {
 
     @Override
     public void runOpMode() {
+
         int cameraMonitorViewId = hardwareMap.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", hardwareMap.appContext.getPackageName());
         //phoneCam = OpenCvCameraFactory.getInstance().createInternalCamera(OpenCvInternalCamera.CameraDirection.BACK, cameraMonitorViewId);
         //Change this to the next comment line to get webcam working
@@ -233,6 +234,17 @@ public class BlueSideLeft extends LinearOpMode {
         sleep(1000);
         encoderDrive(DRIVE_SPEED4,19,19,19,19,5.0);
 
+
+        for(int i=0;i<2;i++){
+            robot.intakepusher.setPosition(0.0);
+            sleep(500);
+            robot.intakepusher.setPosition(1.0);
+            sleep(500);
+
+            robot.shooterone.setPower(1.0);
+            robot.shootertwo.setPower(1.0);
+            sleep(3000);
+        }
         // Step through each leg of the path,
         // Note: Reverse movement is obtained by setting a negative distance (not speed)
 

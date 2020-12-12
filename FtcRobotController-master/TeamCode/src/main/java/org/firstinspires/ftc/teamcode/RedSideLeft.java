@@ -237,6 +237,17 @@ public class RedSideLeft extends LinearOpMode {
         // Step through each leg of the path,
         // Note: Reverse movement is obtained by setting a negative distance (not speed)
 
+        for(int i=0;i<2;i++){
+            robot.intakepusher.setPosition(0.0);
+            sleep(500);
+            robot.intakepusher.setPosition(1.0);
+            sleep(500);
+
+            robot.shooterone.setPower(1.0);
+            robot.shootertwo.setPower(1.0);
+            sleep(3000);
+        }
+
 
         //This be da home of the encoderDrive method. Protecc the home of the encoderDrive method...Respecc
 
