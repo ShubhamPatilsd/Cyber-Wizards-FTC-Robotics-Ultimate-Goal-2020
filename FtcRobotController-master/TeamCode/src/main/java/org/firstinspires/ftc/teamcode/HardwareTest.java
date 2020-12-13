@@ -72,7 +72,7 @@ public class HardwareTest
      public Servo rampservo = null;
     public Servo wobblegoaler1 = null;
      public Servo wobblegoaler2 = null;
-     public Servo extra = null;
+     //public Servo extra = null;
 
 
 
@@ -112,7 +112,7 @@ public class HardwareTest
         wobblegoaler1 = this.hwMap.get(Servo.class,"wobblegoaler1");
         wobblegoaler2 = this.hwMap.get(Servo.class,"wobblegoaler2");
 
-        extra = this.hwMap.get(Servo.class,"extra");
+        //extra = this.hwMap.get(Servo.class,"extra");
 
 
 

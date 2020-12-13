@@ -181,7 +181,7 @@ public class BlueSideLeft extends LinearOpMode {
             encoderDrive(DRIVE_SPEED4,36,-36,-36,36,5.0);
             sleep(500);
             robot.wobblegoaler1.setPosition(0.0);
-            robot.wobblegoaler2.setPosition(0.0);
+            robot.wobblegoaler2.setPosition(1.0);
             sleep(500);
             encoderDrive(DRIVE_SPEED4,-42,42,42,-42,5.0);
             encoderDrive(DRIVE_SPEED4,0,4.5,0,4.5,5.0);
@@ -204,7 +204,7 @@ public class BlueSideLeft extends LinearOpMode {
             encoderDrive(DRIVE_SPEED,0,2,0,2,2.5);
             sleep(500);
             robot.wobblegoaler1.setPosition(0.0);
-            robot.wobblegoaler2.setPosition(0.0);
+            robot.wobblegoaler2.setPosition(1.0);
             sleep(500);
             encoderDrive(DRIVE_SPEED2,-49,-49,-49,-49,5.0);
             encoderDrive(DRIVE_SPEED4,-17,17,17,-17,5.0);
@@ -224,7 +224,7 @@ public class BlueSideLeft extends LinearOpMode {
 
             sleep(500);
             robot.wobblegoaler1.setPosition(0.0);
-            robot.wobblegoaler2.setPosition(0.0);
+            robot.wobblegoaler2.setPosition(1.0);
             sleep(500);
 
         }

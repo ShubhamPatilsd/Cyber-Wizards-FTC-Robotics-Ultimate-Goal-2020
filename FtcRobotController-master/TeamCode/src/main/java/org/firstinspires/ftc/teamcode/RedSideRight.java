@@ -183,7 +183,7 @@ public class RedSideRight extends LinearOpMode {
             encoderDrive(DRIVE_SPEED4,-36,36,36,-36,5.0);
             sleep(500);
             robot.wobblegoaler1.setPosition(0.0);
-            robot.wobblegoaler2.setPosition(0.0);
+            robot.wobblegoaler2.setPosition(1.0);
             sleep(500);
             encoderDrive(DRIVE_SPEED4,42,-42,-42,42,5.0);
             encoderDrive(DRIVE_SPEED4,4.5,0,4.5,0,5.0);
@@ -207,7 +207,7 @@ public class RedSideRight extends LinearOpMode {
             encoderDrive(DRIVE_SPEED,2,0,2,0,2.5);
             sleep(500);
             robot.wobblegoaler1.setPosition(0.0);
-            robot.wobblegoaler2.setPosition(0.0);
+            robot.wobblegoaler2.setPosition(1.0);
             sleep(500);
             encoderDrive(DRIVE_SPEED2,-53,-53,-53,-53,5.0);
             //encoderDrive(DRIVE_SPEED2,-3,-3,-2,-4,5.0);
@@ -227,7 +227,7 @@ public class RedSideRight extends LinearOpMode {
             encoderDrive(DRIVE_SPEED4,-1.5,-1.5,-1.5,-1.5,5.0);
             sleep(500);
             robot.wobblegoaler1.setPosition(0.0);
-            robot.wobblegoaler2.setPosition(0.0);
+            robot.wobblegoaler2.setPosition(1.0);
             sleep(500);
 
 
