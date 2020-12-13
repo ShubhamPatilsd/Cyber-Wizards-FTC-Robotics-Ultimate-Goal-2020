@@ -131,9 +131,9 @@ public class ShooterAutoTest extends LinearOpMode {
         waitForStart();
 
         for(int i=0;i<2;i++){
-            robot.rampservo.setPosition(0.0);
+            robot.intakepusher.setPosition(0.0);
             sleep(500);
-            robot.rampservo.setPosition(1.0);
+            robot.intakepusher.setPosition(1.0);
             sleep(500);
 
             robot.shooterone.setPower(1.0);

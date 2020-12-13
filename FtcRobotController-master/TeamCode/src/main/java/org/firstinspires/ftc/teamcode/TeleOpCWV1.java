@@ -199,10 +199,19 @@ public class TeleOpCWV1 extends LinearOpMode {
             }
 
             if(gamepad2.b){
-                robot.rampservo.setPosition(1.0);
+                robot.intakepusher.setPosition(1.0);
 
             }else{
-                robot.rampservo.setPosition(0.0);
+                robot.intakepusher.setPosition(0.0);
+            }
+
+            if(gamepad2.right_bumper){
+                robot.wobblegoaler1.setPosition(0.0);
+                robot.wobblegoaler2.setPosition(0.0);
+
+            }else{
+                robot.wobblegoaler1.setPosition(0.0);
+                robot.wobblegoaler2.setPosition(0.0);
             }
 
 

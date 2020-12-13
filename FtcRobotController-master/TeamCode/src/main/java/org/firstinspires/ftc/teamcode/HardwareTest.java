@@ -70,7 +70,8 @@ public class HardwareTest
      public DcMotor  shootertwo = null;
      public Servo intakepusher = null;
      public Servo rampservo = null;
-     //public Servo wobblegoaler2 = null;
+    public Servo wobblegoaler1 = null;
+     public Servo wobblegoaler2 = null;
      public Servo extra = null;
 
 
@@ -108,7 +109,9 @@ public class HardwareTest
         shootertwo=this.hwMap.get(DcMotor.class,"shootertwo");
         intakepusher = this.hwMap.get(Servo.class,"intakepusher");
         rampservo = this.hwMap.get(Servo.class,"rampservo");
-        //wobblegoaler2 = this.hwMap.get(Servo.class,"wobblegoaler2");
+        wobblegoaler1 = this.hwMap.get(Servo.class,"wobblegoaler1");
+        wobblegoaler2 = this.hwMap.get(Servo.class,"wobblegoaler2");
+
         extra = this.hwMap.get(Servo.class,"extra");
 
 
@@ -123,8 +126,9 @@ public class HardwareTest
         shootertwo.setDirection(DcMotor.Direction.REVERSE);
         intakepusher.setPosition(1.0);
         rampservo.setPosition(1.0);
-        //wobblegoaler2.setPosition(1.0);
-        extra.setPosition(1.0);
+        wobblegoaler1.setPosition(1.0);
+        wobblegoaler2.setPosition(0.0);
+        //extra.setPosition(1.0);
 
 
 
