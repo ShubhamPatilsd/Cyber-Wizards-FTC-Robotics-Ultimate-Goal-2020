@@ -188,7 +188,7 @@ public class OneControllerTeleOp extends LinearOpMode {
 
             //Set the wobble goal's arm to the value of the y value on gamepad2's left stick. (It is negative because the y value is negative for some reason)
             //robot.wobblegoalarm.setPower(-gamepad2.left_stick_y/1.5);
-            robot.wobblegoalarm.setPower(gamepad1.right_trigger/1.5);
+            robot.wobblegoalarm.setPower(gamepad1.right_trigger-gamepad1.left_trigger/1.5);
 
 
             //If gamepad2's "a" button is pressed, activate the shooters. Else, put them to rest
