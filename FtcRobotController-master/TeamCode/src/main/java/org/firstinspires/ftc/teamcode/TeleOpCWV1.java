@@ -198,6 +198,13 @@ public class TeleOpCWV1 extends LinearOpMode {
                 robot.shootertwo.setPower(0.0);
             }
 
+            if(gamepad2.b){
+                robot.rampservo.setPosition(1.0);
+
+            }else{
+                robot.rampservo.setPosition(0.0);
+            }
+
 
 
 

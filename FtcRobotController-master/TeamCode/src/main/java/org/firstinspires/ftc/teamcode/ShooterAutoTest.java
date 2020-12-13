@@ -73,15 +73,13 @@ import org.openftc.easyopencv.OpenCvPipeline;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@Autonomous(name="RedSideRight", group="Pushbot")
+@Autonomous(name="ShooterAutoTest", group="Pushbot")
 //@Disabled
-public class RedSideRight extends LinearOpMode {
+public class ShooterAutoTest extends LinearOpMode {
 
     /* Declare OpMode members. */
     HardwareTest robot   = new HardwareTest();   // Use a Pushbot's hardware
     private ElapsedTime runtime = new ElapsedTime();
-    OpenCvCamera phoneCam;
-    SkystoneDeterminationPipeline pipeline;
 
     static final double     COUNTS_PER_MOTOR_REV    = 480 ;    // eg: TETRIX Motor Encoder
     static final double     DRIVE_GEAR_REDUCTION    = 0.585 ;     // This is < 1.0 if geared UP
@@ -98,12 +96,7 @@ public class RedSideRight extends LinearOpMode {
     @Override
     public void runOpMode() {
 
-        int cameraMonitorViewId = hardwareMap.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", hardwareMap.appContext.getPackageName());
-        //phoneCam = OpenCvCameraFactory.getInstance().createInternalCamera(OpenCvInternalCamera.CameraDirection.BACK, cameraMonitorViewId);
-        //Change this to the next comment line to get webcam working
-        phoneCam = OpenCvCameraFactory.getInstance().createWebcam(hardwareMap.get(WebcamName.class, "Webcam 1"), cameraMonitorViewId);
-        pipeline = new SkystoneDeterminationPipeline();
-        phoneCam.setPipeline(pipeline);
+
 
 
         // Don't burn CPU cycles busy-looping in this sample
@@ -135,139 +128,18 @@ public class RedSideRight extends LinearOpMode {
         robot.downleft.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         robot.downright.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
-        phoneCam.openCameraDeviceAsync(new OpenCvCamera.AsyncCameraOpenListener()
-        {
-            @Override
-            public void onOpened()
-            {
-                phoneCam.startStreaming(320,240, OpenCvCameraRotation.UPRIGHT);
-            }
-        });
-        // Send telemetry message to indicate successful Encoder reset
-        telemetry.addData("Path0",  "Starting at %7d :%7d",
-                robot.frontleft.getCurrentPosition(),
-                robot.frontright.getCurrentPosition()
-                ,robot.downleft.getCurrentPosition(),
-                robot.downright.getCurrentPosition()
-        );
-        telemetry.update();
-
-        // Wait for the game to start (driver presses PLAY)
         waitForStart();
-        robot.frontleft.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        robot.frontright.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        robot.downleft.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        robot.downright.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        encoderDrive(DRIVE_SPEED,26,26,26,26,5.0);
-        encoderDrive(DRIVE_SPEED2,-22.5,22.5,22.5,-22.5,5.0);
-        encoderDrive(DRIVE_SPEED,0,1,0,1,5.0);
 
-        //encoderDrive(DRIVE_SPEED4,0,46,0,46,5.0);
-
-
-
-        sleep(1250);
-
-        phoneCam.stopStreaming();
-        if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.ONE) {
-
-
-            phoneCam.closeCameraDeviceAsync(new OpenCvCamera.AsyncCameraCloseListener() {
-                @Override
-                public void onClose() {
-                    //phoneCam.stopStreaming();
-                }
-            });
-            encoderDrive(DRIVE_SPEED4,29,-29,-29,29,5.0);
-            encoderDrive(DRIVE_SPEED4,100,100,100,100,5.0);
-            encoderDrive(DRIVE_SPEED4,-36,36,36,-36,5.0);
-            sleep(500);
-            robot.rampservo.setPosition(0.0);
-            //robot.wobblegoaler2.setPosition(0.0);
-            sleep(500);
-            encoderDrive(DRIVE_SPEED4,42,-42,-42,42,5.0);
-            encoderDrive(DRIVE_SPEED4,4.5,0,4.5,0,5.0);
-            encoderDrive(DRIVE_SPEED2,-27,-27,-27,-32,5.0);
-            encoderDrive(DRIVE_SPEED2,15,-15,-15,15,5.0);
-            encoderDrive(DRIVE_SPEED4,3,3,3,3,5.0);
-
-
-
-
-        } else if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.FOUR) {
-
-            phoneCam.closeCameraDeviceAsync(new OpenCvCamera.AsyncCameraCloseListener() {
-                @Override
-                public void onClose() {
-                    //phoneCam.stopStreaming();
-                }
-            });
-            encoderDrive(DRIVE_SPEED4,29,-29,-29,29,5.0);
-            encoderDrive(DRIVE_SPEED4,125,125,125,125,5.0);
-            encoderDrive(DRIVE_SPEED,2,0,2,0,2.5);
-            sleep(500);
-            robot.rampservo.setPosition(0.0);
-            //robot.wobblegoaler2.setPosition(0.0);
-            sleep(500);
-            encoderDrive(DRIVE_SPEED2,-53,-53,-53,-53,5.0);
-            //encoderDrive(DRIVE_SPEED2,-3,-3,-2,-4,5.0);
-            encoderDrive(DRIVE_SPEED2,25,-25,-25,25,5.0);
-
-
-        }else if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.NONE) {
-
-            phoneCam.closeCameraDeviceAsync(new OpenCvCamera.AsyncCameraCloseListener() {
-                @Override
-                public void onClose() {
-                    //phoneCam.stopStreaming();
-                }
-            });
-            encoderDrive(DRIVE_SPEED4,29,-29,-29,29,5.0);
-            encoderDrive(DRIVE_SPEED4,72,72,72,72,5.0);
-            encoderDrive(DRIVE_SPEED4,-1.5,-1.5,-1.5,-1.5,5.0);
-            sleep(500);
-            robot.rampservo.setPosition(0.0);
-            //robot.wobblegoaler2.setPosition(0.0);
-            sleep(500);
-
-
-            encoderDrive(DRIVE_SPEED2,20,-20,-20,20,5.0);
-            encoderDrive(DRIVE_SPEED4,3,3,3,3,5.0);
-
-
-        }
-
-        //Go to place to shoot rings
-        encoderDrive(DRIVE_SPEED,-40,40,40,-40,5.0);
-        encoderDrive(DRIVE_SPEED2,-25,-25,-25,-25,5.0);
-        sleep(1000);
-        encoderDrive(DRIVE_SPEED4,19,19,19,19,5.0);
-
-        //FIRE THE TANKS COMRADE
         for(int i=0;i<2;i++){
-            robot.intakepusher.setPosition(0.0);
+            robot.rampservo.setPosition(0.0);
             sleep(500);
-            robot.intakepusher.setPosition(1.0);
+            robot.rampservo.setPosition(1.0);
             sleep(500);
 
             robot.shooterone.setPower(1.0);
             robot.shootertwo.setPower(1.0);
             sleep(3000);
         }
-
-
-
-        // Step through each leg of the path,
-        // Note: Reverse movement is obtained by setting a negative distance (not speed)
-
-
-        //This be da home of the encoderDrive method. Protecc the home of the encoderDrive method...Respecc
-
-
-
-
-
-
 
         telemetry.addData("Path", "Complete");
         telemetry.update();
@@ -327,8 +199,7 @@ public class RedSideRight extends LinearOpMode {
                             && robot.downleft.isBusy() && robot.downright.isBusy()))
 
             {
-                telemetry.addData("Analysis", pipeline.getAnalysis());
-                telemetry.addData("Position", pipeline.position);
+
                 // Don't burn CPU cycles busy-looping in this sample
                 sleep(50);
                 // Display it for the driver.
@@ -362,108 +233,7 @@ public class RedSideRight extends LinearOpMode {
         }
 
     }
-    public static class SkystoneDeterminationPipeline extends OpenCvPipeline
-    {
-        /*
-         * An enum to define the skystone position
-         */
-        public enum RingPosition
-        {
-            FOUR,
-            ONE,
-            NONE
-        }
 
-        /*
-         * Some color constants
-         */
-        static final Scalar BLUE = new Scalar(0, 0, 255);
-        static final Scalar GREEN = new Scalar(0, 255, 0);
-
-        /*
-         * The core values which define the location and size of the sample regions
-         */
-        static final Point REGION1_TOPLEFT_ANCHOR_POINT = new Point(110,25);
-
-        static final int REGION_WIDTH = 60;
-        static final int REGION_HEIGHT = 105;
-
-        final int FOUR_RING_THRESHOLD = 150;
-        final int ONE_RING_THRESHOLD = 135;
-
-        Point region1_pointA = new Point(
-                REGION1_TOPLEFT_ANCHOR_POINT.x,
-                REGION1_TOPLEFT_ANCHOR_POINT.y);
-        Point region1_pointB = new Point(
-                REGION1_TOPLEFT_ANCHOR_POINT.x + REGION_WIDTH,
-                REGION1_TOPLEFT_ANCHOR_POINT.y + REGION_HEIGHT);
-
-        /*
-         * Working variables
-         */
-        Mat region1_Cb;
-        Mat YCrCb = new Mat();
-        Mat Cb = new Mat();
-        int avg1;
-
-        // Volatile since accessed by OpMode thread w/o synchronization
-        private volatile SkystoneDeterminationPipeline.RingPosition position = SkystoneDeterminationPipeline.RingPosition.FOUR;
-
-        /*
-         * This function takes the RGB frame, converts to YCrCb,
-         * and extracts the Cb channel to the 'Cb' variable
-         */
-        void inputToCb(Mat input)
-        {
-            Imgproc.cvtColor(input, YCrCb, Imgproc.COLOR_RGB2YCrCb);
-            Core.extractChannel(YCrCb, Cb, 1);
-        }
-
-        @Override
-        public void init(Mat firstFrame)
-        {
-            inputToCb(firstFrame);
-
-            region1_Cb = Cb.submat(new Rect(region1_pointA, region1_pointB));
-        }
-
-        @Override
-        public Mat processFrame(Mat input)
-        {
-            inputToCb(input);
-
-            avg1 = (int) Core.mean(region1_Cb).val[0];
-
-            Imgproc.rectangle(
-                    input, // Buffer to draw on
-                    region1_pointA, // First point which defines the rectangle
-                    region1_pointB, // Second point which defines the rectangle
-                    BLUE, // The color the rectangle is drawn in
-                    2); // Thickness of the rectangle lines
-
-            position = SkystoneDeterminationPipeline.RingPosition.FOUR; // Record our analysis
-            if(avg1 > FOUR_RING_THRESHOLD){
-                position = SkystoneDeterminationPipeline.RingPosition.FOUR;
-            }else if (avg1 > ONE_RING_THRESHOLD){
-                position = SkystoneDeterminationPipeline.RingPosition.ONE;
-            }else{
-                position = SkystoneDeterminationPipeline.RingPosition.NONE;
-            }
-
-            Imgproc.rectangle(
-                    input, // Buffer to draw on
-                    region1_pointA, // First point which defines the rectangle
-                    region1_pointB, // Second point which defines the rectangle
-                    GREEN, // The color the rectangle is drawn in
-                    -1); // Negative thickness means solid fill
-
-            return input;
-        }
-
-        public int getAnalysis()
-        {
-            return avg1;
-        }
     }
 
-}
+
