@@ -49,9 +49,9 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@TeleOp(name="TeleOpCWV1", group="Linear Opmode")
+@TeleOp(name="OneControllerTeleOp", group="Linear Opmode")
 //@Disabled
-public class TeleOpCWV1 extends LinearOpMode {
+public class OneControllerTeleOp extends LinearOpMode {
 
     HardwareTest robot=new HardwareTest();
     // Declare OpMode members.
@@ -178,19 +178,21 @@ public class TeleOpCWV1 extends LinearOpMode {
 
             /*If the gamepad's right stick y value is greater than zero, give the sucker power.
             If the y value is less than zero, give it negative power. If the y value is zero, we give it no power. */
-            if(gamepad2.right_stick_y>0.0){
+            if(gamepad1.right_stick_y>0.0){
                 robot.sucker.setPower(1.0);
-            }else if(gamepad2.right_stick_y<0.0){
+            }else if(gamepad1.right_stick_y<0.0){
                 robot.sucker.setPower(-1.0);
             }else{
                 robot.sucker.setPower(0.0);
             }
 
             //Set the wobble goal's arm to the value of the y value on gamepad2's left stick. (It is negative because the y value is negative for some reason)
-            robot.wobblegoalarm.setPower(-gamepad2.left_stick_y/1.5);
+            //robot.wobblegoalarm.setPower(-gamepad2.left_stick_y/1.5);
+            robot.wobblegoalarm.setPower(gamepad1.right_trigger/1.5);
+
 
             //If gamepad2's "a" button is pressed, activate the shooters. Else, put them to rest
-            if(gamepad2.a){
+            if(gamepad1.a){
                 robot.shooterone.setPower(1.0);
                 robot.shootertwo.setPower(1.0);
             }else{
@@ -198,14 +200,14 @@ public class TeleOpCWV1 extends LinearOpMode {
                 robot.shootertwo.setPower(0.0);
             }
 
-            if(gamepad2.b){
+            if(gamepad1.b){
                 robot.intakepusher.setPosition(1.0);
 
             }else{
                 robot.intakepusher.setPosition(0.0);
             }
 
-            if(gamepad2.dpad_up){
+            if(gamepad1.dpad_up){
                 robot.wobblegoaler1.setPosition(0.0);
                 robot.wobblegoaler2.setPosition(1.0);
 
