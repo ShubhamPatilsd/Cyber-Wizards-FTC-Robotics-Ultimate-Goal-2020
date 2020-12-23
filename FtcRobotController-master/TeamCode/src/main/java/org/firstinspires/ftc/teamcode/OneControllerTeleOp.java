@@ -193,8 +193,8 @@ public class OneControllerTeleOp extends LinearOpMode {
 
             //If gamepad2's "a" button is pressed, activate the shooters. Else, put them to rest
             if(gamepad1.a){
-                robot.shooterone.setPower(1.0);
-                robot.shootertwo.setPower(1.0);
+                robot.shooterone.setPower(-1.0);
+                robot.shootertwo.setPower(-1.0);
             }else{
                 robot.shooterone.setPower(0.0);
                 robot.shootertwo.setPower(0.0);
