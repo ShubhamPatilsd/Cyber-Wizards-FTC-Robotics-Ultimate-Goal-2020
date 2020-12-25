@@ -118,7 +118,7 @@ public class HardwareTest
         shooterone.setDirection(DcMotor.Direction.FORWARD);
         shootertwo.setDirection(DcMotor.Direction.REVERSE);
         intakepusher.setPosition(1.0);
-        rampservo.setPosition(1.0);
+        rampservo.setPosition(0.0);
         wobblegoaler.setPosition(1.0);
 
         //extra.setPosition(1.0);
