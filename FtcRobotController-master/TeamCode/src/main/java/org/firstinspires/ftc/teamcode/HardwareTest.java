@@ -30,16 +30,10 @@
 package org.firstinspires.ftc.teamcode;
 
 
-import android.app.Activity;
-import android.graphics.Color;
-import android.view.View;
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
-import com.qualcomm.robotcore.hardware.ColorSensor;
-import com.qualcomm.robotcore.hardware.DistanceSensor;
 
 /**
  * This is NOT an opmode.
@@ -70,9 +64,8 @@ public class HardwareTest
      public DcMotor  shootertwo = null;
      public Servo intakepusher = null;
      public Servo rampservo = null;
-    public Servo wobblegoaler1 = null;
-     public Servo wobblegoaler2 = null;
-     //public Servo extra = null;
+    public Servo wobblegoaler = null;
+    //public Servo extra = null;
 
 
 
@@ -109,8 +102,8 @@ public class HardwareTest
         shootertwo=this.hwMap.get(DcMotor.class,"shootertwo");
         intakepusher = this.hwMap.get(Servo.class,"intakepusher");
         rampservo = this.hwMap.get(Servo.class,"rampservo");
-        wobblegoaler1 = this.hwMap.get(Servo.class,"wobblegoaler1");
-        wobblegoaler2 = this.hwMap.get(Servo.class,"wobblegoaler2");
+        wobblegoaler = this.hwMap.get(Servo.class,"wobblegoaler");
+
 
         //extra = this.hwMap.get(Servo.class,"extra");
 
@@ -126,8 +119,8 @@ public class HardwareTest
         shootertwo.setDirection(DcMotor.Direction.REVERSE);
         intakepusher.setPosition(1.0);
         rampservo.setPosition(1.0);
-        wobblegoaler1.setPosition(1.0);
-        wobblegoaler2.setPosition(0.0);
+        wobblegoaler.setPosition(1.0);
+
         //extra.setPosition(1.0);
 
 

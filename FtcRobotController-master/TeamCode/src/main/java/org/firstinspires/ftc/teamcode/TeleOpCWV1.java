@@ -32,7 +32,6 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 
@@ -211,12 +210,12 @@ public class TeleOpCWV1 extends LinearOpMode {
             }
 
             if(gamepad2.dpad_up){
-                robot.wobblegoaler1.setPosition(0.0);
-                robot.wobblegoaler2.setPosition(1.0);
+                robot.wobblegoaler.setPosition(0.0);
+
 
             }else{
-                robot.wobblegoaler1.setPosition(1.0);
-                robot.wobblegoaler2.setPosition(0.0);
+                robot.wobblegoaler.setPosition(1.0);
+
             }
 
 

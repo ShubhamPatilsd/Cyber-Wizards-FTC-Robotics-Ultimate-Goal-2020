@@ -43,7 +43,6 @@ import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
 import org.openftc.easyopencv.OpenCvCamera;
 import org.openftc.easyopencv.OpenCvCameraFactory;
 import org.openftc.easyopencv.OpenCvCameraRotation;
-import org.openftc.easyopencv.OpenCvInternalCamera;
 import org.openftc.easyopencv.OpenCvPipeline;
 
 /**
@@ -180,8 +179,8 @@ public class BlueSideRight extends LinearOpMode {
             encoderDrive(DRIVE_SPEED4,100,100,100,100,5.0);
             encoderDrive(DRIVE_SPEED4,36,-36,-36,36,5.0);
             sleep(500);
-            robot.wobblegoaler1.setPosition(0.0);
-            robot.wobblegoaler2.setPosition(1.0);
+            robot.wobblegoaler.setPosition(0.0);
+
             sleep(500);
             encoderDrive(DRIVE_SPEED4,-42,42,42,-42,5.0);
             encoderDrive(DRIVE_SPEED4,0,4.5,0,4.5,5.0);
@@ -204,8 +203,8 @@ public class BlueSideRight extends LinearOpMode {
             encoderDrive(DRIVE_SPEED4,120,120,120,120,5.0);
             encoderDrive(DRIVE_SPEED,0,4,0,4,2.5);
             sleep(500);
-            robot.wobblegoaler1.setPosition(0.0);
-            robot.wobblegoaler2.setPosition(1.0);
+            robot.wobblegoaler.setPosition(0.0);
+
             sleep(500);
             encoderDrive(DRIVE_SPEED2,-51,-51,-51,-51,5.0);
             encoderDrive(DRIVE_SPEED2,-35,35,35,-35,5.0);
@@ -225,8 +224,8 @@ public class BlueSideRight extends LinearOpMode {
             encoderDrive(DRIVE_SPEED4,75,75,75,75,5.0);
             encoderDrive(DRIVE_SPEED3,-3,-3,-3,-3, 2.5);
             sleep(500);
-            robot.wobblegoaler1.setPosition(0.0);
-            robot.wobblegoaler2.setPosition(1.0);
+            robot.wobblegoaler.setPosition(0.0);
+
             sleep(500);
             encoderDrive(DRIVE_SPEED4,-20,20,20,-20,5.0);
 
