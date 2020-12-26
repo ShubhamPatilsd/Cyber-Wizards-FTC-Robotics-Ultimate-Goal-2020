@@ -157,8 +157,8 @@ public class RedSideRight extends LinearOpMode {
         robot.frontright.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         robot.downleft.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         robot.downright.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        encoderDrive(DRIVE_SPEED,26,26,26,26,5.0);
-        encoderDrive(DRIVE_SPEED2,-22.5,22.5,22.5,-22.5,5.0);
+        encoderDrive(DRIVE_SPEED,24.5,24.5,24.5,24.5,5.0);
+        encoderDrive(DRIVE_SPEED2,-23.5,23.5,23.5,-23.5,5.0);
         encoderDrive(DRIVE_SPEED,0,1,0,1,5.0);
 
         //encoderDrive(DRIVE_SPEED4,0,46,0,46,5.0);
@@ -177,14 +177,16 @@ public class RedSideRight extends LinearOpMode {
                     //phoneCam.stopStreaming();
                 }
             });
-            encoderDrive(DRIVE_SPEED4,29,-29,-29,29,5.0);
+            encoderDrive(DRIVE_SPEED4,37,-37,-37,37,5.0);
+            sleep(500);
+            encoderDrive(DRIVE_SPEED,12.5,0,12.5,0,2.5);
             encoderDrive(DRIVE_SPEED4,100,100,100,100,5.0);
             encoderDrive(DRIVE_SPEED4,-36,36,36,-36,5.0);
             sleep(500);
             robot.wobblegoaler.setPosition(0.0);
 
             sleep(500);
-            encoderDrive(DRIVE_SPEED4,42,-42,-42,42,5.0);
+            encoderDrive(DRIVE_SPEED4,65,-65,-65,65,5.0);
             encoderDrive(DRIVE_SPEED4,4.5,0,4.5,0,5.0);
             encoderDrive(DRIVE_SPEED2,-27,-27,-27,-32,5.0);
             encoderDrive(DRIVE_SPEED2,15,-15,-15,15,5.0);
@@ -201,7 +203,7 @@ public class RedSideRight extends LinearOpMode {
                     //phoneCam.stopStreaming();
                 }
             });
-            encoderDrive(DRIVE_SPEED4,29,-29,-29,29,5.0);
+            encoderDrive(DRIVE_SPEED4,40,-40,-40,40,5.0);
             encoderDrive(DRIVE_SPEED4,125,125,125,125,5.0);
             encoderDrive(DRIVE_SPEED,2,0,2,0,2.5);
             sleep(500);
@@ -221,7 +223,7 @@ public class RedSideRight extends LinearOpMode {
                     //phoneCam.stopStreaming();
                 }
             });
-            encoderDrive(DRIVE_SPEED4,29,-29,-29,29,5.0);
+            encoderDrive(DRIVE_SPEED4,40,-40,-40,40,5.0);
             encoderDrive(DRIVE_SPEED4,72,72,72,72,5.0);
             encoderDrive(DRIVE_SPEED4,-1.5,-1.5,-1.5,-1.5,5.0);
             sleep(500);
@@ -383,7 +385,7 @@ public class RedSideRight extends LinearOpMode {
         /*
          * The core values which define the location and size of the sample regions
          */
-        static final Point REGION1_TOPLEFT_ANCHOR_POINT = new Point(110,25);
+        static final Point REGION1_TOPLEFT_ANCHOR_POINT = new Point(110,15);
 
         static final int REGION_WIDTH = 60;
         static final int REGION_HEIGHT = 105;

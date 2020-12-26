@@ -200,7 +200,7 @@ public class OneControllerTeleOp extends LinearOpMode {
             }
 
             if(gamepad1.b){
-                robot.intakepusher.setPosition(0.5);
+                robot.intakepusher.setPosition(0.0);
 
             }else{
                 robot.intakepusher.setPosition(1.0);
