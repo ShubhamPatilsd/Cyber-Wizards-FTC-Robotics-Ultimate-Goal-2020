@@ -33,6 +33,8 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
+
+import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.core.Point;
@@ -157,19 +159,20 @@ public class RedSideRight extends LinearOpMode {
         robot.frontright.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         robot.downleft.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         robot.downright.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        encoderDrive(DRIVE_SPEED,24.5,24.5,24.5,24.5,5.0);
-        encoderDrive(DRIVE_SPEED2,-23.5,23.5,23.5,-23.5,5.0);
+        encoderDrive(DRIVE_SPEED,22.5,22.5,22.5,22.5,5.0);
+        encoderDrive(DRIVE_SPEED2,-22,22,22,-22,5.0);
+        encoderDrive(DRIVE_SPEED3,-1,1,1,-1,1.0);
         encoderDrive(DRIVE_SPEED,0,1,0,1,5.0);
 
         //encoderDrive(DRIVE_SPEED4,0,46,0,46,5.0);
 
 
+        //Add this to other programs
+        sleep(2500);
 
-        sleep(1250);
 
-        phoneCam.stopStreaming();
         if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.ONE) {
-
+            phoneCam.stopStreaming();
 
             phoneCam.closeCameraDeviceAsync(new OpenCvCamera.AsyncCameraCloseListener() {
                 @Override
@@ -177,54 +180,72 @@ public class RedSideRight extends LinearOpMode {
                     //phoneCam.stopStreaming();
                 }
             });
+
+            sleep(750);
             encoderDrive(DRIVE_SPEED4,37,-37,-37,37,5.0);
             sleep(500);
-            encoderDrive(DRIVE_SPEED,12.5,0,12.5,0,2.5);
+            encoderDrive(DRIVE_SPEED,12.5,7,12.5,7,2.5);
+            encoderDrive(DRIVE_SPEED3,-4,-4,-4,-4,2.5);
             encoderDrive(DRIVE_SPEED4,100,100,100,100,5.0);
+
             encoderDrive(DRIVE_SPEED4,-36,36,36,-36,5.0);
             sleep(500);
             robot.wobblegoaler.setPosition(0.0);
 
             sleep(500);
-            encoderDrive(DRIVE_SPEED4,65,-65,-65,65,5.0);
+            encoderDrive(DRIVE_SPEED4,50,-50,-50,50,5.0);
             encoderDrive(DRIVE_SPEED4,4.5,0,4.5,0,5.0);
-            encoderDrive(DRIVE_SPEED2,-27,-27,-27,-32,5.0);
-            encoderDrive(DRIVE_SPEED2,15,-15,-15,15,5.0);
+            encoderDrive(DRIVE_SPEED2,-32,-32,-32,-32,5.0);
+            encoderDrive(DRIVE_SPEED2,22,-22,-22,22,5.0);
             encoderDrive(DRIVE_SPEED4,3,3,3,3,5.0);
 
 
 
 
         } else if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.FOUR) {
-
+            phoneCam.stopStreaming();
             phoneCam.closeCameraDeviceAsync(new OpenCvCamera.AsyncCameraCloseListener() {
                 @Override
                 public void onClose() {
                     //phoneCam.stopStreaming();
                 }
             });
-            encoderDrive(DRIVE_SPEED4,40,-40,-40,40,5.0);
-            encoderDrive(DRIVE_SPEED4,125,125,125,125,5.0);
+            sleep(750);
+            encoderDrive(DRIVE_SPEED4,30,-30,-30,30,5.0);
+            sleep(500);
+            telemetry.addData("Status: ","Goign to do forward or something lol");
+
+
+            encoderDrive(DRIVE_SPEED4,12,9,12,9,5.0);
+            encoderDrive(DRIVE_SPEED3,-4,-4,-4,-4,2.5);
+            sleep(500);
+            encoderDrive(DRIVE_SPEED4,130,130,130,130,5.0);
             encoderDrive(DRIVE_SPEED,2,0,2,0,2.5);
             sleep(500);
             robot.wobblegoaler.setPosition(0.0);
 
             sleep(500);
-            encoderDrive(DRIVE_SPEED2,-53,-53,-53,-53,5.0);
+            encoderDrive(DRIVE_SPEED2,-63,-63,-63,-63,5.0);
             //encoderDrive(DRIVE_SPEED2,-3,-3,-2,-4,5.0);
-            encoderDrive(DRIVE_SPEED2,25,-25,-25,25,5.0);
+            encoderDrive(DRIVE_SPEED2,30,-30,-30,30,5.0);
 
 
         }else if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.NONE) {
-
+            phoneCam.stopStreaming();
             phoneCam.closeCameraDeviceAsync(new OpenCvCamera.AsyncCameraCloseListener() {
                 @Override
                 public void onClose() {
                     //phoneCam.stopStreaming();
                 }
             });
-            encoderDrive(DRIVE_SPEED4,40,-40,-40,40,5.0);
-            encoderDrive(DRIVE_SPEED4,72,72,72,72,5.0);
+            sleep(750);
+
+
+            encoderDrive(DRIVE_SPEED4,42,-42,-42,42,5.0);
+            sleep(500);
+            encoderDrive(DRIVE_SPEED2,10,7,10,7,5.0);
+            encoderDrive(DRIVE_SPEED3,-4,-4,-4,-4,2.5);
+            encoderDrive(DRIVE_SPEED4,69,69,69,69,5.0);
             encoderDrive(DRIVE_SPEED4,-1.5,-1.5,-1.5,-1.5,5.0);
             sleep(500);
             robot.wobblegoaler.setPosition(0.0);
@@ -232,25 +253,30 @@ public class RedSideRight extends LinearOpMode {
             sleep(500);
 
 
-            encoderDrive(DRIVE_SPEED2,20,-20,-20,20,5.0);
+            encoderDrive(DRIVE_SPEED4,27,-27,-27,27,5.0);
             encoderDrive(DRIVE_SPEED4,3,3,3,3,5.0);
 
 
         }
 
         //Go to place to shoot rings
-        encoderDrive(DRIVE_SPEED,-40,40,40,-40,5.0);
+        encoderDrive(DRIVE_SPEED,-45,45,45,-45,5.0);
         encoderDrive(DRIVE_SPEED2,-25,-25,-25,-25,5.0);
         sleep(1000);
         for(int i=0;i<2;i++){
+
+            robot.shooterone.setPower(1.0);
+            robot.shootertwo.setPower(1.0);
+            sleep(1000);
+
             robot.intakepusher.setPosition(0.0);
             sleep(500);
             robot.intakepusher.setPosition(1.0);
             sleep(500);
 
-            robot.shooterone.setPower(1.0);
-            robot.shootertwo.setPower(1.0);
-            sleep(3000);
+            sleep(2000);
+
+
         }
         encoderDrive(DRIVE_SPEED4,19,19,19,19,5.0);
 
