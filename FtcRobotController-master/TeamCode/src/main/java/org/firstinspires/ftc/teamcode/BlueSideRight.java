@@ -168,12 +168,9 @@ public class BlueSideRight extends LinearOpMode {
         if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.ONE) {
 
 
-            phoneCam.closeCameraDeviceAsync(new OpenCvCamera.AsyncCameraCloseListener() {
-                @Override
-                public void onClose() {
-                    //phoneCam.stopStreaming();
-                }
-            });
+            phoneCam.stopStreaming();
+            phoneCam.closeCameraDevice();
+
             sleep(500);
             encoderDrive(DRIVE_SPEED4,-29,29,29,-29,5.0);
             encoderDrive(DRIVE_SPEED4,100,100,100,100,5.0);
@@ -192,12 +189,9 @@ public class BlueSideRight extends LinearOpMode {
 
         } else if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.FOUR) {
 
-            phoneCam.closeCameraDeviceAsync(new OpenCvCamera.AsyncCameraCloseListener() {
-                @Override
-                public void onClose() {
-                    //phoneCam.stopStreaming();
-                }
-            });
+            phoneCam.stopStreaming();
+            phoneCam.closeCameraDevice();
+
             sleep(500);
             encoderDrive(DRIVE_SPEED4,-37,37,37,-37,5.0);
             encoderDrive(DRIVE_SPEED4,120,120,120,120,5.0);
@@ -213,12 +207,9 @@ public class BlueSideRight extends LinearOpMode {
 
         }else if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.NONE) {
 
-            phoneCam.closeCameraDeviceAsync(new OpenCvCamera.AsyncCameraCloseListener() {
-                @Override
-                public void onClose() {
-                    //phoneCam.stopStreaming();
-                }
-            });
+            phoneCam.stopStreaming();
+            phoneCam.closeCameraDevice();
+            
             sleep(500);
             encoderDrive(DRIVE_SPEED4,-36,36,36,-36,5.0);
             encoderDrive(DRIVE_SPEED4,75,75,75,75,5.0);
