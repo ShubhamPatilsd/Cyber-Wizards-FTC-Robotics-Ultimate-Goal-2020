@@ -468,7 +468,7 @@ public class RedSideLeft extends LinearOpMode {
                 position = SkystoneDeterminationPipeline.RingPosition.FOUR;
             }else if (avg1 > ONE_RING_THRESHOLD){
                 position = SkystoneDeterminationPipeline.RingPosition.ONE;
-            }else{
+            }else if(avg1 < 135){
                 position = SkystoneDeterminationPipeline.RingPosition.NONE;
             }
 
