@@ -161,19 +161,27 @@ public class RedSideRight extends LinearOpMode {
         robot.frontright.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         robot.downleft.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         robot.downright.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+        //Goes forward at start
         encoderDrive(DRIVE_SPEED,20,20,20,20,5.0);
+        //Strafes left
         encoderDrive(DRIVE_SPEED2,-22,22,22,-22,5.0);
+        //Strafes a bit more with a slower speed
         encoderDrive(DRIVE_SPEED3,-2.5,2.5,2.5,-2.5,1.0);
+        //Rotating the robot just a bit to get it in a position to detect rings
         encoderDrive(DRIVE_SPEED,-0.25,1,-0.25,1,5.0);
 
-        //encoderDrive(DRIVE_SPEED4,0,46,0,46,5.0);
 
 
-        //Add this to other programs
+
+        //Sleeps to let program detect rings
         sleep(2500);
 
+        SkystoneDeterminationPipeline.RingPosition positionCopy = pipeline.position;
 
-        if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.ONE) {
+
+        //If it detects one ring
+        if (positionCopy == SkystoneDeterminationPipeline.RingPosition.ONE) {
             phoneCam.stopStreaming();
 
             phoneCam.closeCameraDevice();
@@ -202,7 +210,7 @@ public class RedSideRight extends LinearOpMode {
 
 
 
-        } else if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.FOUR) {
+        } else if (positionCopy == SkystoneDeterminationPipeline.RingPosition.FOUR) {
             phoneCam.stopStreaming();
             phoneCam.closeCameraDevice();
             sleep(750);
@@ -228,7 +236,7 @@ public class RedSideRight extends LinearOpMode {
             encoderDrive(DRIVE_SPEED3,-8,-8,-8,-8,2.5);
 
 
-        }else if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.NONE) {
+        }else if (positionCopy == SkystoneDeterminationPipeline.RingPosition.NONE) {
             phoneCam.stopStreaming();
             phoneCam.closeCameraDevice();
             sleep(750);
