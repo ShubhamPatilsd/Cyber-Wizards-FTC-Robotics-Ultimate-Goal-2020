@@ -157,10 +157,10 @@ public class RedSideLeft extends LinearOpMode {
         robot.downright.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         encoderDrive(DRIVE_SPEED,18,18,18,18,5.0);
         encoderDrive(DRIVE_SPEED4,22,-22,-22,22,5.0);
-        encoderDrive(DRIVE_SPEED3,4,-4,-4,4,1.0);
+        encoderDrive(DRIVE_SPEED3,6,-6,-6,6,1.0);
         encoderDrive(DRIVE_SPEED,6.5,0.5,6.5,0.5,1.0);
         sleep(500);
-        encoderDrive(DRIVE_SPEED,-4.5,-4.5,-4.5,-4.5,5.0);
+        encoderDrive(DRIVE_SPEED,-5,-5,-5,-5,5.0);
 
 
         //encoderDrive(DRIVE_SPEED4,0,46,0,46,5.0);
@@ -183,7 +183,7 @@ public class RedSideLeft extends LinearOpMode {
             sleep(750);
             encoderDrive(DRIVE_SPEED4,37,-37,-37,37,5.0);
             sleep(500);
-            encoderDrive(DRIVE_SPEED,18,7,18,7,2.5);
+            encoderDrive(DRIVE_SPEED,15.5,7,15.5,7,2.5);
             encoderDrive(DRIVE_SPEED3,-4,-4,-4,-4,2.5);
             encoderDrive(DRIVE_SPEED4,100,100,100,100,5.0);
 
