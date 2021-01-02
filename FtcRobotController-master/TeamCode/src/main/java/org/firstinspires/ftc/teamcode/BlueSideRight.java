@@ -209,7 +209,7 @@ public class BlueSideRight extends LinearOpMode {
 
             phoneCam.stopStreaming();
             phoneCam.closeCameraDevice();
-            
+
             sleep(500);
             encoderDrive(DRIVE_SPEED4,-36,36,36,-36,5.0);
             encoderDrive(DRIVE_SPEED4,75,75,75,75,5.0);
