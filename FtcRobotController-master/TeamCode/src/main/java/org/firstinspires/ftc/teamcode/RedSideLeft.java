@@ -155,9 +155,13 @@ public class RedSideLeft extends LinearOpMode {
         robot.frontright.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         robot.downleft.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         robot.downright.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        encoderDrive(DRIVE_SPEED,26,26,26,26,5.0);
+        encoderDrive(DRIVE_SPEED,18,18,18,18,5.0);
         encoderDrive(DRIVE_SPEED4,22,-22,-22,22,5.0);
-        encoderDrive(DRIVE_SPEED,0,2,0,2,5.0);
+        encoderDrive(DRIVE_SPEED3,4,-4,-4,4,1.0);
+        encoderDrive(DRIVE_SPEED,6.5,0.5,6.5,0.5,1.0);
+        sleep(500);
+        encoderDrive(DRIVE_SPEED,-4.5,-4.5,-4.5,-4.5,5.0);
+
 
         //encoderDrive(DRIVE_SPEED4,0,46,0,46,5.0);
 
@@ -179,20 +183,23 @@ public class RedSideLeft extends LinearOpMode {
             sleep(750);
             encoderDrive(DRIVE_SPEED4,37,-37,-37,37,5.0);
             sleep(500);
-            encoderDrive(DRIVE_SPEED,12.5,7,12.5,7,2.5);
+            encoderDrive(DRIVE_SPEED,18,7,18,7,2.5);
             encoderDrive(DRIVE_SPEED3,-4,-4,-4,-4,2.5);
             encoderDrive(DRIVE_SPEED4,100,100,100,100,5.0);
 
-            encoderDrive(DRIVE_SPEED4,-36,36,36,-36,5.0);
+            encoderDrive(DRIVE_SPEED2,-46,46,46,-46,5.0);
+            encoderDrive(DRIVE_SPEED2,1,6,1,6,2.5);
             sleep(500);
             robot.wobblegoaler.setPosition(0.0);
 
             sleep(500);
-            encoderDrive(DRIVE_SPEED4,50,-50,-50,50,5.0);
+            encoderDrive(DRIVE_SPEED2,-27,-27,-27,-27,5.0);
+
+            encoderDrive(DRIVE_SPEED,50,-50,-50,50,5.0);
             encoderDrive(DRIVE_SPEED4,4.5,0,4.5,0,5.0);
-            encoderDrive(DRIVE_SPEED2,-32,-32,-32,-32,5.0);
-            encoderDrive(DRIVE_SPEED2,22,-22,-22,22,5.0);
-            encoderDrive(DRIVE_SPEED4,3,3,3,3,5.0);
+            encoderDrive(DRIVE_SPEED3,33,-33,-33,33,5.0);
+            encoderDrive(DRIVE_SPEED4,7,2.5,7,2.5,5.0);
+            encoderDrive(DRIVE_SPEED3,-22,-22,-22,-22,2.5);
 
 
 
@@ -206,23 +213,26 @@ public class RedSideLeft extends LinearOpMode {
                 }
             });
             sleep(750);
-            encoderDrive(DRIVE_SPEED4,30,-30,-30,30,5.0);
+            encoderDrive(DRIVE_SPEED4,32,-32,-32,32,5.0);
             sleep(500);
             telemetry.addData("Status: ","Goign to do forward or something lol");
 
 
-            encoderDrive(DRIVE_SPEED4,12,9,12,9,5.0);
+            encoderDrive(DRIVE_SPEED4,16.5,9,16.5,9,5.0);
             encoderDrive(DRIVE_SPEED3,-4,-4,-4,-4,2.5);
             sleep(500);
-            encoderDrive(DRIVE_SPEED4,130,130,130,130,5.0);
-            encoderDrive(DRIVE_SPEED,2,0,2,0,2.5);
+            encoderDrive(DRIVE_SPEED5,140,140,140,140,5.0);
+            encoderDrive(DRIVE_SPEED2,-5,5,5,-5,5.0);
+            encoderDrive(DRIVE_SPEED2,1,3.5,1,3.5,5.0);
+
             sleep(500);
             robot.wobblegoaler.setPosition(0.0);
 
             sleep(500);
-            encoderDrive(DRIVE_SPEED2,-63,-63,-63,-63,5.0);
+            encoderDrive(DRIVE_SPEED2,-67,-67,-67,-67,5.0);
             //encoderDrive(DRIVE_SPEED2,-3,-3,-2,-4,5.0);
-            encoderDrive(DRIVE_SPEED2,30,-30,-30,30,5.0);
+            encoderDrive(DRIVE_SPEED3,43,-37,-43,37,5.0);
+            encoderDrive(DRIVE_SPEED3,-12,-12,-12,-12,2.5);
 
 
         }else if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.NONE) {
@@ -238,30 +248,34 @@ public class RedSideLeft extends LinearOpMode {
 
             encoderDrive(DRIVE_SPEED4,42,-42,-42,42,5.0);
             sleep(500);
-            encoderDrive(DRIVE_SPEED2,10,7,10,7,5.0);
+            encoderDrive(DRIVE_SPEED2,17.5,7,17.5,7,5.0);
             encoderDrive(DRIVE_SPEED3,-4,-4,-4,-4,2.5);
-            encoderDrive(DRIVE_SPEED4,69,69,69,69,5.0);
-            encoderDrive(DRIVE_SPEED4,-1.5,-1.5,-1.5,-1.5,5.0);
+            encoderDrive(DRIVE_SPEED5,64,64,64,64,5.0);
+            encoderDrive(DRIVE_SPEED3,-17,17,17,-17,5.0);
+            encoderDrive(DRIVE_SPEED2,4,0.5,4,0.5,5.0);
+
+
+
             sleep(500);
             robot.wobblegoaler.setPosition(0.0);
 
             sleep(500);
 
-
-            encoderDrive(DRIVE_SPEED4,27,-27,-27,27,5.0);
-            encoderDrive(DRIVE_SPEED4,3,3,3,3,5.0);
+            encoderDrive(DRIVE_SPEED3,15,-15,-15,15,5.0);
 
 
         }
 
         //Go to place to shoot rings
-        encoderDrive(DRIVE_SPEED,-45,45,45,-45,5.0);
+
         encoderDrive(DRIVE_SPEED2,-25,-25,-25,-25,5.0);
+        encoderDrive(DRIVE_SPEED3,15,-15,-15,15,5.0);
+
         sleep(1000);
         for(int i=0;i<2;i++){
 
-            robot.shooterone.setPower(1.0);
-            robot.shootertwo.setPower(1.0);
+            robot.shooterone.setPower(0.8);
+            robot.shootertwo.setPower(0.8);
             sleep(1000);
 
             robot.intakepusher.setPosition(0.0);
@@ -406,7 +420,7 @@ public class RedSideLeft extends LinearOpMode {
         /*
          * The core values which define the location and size of the sample regions
          */
-        static final Point REGION1_TOPLEFT_ANCHOR_POINT = new Point(110,25);
+        static final Point REGION1_TOPLEFT_ANCHOR_POINT = new Point(110,15);
 
         static final int REGION_WIDTH = 60;
         static final int REGION_HEIGHT = 105;
