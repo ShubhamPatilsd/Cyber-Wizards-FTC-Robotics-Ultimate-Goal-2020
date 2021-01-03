@@ -195,10 +195,12 @@ public class RedSideRight extends LinearOpMode {
 
             encoderDrive(DRIVE_SPEED2,-46,46,46,-46,5.0);
             encoderDrive(DRIVE_SPEED2,1,6,1,6,2.5);
-            sleep(500);
+            robot.wobblegoalarm.setPower(-0.5);
+            sleep(1000);
             robot.wobblegoaler.setPosition(0.0);
-
             sleep(500);
+            robot.wobblegoalarm.setPower(0.5);
+            sleep(1000);
             encoderDrive(DRIVE_SPEED2,-27,-27,-27,-27,5.0);
 
             encoderDrive(DRIVE_SPEED,50,-50,-50,50,5.0);
@@ -226,10 +228,12 @@ public class RedSideRight extends LinearOpMode {
             encoderDrive(DRIVE_SPEED2,-5,5,5,-5,5.0);
             encoderDrive(DRIVE_SPEED2,1,3.5,1,3.5,5.0);
 
-            sleep(500);
+            robot.wobblegoalarm.setPower(-0.5);
+            sleep(1000);
             robot.wobblegoaler.setPosition(0.0);
-
             sleep(500);
+            robot.wobblegoalarm.setPower(0.5);
+            sleep(1000);
             encoderDrive(DRIVE_SPEED2,-67,-67,-67,-67,5.0);
             //encoderDrive(DRIVE_SPEED2,-3,-3,-2,-4,5.0);
             encoderDrive(DRIVE_SPEED3,43,-37,-43,37,5.0);
@@ -244,17 +248,18 @@ public class RedSideRight extends LinearOpMode {
 
             encoderDrive(DRIVE_SPEED4,42,-42,-42,42,5.0);
             sleep(500);
-            encoderDrive(DRIVE_SPEED2,16,7,16,7,5.0);
+            encoderDrive(DRIVE_SPEED2,14,7,14,7,5.0);
             encoderDrive(DRIVE_SPEED3,-4,-4,-4,-4,2.5);
             encoderDrive(DRIVE_SPEED5,64,64,64,64,5.0);
             encoderDrive(DRIVE_SPEED3,-15,15,15,-15,5.0);
 
 
-
-            sleep(500);
+            robot.wobblegoalarm.setPower(-0.5);
+            sleep(1000);
             robot.wobblegoaler.setPosition(0.0);
-
             sleep(500);
+            robot.wobblegoalarm.setPower(0.5);
+            sleep(1000);
 
             encoderDrive(DRIVE_SPEED3,15,-15,-15,15,5.0);
             encoderDrive(DRIVE_SPEED4,5,2.5,5,2.5,5.0);
