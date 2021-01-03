@@ -261,9 +261,9 @@ public class RedSideRight extends LinearOpMode {
             robot.wobblegoalarm.setPower(0.5);
             sleep(1000);
 
-            encoderDrive(DRIVE_SPEED3,15,-15,-15,15,5.0);
-            encoderDrive(DRIVE_SPEED,-10,10,10,-10,5.0);
-            encoderDrive(DRIVE_SPEED4,7,2.5,7,2.5,5.0);
+            encoderDrive(DRIVE_SPEED3,10,-10,-10,10,5.0);
+            encoderDrive(DRIVE_SPEED,-12,12,12,-12,5.0);
+            encoderDrive(DRIVE_SPEED4,7.5,2.5,7.5,2.5,5.0);
 
 
         }
