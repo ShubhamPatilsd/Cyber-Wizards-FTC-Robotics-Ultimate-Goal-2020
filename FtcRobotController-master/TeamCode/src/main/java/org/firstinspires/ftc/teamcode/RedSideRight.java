@@ -262,7 +262,7 @@ public class RedSideRight extends LinearOpMode {
             sleep(1000);
 
             encoderDrive(DRIVE_SPEED3,15,-15,-15,15,5.0);
-            encoderDrive(DRIVE_SPEED,-5,5,5,-5,5.0);
+            encoderDrive(DRIVE_SPEED,-10,10,10,-10,5.0);
             encoderDrive(DRIVE_SPEED4,5,2.5,5,2.5,5.0);
 
 
