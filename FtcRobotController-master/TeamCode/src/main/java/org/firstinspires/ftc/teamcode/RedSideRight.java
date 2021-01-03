@@ -177,11 +177,11 @@ public class RedSideRight extends LinearOpMode {
         //Sleeps to let program detect rings
         sleep(2500);
 
-        SkystoneDeterminationPipeline.RingPosition positionCopy = pipeline.position;
+
 
 
         //If it detects one ring
-        if (positionCopy == SkystoneDeterminationPipeline.RingPosition.ONE) {
+        if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.ONE) {
             phoneCam.stopStreaming();
 
             phoneCam.closeCameraDevice();
@@ -210,7 +210,7 @@ public class RedSideRight extends LinearOpMode {
 
 
 
-        } else if (positionCopy == SkystoneDeterminationPipeline.RingPosition.FOUR) {
+        } else if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.FOUR) {
             phoneCam.stopStreaming();
             phoneCam.closeCameraDevice();
             sleep(750);
@@ -236,7 +236,7 @@ public class RedSideRight extends LinearOpMode {
             encoderDrive(DRIVE_SPEED3,-8,-8,-8,-8,2.5);
 
 
-        }else if (positionCopy == SkystoneDeterminationPipeline.RingPosition.NONE) {
+        }else if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.NONE) {
             phoneCam.stopStreaming();
             phoneCam.closeCameraDevice();
             sleep(750);
