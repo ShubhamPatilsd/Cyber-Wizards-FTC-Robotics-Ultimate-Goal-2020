@@ -361,7 +361,7 @@ public class BlueSideLeft extends LinearOpMode {
         /*
          * The core values which define the location and size of the sample regions
          */
-        static final Point REGION1_TOPLEFT_ANCHOR_POINT = new Point(110,25);
+        static final Point REGION1_TOPLEFT_ANCHOR_POINT = new Point(110,50);
 
         static final int REGION_WIDTH = 60;
         static final int REGION_HEIGHT = 105;

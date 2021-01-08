@@ -193,7 +193,7 @@ public class RedSideRight extends LinearOpMode {
             encoderDrive(DRIVE_SPEED3,-4,-4,-4,-4,2.5);
             encoderDrive(DRIVE_SPEED4,100,100,100,100,5.0);
 
-            encoderDrive(DRIVE_SPEED2,-46,46,46,-46,5.0);
+            encoderDrive(DRIVE_SPEED2,-51,51,51,-51,5.0);
             encoderDrive(DRIVE_SPEED2,1,6,1,6,2.5);
             robot.wobblegoalarm.setPower(-0.5);
             sleep(1000);
@@ -201,9 +201,11 @@ public class RedSideRight extends LinearOpMode {
             sleep(500);
             robot.wobblegoalarm.setPower(0.5);
             sleep(1000);
+
+            encoderDrive(DRIVE_SPEED2,-10,10,10,-10,5.0);
             encoderDrive(DRIVE_SPEED2,-27,-27,-27,-27,5.0);
 
-            encoderDrive(DRIVE_SPEED,50,-50,-50,50,5.0);
+            encoderDrive(DRIVE_SPEED,60,-60,-60,60,5.0);
             encoderDrive(DRIVE_SPEED4,4.5,0,4.5,0,5.0);
             encoderDrive(DRIVE_SPEED3,25,-25,-25,25,5.0);
             encoderDrive(DRIVE_SPEED4,7,2.5,7,2.5,5.0);
@@ -225,8 +227,9 @@ public class RedSideRight extends LinearOpMode {
             encoderDrive(DRIVE_SPEED3,-4,-4,-4,-4,2.5);
             sleep(500);
             encoderDrive(DRIVE_SPEED5,140,140,140,140,5.0);
-            encoderDrive(DRIVE_SPEED2,-5,5,5,-5,5.0);
-            encoderDrive(DRIVE_SPEED2,1,3.5,1,3.5,5.0);
+            encoderDrive(DRIVE_SPEED2,-11,11,11,-11,5.0);
+            encoderDrive(DRIVE_SPEED2,1.5,3.5,1.5,3.5,5.0);
+            encoderDrive(DRIVE_SPEED,-30,30,30,-30,5.0);
 
             robot.wobblegoalarm.setPower(-0.5);
             sleep(1000);
@@ -234,7 +237,9 @@ public class RedSideRight extends LinearOpMode {
             sleep(500);
             robot.wobblegoalarm.setPower(0.5);
             sleep(1000);
-            encoderDrive(DRIVE_SPEED2,-67,-67,-67,-67,5.0);
+            encoderDrive(DRIVE_SPEED2,-33.5,-33.5,-33.5,-33.5,5.0);
+            encoderDrive(DRIVE_SPEED,20,-20,-20,20,5.0);
+            encoderDrive(DRIVE_SPEED2,-33.5,-33.5,-33.5,-33.5,5.0);
             //encoderDrive(DRIVE_SPEED2,-3,-3,-2,-4,5.0);
             encoderDrive(DRIVE_SPEED3,43,-37,-43,37,5.0);
             encoderDrive(DRIVE_SPEED3,-8,-8,-8,-8,2.5);
@@ -420,7 +425,7 @@ public class RedSideRight extends LinearOpMode {
         /*
          * The core values which define the location and size of the sample regions
          */
-        static final Point REGION1_TOPLEFT_ANCHOR_POINT = new Point(110,15);
+        static final Point REGION1_TOPLEFT_ANCHOR_POINT = new Point(110,50);
 
         static final int REGION_WIDTH = 60;
         static final int REGION_HEIGHT = 105;
