@@ -33,6 +33,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
+import static java.lang.Math.*;
 
 //This is test
 /**
@@ -159,31 +160,51 @@ public class OneControllerTeleOp extends LinearOpMode {
             //Make it for omni-directional movement. It is confusing but once you run through it, it becomes easier
             double forward = -gamepad1.left_stick_y; // these are desired speeds
             double right = gamepad1.left_stick_x;
-            double clockwise = gamepad1.right_stick_x;
+            double clockwise=0;
+
+            if(gamepad1.right_stick_x<0.5 && gamepad1.right_stick_x>-0.5) {
+                if (gamepad1.right_stick_y > 0.0) {
+                    robot.sucker.setPower(1.0);
+                } else if (gamepad1.right_stick_y < 0.0) {
+                    robot.sucker.setPower(-1.0);
+                } else {
+                    robot.sucker.setPower(0.0);
+                }
+            }else{
+                clockwise = gamepad1.right_stick_x;
+            }
+
+
+
+
+
+
 
             //We do this for slowdown and fine movements
-            double slowdown=1.0-gamepad1.left_trigger;
+
 
             double lf = forward + right + clockwise;
             double lb = forward - right + clockwise;
             double rf = forward - right - clockwise;
             double rb = forward + right - clockwise;
 
+
+            double max = max(1.0, max(abs(lf), max(abs(lb), max(abs(rf), abs(rb)))));
+            lf /= max;
+            lb /= max;
+            rf /= max;
+            rb /= max;
+
             //Where all the ingredients come together (we set the power here)
-            robot.frontleft.setPower(lf*slowdown);
-            robot.downleft.setPower(lb*slowdown);
-            robot.frontright.setPower(rf*slowdown);
-            robot.downright.setPower(rb*slowdown);
+            robot.frontleft.setPower(lf);
+            robot.downleft.setPower(lb);
+            robot.frontright.setPower(rf);
+            robot.downright.setPower(rb);
 
             /*If the gamepad's right stick y value is greater than zero, give the sucker power.
             If the y value is less than zero, give it negative power. If the y value is zero, we give it no power. */
-            if(gamepad1.right_stick_y>0.0){
-                robot.sucker.setPower(1.0);
-            }else if(gamepad1.right_stick_y<0.0){
-                robot.sucker.setPower(-1.0);
-            }else{
-                robot.sucker.setPower(0.0);
-            }
+
+
 
             //Set the wobble goal's arm to the value of the y value on gamepad2's left stick. (It is negative because the y value is negative for some reason)
             //robot.wobblegoalarm.setPower(-gamepad2.left_stick_y/1.5);
