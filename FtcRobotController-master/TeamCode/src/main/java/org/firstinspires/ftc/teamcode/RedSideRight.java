@@ -163,13 +163,13 @@ public class RedSideRight extends LinearOpMode {
         robot.downright.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
         //Goes forward at start
-        encoderDrive(DRIVE_SPEED,20,20,20,20,5.0);
+        encoderDrive(DRIVE_SPEED,18.5,18.5,18.5,18.5,5.0);
         //Strafes left
-        encoderDrive(DRIVE_SPEED2,-21,21,21,-21,5.0);
+        encoderDrive(DRIVE_SPEED2,-22,22,22,-22,5.0);
         //Strafes a bit more with a slower speed
         encoderDrive(DRIVE_SPEED3,-2.5,1,2.5,-2.5,1.0);
         //Rotating the robot just a bit to get it in a position to detect rings
-        encoderDrive(DRIVE_SPEED,-0.25,1,-0.25,1,5.0);
+        encoderDrive(DRIVE_SPEED,-0.25,7.5,-0.25,7.5,5.0);
 
 
 
@@ -189,7 +189,7 @@ public class RedSideRight extends LinearOpMode {
             sleep(750);
             encoderDrive(DRIVE_SPEED4,37,-37,-37,37,5.0);
             sleep(500);
-            encoderDrive(DRIVE_SPEED,14,7,14,7,2.5);
+            encoderDrive(DRIVE_SPEED,17.5,7,17.5,7,2.5);
             encoderDrive(DRIVE_SPEED3,-4,-4,-4,-4,2.5);
             encoderDrive(DRIVE_SPEED4,110,110,110,110,5.0);
 
@@ -223,7 +223,7 @@ public class RedSideRight extends LinearOpMode {
             telemetry.addData("Status: ","Goign to do forward or something lol");
 
 
-            encoderDrive(DRIVE_SPEED4,14,9,14,9,5.0);
+            encoderDrive(DRIVE_SPEED4,16,9,16,9,5.0);
             encoderDrive(DRIVE_SPEED3,-4,-4,-4,-4,2.5);
             sleep(500);
             encoderDrive(DRIVE_SPEED5,145,145,145,145,5.0);
@@ -254,7 +254,7 @@ public class RedSideRight extends LinearOpMode {
 
             encoderDrive(DRIVE_SPEED4,42,-42,-42,42,5.0);
             sleep(500);
-            encoderDrive(DRIVE_SPEED2,13.5,7,13.5,7,5.0);
+            encoderDrive(DRIVE_SPEED2,15.5,7,15.5,7,5.0);
             encoderDrive(DRIVE_SPEED3,-4,-4,-4,-4,2.5);
             encoderDrive(DRIVE_SPEED5,78,78,78,78,5.0);
             encoderDrive(DRIVE_SPEED3,-15,15,15,-15,5.0);
@@ -428,7 +428,7 @@ public class RedSideRight extends LinearOpMode {
         /*
          * The core values which define the location and size of the sample regions
          */
-        static final Point REGION1_TOPLEFT_ANCHOR_POINT = new Point(110,20);
+        static final Point REGION1_TOPLEFT_ANCHOR_POINT = new Point(110,15);
 
         static final int REGION_WIDTH = 60;
         static final int REGION_HEIGHT = 105;
