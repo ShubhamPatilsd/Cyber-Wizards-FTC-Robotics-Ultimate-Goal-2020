@@ -77,7 +77,7 @@ import org.openftc.easyopencv.OpenCvPipeline;
 public class BlueSideRight extends LinearOpMode {
 
     /* Declare OpMode members. */
-    HardwareTest robot   = new HardwareTest();   // Use a Pushbot's hardware
+    HardwareTest2 robot   = new HardwareTest2();   // Use a Pushbot's hardware
     private ElapsedTime runtime = new ElapsedTime();
     OpenCvCamera phoneCam;
     SkystoneDeterminationPipeline pipeline;
@@ -154,76 +154,52 @@ public class BlueSideRight extends LinearOpMode {
         robot.frontright.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         robot.downleft.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         robot.downright.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        encoderDrive(DRIVE_SPEED,28,28,28,28,5.0);
-        encoderDrive(DRIVE_SPEED,-20,20,20,-20,5.0);
-        encoderDrive(DRIVE_SPEED,0,1,0,1,5.0);
-
-        //encoderDrive(DRIVE_SPEED4,0,46,0,46,5.0);
-
-
-
         sleep(1000);
 
         phoneCam.stopStreaming();
+        sleep(500);
         if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.ONE) {
-
-
             phoneCam.stopStreaming();
             phoneCam.closeCameraDevice();
+            encoderDrive(DRIVE_SPEED,145,145,145,145,5.0);
+            encoderDrive(DRIVE_SPEED,60,-60,-60,60,5.0);
 
-            sleep(500);
-            encoderDrive(DRIVE_SPEED4,-29,29,29,-29,5.0);
-            encoderDrive(DRIVE_SPEED4,100,100,100,100,5.0);
-            encoderDrive(DRIVE_SPEED4,36,-36,-36,36,5.0);
-            sleep(500);
+            encoderDrive(DRIVE_SPEED,-2,1,-2,1,5.0);
+            encoderDrive(DRIVE_SPEED,5,-5,-5,5,5.0);
+            robot.wobblegoalarm.setPower(-0.45);
+            sleep(600);
             robot.wobblegoaler.setPosition(0.0);
-
-            sleep(500);
-            encoderDrive(DRIVE_SPEED4,-42,42,42,-42,5.0);
-            encoderDrive(DRIVE_SPEED4,0,4.5,0,4.5,5.0);
-            encoderDrive(DRIVE_SPEED2,-27,-27,-27,-32,5.0);
-            encoderDrive(DRIVE_SPEED4,-24,24,24,-24,5.0);
+            encoderDrive(DRIVE_SPEED,5,-5,-5,5,5.0);
+            robot.wobblegoaler.setPosition(1.0);
 
 
 
 
         } else if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.FOUR) {
-
             phoneCam.stopStreaming();
             phoneCam.closeCameraDevice();
-
-            sleep(500);
-            encoderDrive(DRIVE_SPEED4,-37,37,37,-37,5.0);
-            encoderDrive(DRIVE_SPEED4,120,120,120,120,5.0);
-            encoderDrive(DRIVE_SPEED,0,4,0,4,2.5);
-            sleep(500);
+            encoderDrive(DRIVE_SPEED,180,180,180,180,5.0);
+            robot.wobblegoalarm.setPower(-0.45);
+            sleep(600);
             robot.wobblegoaler.setPosition(0.0);
-
-            sleep(500);
-            encoderDrive(DRIVE_SPEED2,-51,-51,-51,-51,5.0);
-            encoderDrive(DRIVE_SPEED2,-35,35,35,-35,5.0);
-            encoderDrive(DRIVE_SPEED4,7,7,7,7,5.0);
-
+            encoderDrive(DRIVE_SPEED,10,-10,-10,10,5.0);
+            robot.wobblegoaler.setPosition(1.0);
 
         }else if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.NONE) {
-
             phoneCam.stopStreaming();
             phoneCam.closeCameraDevice();
-
-            sleep(500);
-            encoderDrive(DRIVE_SPEED4,-36,36,36,-36,5.0);
-            encoderDrive(DRIVE_SPEED4,75,75,75,75,5.0);
-            encoderDrive(DRIVE_SPEED3,-3,-3,-3,-3, 2.5);
-            sleep(500);
+            encoderDrive(DRIVE_SPEED,105,105,105,105,5.0);
+            encoderDrive(DRIVE_SPEED,5,-5,-5,5,5.0);
+            robot.wobblegoalarm.setPower(-0.45);
+            sleep(600);
             robot.wobblegoaler.setPosition(0.0);
-
-            sleep(500);
-            encoderDrive(DRIVE_SPEED4,-20,20,20,-20,5.0);
+            encoderDrive(DRIVE_SPEED,5,-5,-5,5,5.0);
+            robot.wobblegoaler.setPosition(1.0);
 
 
         }
 
-        encoderDrive(DRIVE_SPEED2,40,-40,-40,40,5.0);
+        /*encoderDrive(DRIVE_SPEED2,40,-40,-40,40,5.0);
         encoderDrive(DRIVE_SPEED2,-25,-25,-25,-25,5.0);
         sleep(1000);
         for(int i=0;i<2;i++){
@@ -237,6 +213,8 @@ public class BlueSideRight extends LinearOpMode {
             sleep(3000);
         }
         encoderDrive(DRIVE_SPEED4,24,24,24,24,5.0);
+
+         */
 
 
 
@@ -367,10 +345,10 @@ public class BlueSideRight extends LinearOpMode {
         /*
          * The core values which define the location and size of the sample regions
          */
-        static final Point REGION1_TOPLEFT_ANCHOR_POINT = new Point(110,20);
+        static final Point REGION1_TOPLEFT_ANCHOR_POINT = new Point(215,30);
 
-        static final int REGION_WIDTH = 60;
-        static final int REGION_HEIGHT = 105;
+        static final int REGION_WIDTH = 25;
+        static final int REGION_HEIGHT = 35;
 
         final int FOUR_RING_THRESHOLD = 150;
         final int ONE_RING_THRESHOLD = 135;
