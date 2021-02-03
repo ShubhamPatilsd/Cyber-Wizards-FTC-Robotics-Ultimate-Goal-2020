@@ -98,12 +98,12 @@ public class OneControllerTeleOp2 extends LinearOpMode {
 
             telemetry.addData("Status", "Run Time: " + runtime.toString());
             telemetry.update();
-
+            /*
             double forward = -gamepad1.left_stick_y; // these are desired speeds
             double right = gamepad1.left_stick_x;
             double clockwise=0;
 
-           /* if(gamepad1.right_stick_x<0.5 && gamepad1.right_stick_x>-0.5) {
+            if(gamepad1.right_stick_x<0.5 && gamepad1.right_stick_x>-0.5) {
                 if (gamepad1.right_stick_y > 0.0) {
                     robot.sucker.setPower(1.0);
                 } else if (gamepad1.right_stick_y < 0.0) {
@@ -113,7 +113,7 @@ public class OneControllerTeleOp2 extends LinearOpMode {
                 }
             }else{
                 clockwise = gamepad1.right_stick_x;
-            }*/
+            }
 
 
 
@@ -141,7 +141,7 @@ public class OneControllerTeleOp2 extends LinearOpMode {
             robot.downleft.setPower(lb);
             robot.frontright.setPower(rf);
             robot.downright.setPower(rb);
-
+            */
             /*If the gamepad's right stick y value is greater than zero, give the sucker power.
             If the y value is less than zero, give it negative power. If the y value is zero, we give it no power. */
 
@@ -176,8 +176,6 @@ public class OneControllerTeleOp2 extends LinearOpMode {
                 robot.Launcher.setPosition(0.0);
             }
 
-
-
             if(gamepad2.dpad_up){
                 robot.wobblegoaler.setPosition(0.0);
 
@@ -203,6 +201,53 @@ public class OneControllerTeleOp2 extends LinearOpMode {
                 robot.frontright.setPower(0.0);
             }
 
+
+            if(gamepad1.left_stick_y<0){
+                robot.downleft.setPower(1.0);
+                robot.downright.setPower(1.0);
+                robot.frontleft.setPower(1.0);
+                robot.frontright.setPower(1.0);
+            } else{
+                robot.downleft.setPower(0.0);
+                robot.downright.setPower(0.0);
+                robot.frontleft.setPower(0.0);
+                robot.frontright.setPower(0.0);
+            }
+            if(gamepad1.left_stick_y>0) {
+                robot.downleft.setPower(-1.0);
+                robot.downright.setPower(-1.0);
+                robot.frontleft.setPower(-1.0);
+                robot.frontright.setPower(-1.0);
+            }else{
+                robot.downleft.setPower(0.0);
+                robot.downright.setPower(0.0);
+                robot.frontleft.setPower(0.0);
+                robot.frontright.setPower(0.0);
+            }
+
+
+            if(gamepad1.left_stick_x<0){
+                robot.downleft.setPower(1.0);
+                robot.downright.setPower(-1.0);
+                robot.frontleft.setPower(-1.0);
+                robot.frontright.setPower(1.0);
+            }  else {
+                robot.downleft.setPower(0.0);
+                robot.downright.setPower(0.0);
+                robot.frontleft.setPower(0.0);
+                robot.frontright.setPower(0.0);
+            }
+            if(gamepad1.left_stick_x>0){
+                robot.downleft.setPower(-1.0);
+                robot.downright.setPower(1.0);
+                robot.frontleft.setPower(1.0);
+                robot.frontright.setPower(-1.0);
+            } else {
+                robot.downleft.setPower(0.0);
+                robot.downright.setPower(0.0);
+                robot.frontleft.setPower(0.0);
+                robot.frontright.setPower(0.0);
+            }
 
 
 
