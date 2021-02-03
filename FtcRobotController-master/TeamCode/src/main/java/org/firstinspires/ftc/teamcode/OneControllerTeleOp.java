@@ -53,7 +53,7 @@ import static java.lang.Math.*;
 //@Disabled
 public class OneControllerTeleOp extends LinearOpMode {
 
-    HardwareTest robot=new HardwareTest();
+    HardwareTest2 robot=new HardwareTest2();
     // Declare OpMode members.
     private ElapsedTime runtime = new ElapsedTime();
     /*DcMotor frontleft;
@@ -208,43 +208,40 @@ public class OneControllerTeleOp extends LinearOpMode {
 
             //Set the wobble goal's arm to the value of the y value on gamepad2's left stick. (It is negative because the y value is negative for some reason)
             //robot.wobblegoalarm.setPower(-gamepad2.left_stick_y/1.5);
-            robot.wobblegoalarm.setPower(gamepad1.right_trigger-gamepad1.left_trigger/1.5);
+            robot.wobblegoalarm.setPower(gamepad2.right_trigger-gamepad1.left_trigger/1.5);
 
-
-            //If gamepad2's "a" button is pressed, activate the shooters. Else, put them to rest
-            if(gamepad1.a){
-                robot.shooterone.setPower(-1.0);
-                robot.shootertwo.setPower(-1.0);
-            }else{
-                robot.shooterone.setPower(0.0);
-                robot.shootertwo.setPower(0.0);
+            if (gamepad2.left_stick_y > 0) {
+                robot.Wheelintake.setPower(1.0);
+                robot.sucker.setPower(1.0);
             }
-
-            if(gamepad1.b){
-                robot.intakepusher.setPosition(1.0);
-
-            }else{
-                robot.intakepusher.setPosition(0.0);
+            else{
+                robot.Wheelintake.setPower(0.0);
+                robot.sucker.setPower(0.0);
             }
-
-            if(gamepad1.x){
-                robot.rampservo.setPosition(0.5);
+            if(gamepad2.left_bumper){
+                robot.rampservo.setPosition(0.6);
             }else{
                 robot.rampservo.setPosition(0.0);
             }
-            if(gamepad1.dpad_up){
+            if(gamepad2.right_stick_y < 0){
+                robot.shooterone.setPower(-1.0);
+            }
+            else{
+                robot.shooterone.setPower(0.0);
+            }
+            if(gamepad2.right_bumper){
+                robot.Launcher.setPosition(1.0);
+            }else{
+                robot.Launcher.setPosition(0.0);
+            }
+
+            if(gamepad2.dpad_up){
                 robot.wobblegoaler.setPosition(0.0);
 
 
             }else{
                 robot.wobblegoaler.setPosition(1.0);
 
-            }
-
-            if(gamepad1.y){
-                robot.secondarypusher.setPosition(1.0);
-            }else{
-                robot.secondarypusher.setPosition(0.0);
             }
 
 
