@@ -162,15 +162,22 @@ public class BlueSideRight extends LinearOpMode {
             phoneCam.stopStreaming();
             phoneCam.closeCameraDevice();
             encoderDrive(DRIVE_SPEED,145,145,145,145,5.0);
-            encoderDrive(DRIVE_SPEED,60,-60,-60,60,5.0);
-
+            encoderDrive(DRIVE_SPEED,-1.5,2.5,-1.5,2.5,5.0);
+            encoderDrive(DRIVE_SPEED,80,-80,-80,80,5.0);
+            encoderDrive(DRIVE_SPEED,30,30,30,30,5.0);
             encoderDrive(DRIVE_SPEED,-2,1,-2,1,5.0);
             encoderDrive(DRIVE_SPEED,5,-5,-5,5,5.0);
             robot.wobblegoalarm.setPower(-0.45);
             sleep(600);
             robot.wobblegoaler.setPosition(0.0);
-            encoderDrive(DRIVE_SPEED,5,-5,-5,5,5.0);
+            encoderDrive(DRIVE_SPEED4,10,-10,-10,10,5.0);
+            sleep(500);
             robot.wobblegoaler.setPosition(1.0);
+            encoderDrive(DRIVE_SPEED,1,-2,1,-2,5.0);
+            encoderDrive(DRIVE_SPEED,-40,-40,-40,-40,5.0);
+            encoderDrive(DRIVE_SPEED,-5,5,5,-5,5.0);
+
+
 
 
 
@@ -182,8 +189,18 @@ public class BlueSideRight extends LinearOpMode {
             robot.wobblegoalarm.setPower(-0.45);
             sleep(600);
             robot.wobblegoaler.setPosition(0.0);
-            encoderDrive(DRIVE_SPEED,10,-10,-10,10,5.0);
+            encoderDrive(DRIVE_SPEED4,15,-15,-15,15,5.0);
+            sleep(500);
             robot.wobblegoaler.setPosition(1.0);
+            encoderDrive(DRIVE_SPEED,-2,2.5,-2,2.5,5.0);
+            encoderDrive(DRIVE_SPEED,90,-90,-90,90,5.0);
+            encoderDrive(DRIVE_SPEED,-53,-53,-53,-53,5.0);
+            encoderDrive(DRIVE_SPEED,25,25,25,25,5.0);
+            encoderDrive(DRIVE_SPEED,-1.5,2.5,-1.5,2.5,5.0);
+            encoderDrive(DRIVE_SPEED,-4.5,4.5,4.5,-4.5,5.0);
+
+
+
 
         }else if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.NONE) {
             phoneCam.stopStreaming();
@@ -193,8 +210,15 @@ public class BlueSideRight extends LinearOpMode {
             robot.wobblegoalarm.setPower(-0.45);
             sleep(600);
             robot.wobblegoaler.setPosition(0.0);
-            encoderDrive(DRIVE_SPEED,5,-5,-5,5,5.0);
+            encoderDrive(DRIVE_SPEED4,10,-10,-10,10,5.0);
+            sleep(500);
             robot.wobblegoaler.setPosition(1.0);
+            encoderDrive(DRIVE_SPEED,-2,2.5,-2,2.5,5.0);
+            encoderDrive(DRIVE_SPEED,64,-64,-64,64,5.0);
+            encoderDrive(DRIVE_SPEED,-15,-15,-15,-15,5.0);
+            encoderDrive(DRIVE_SPEED,25,25,25,25,5.0);
+
+
 
 
         }
