@@ -158,7 +158,7 @@ public class OneControllerTeleOp extends LinearOpMode {
             }*/
 
             //Make it for omni-directional movement. It is confusing but once you run through it, it becomes easier
-            double forward = -gamepad1.left_stick_y; // these are desired speeds
+            /*double forward = -gamepad1.left_stick_y; // these are desired speeds
             double right = gamepad1.left_stick_x;
             double clockwise=0;
 
@@ -172,34 +172,16 @@ public class OneControllerTeleOp extends LinearOpMode {
                 }
             }else{
                 clockwise = gamepad1.right_stick_x;
-            }
+            }*/
 
 
+            double angle = Math.atan2(-gamepad1.left_stick_y,gamepad1.left_stick_x);
+            double magnitude=Math.sqrt(Math.pow(gamepad1.left_stick_x,2)+Math.pow(-gamepad1.left_stick_y,2));
 
-
-
-
-
-            //We do this for slowdown and fine movements
-
-
-            double lf = forward + right + clockwise;
-            double lb = forward - right + clockwise;
-            double rf = forward - right - clockwise;
-            double rb = forward + right - clockwise;
-
-
-            double max = max(1.0, max(abs(lf), max(abs(lb), max(abs(rf), abs(rb)))));
-            lf /= max;
-            lb /= max;
-            rf /= max;
-            rb /= max;
-
-            //Where all the ingredients come together (we set the power here)
-            robot.frontleft.setPower(lf);
-            robot.downleft.setPower(lb);
-            robot.frontright.setPower(rf);
-            robot.downright.setPower(rb);
+            robot.frontleft.setPower(Math.sin(angle+(1/4)*Math.PI)* magnitude+gamepad1.right_stick_x);
+            robot.downleft.setPower(Math.sin(angle-(1/4)*Math.PI)* magnitude+gamepad1.right_stick_x);
+            robot.frontright.setPower(Math.sin(angle-(1/4)*Math.PI)* magnitude - gamepad1.right_stick_x);
+            robot.downright.setPower(Math.sin(angle+(1/4)*Math.PI)* magnitude - gamepad1.right_stick_x);
 
             /*If the gamepad's right stick y value is greater than zero, give the sucker power.
             If the y value is less than zero, give it negative power. If the y value is zero, we give it no power. */
