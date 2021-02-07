@@ -178,10 +178,10 @@ public class OneControllerTeleOp extends LinearOpMode {
             double angle = Math.atan2(-gamepad1.left_stick_y,gamepad1.left_stick_x);
             double magnitude=Math.sqrt(Math.pow(gamepad1.left_stick_x,2)+Math.pow(-gamepad1.left_stick_y,2));
 
-            robot.frontleft.setPower(Math.sin(angle+(1/4)*Math.PI)* magnitude+gamepad1.right_stick_x);
-            robot.downleft.setPower(Math.sin(angle-(1/4)*Math.PI)* magnitude+gamepad1.right_stick_x);
-            robot.frontright.setPower(Math.sin(angle-(1/4)*Math.PI)* magnitude - gamepad1.right_stick_x);
-            robot.downright.setPower(Math.sin(angle+(1/4)*Math.PI)* magnitude - gamepad1.right_stick_x);
+            robot.frontleft.setPower(Math.sin(angle+(Math.PI/4))* magnitude+gamepad1.right_stick_x);
+            robot.downleft.setPower(Math.sin(angle-(Math.PI)/4)* magnitude+gamepad1.right_stick_x);
+            robot.frontright.setPower(Math.sin(angle-(Math.PI/4))* magnitude - gamepad1.right_stick_x);
+            robot.downright.setPower(Math.sin(angle+(Math.PI/4))* magnitude - gamepad1.right_stick_x);
 
             /*If the gamepad's right stick y value is greater than zero, give the sucker power.
             If the y value is less than zero, give it negative power. If the y value is zero, we give it no power. */
@@ -191,6 +191,39 @@ public class OneControllerTeleOp extends LinearOpMode {
             //Set the wobble goal's arm to the value of the y value on gamepad2's left stick. (It is negative because the y value is negative for some reason)
             //robot.wobblegoalarm.setPower(-gamepad2.left_stick_y/1.5);
             robot.wobblegoalarm.setPower(gamepad2.right_trigger-gamepad1.left_trigger/1.5);
+
+
+            if (gamepad1.left_trigger > 0.0){
+                robot.frontleft.setPower(1.0);
+                //We are moving the front left motor forward
+                robot.downleft.setPower(-1.0);
+                //We are moving the back left motor backwards
+                robot.frontright.setPower(-1.0);
+                //We are moving the front right motor backwards
+                robot.downright.setPower(1.0);
+                //We are moving the back right motor forward
+            }else{
+                robot.frontleft.setPower(0.0);
+                robot.downleft.setPower(0.0);
+                robot.frontright.setPower(0.0);
+                robot.downright.setPower(0.0);
+            }
+            if (gamepad1.right_trigger > 0.0) {
+                robot.frontleft.setPower(-1.0);
+                //We are moving the front left motor backwards
+                robot.downleft.setPower(1.0);
+                //We are moving the back left motor forward
+                robot.frontright.setPower(1.0);
+                //We are moving the front right motor forward
+                robot.downright.setPower(-1.0);
+                // We are moving the back right motor backwards.
+            }else{
+                robot.frontleft.setPower(0.0);
+                robot.downleft.setPower(0.0);
+                robot.frontright.setPower(0.0);
+                robot.downright.setPower(0.0);
+            }
+
 
             if (gamepad2.left_stick_y > 0) {
                 robot.Wheelintake.setPower(1.0);
