@@ -64,7 +64,7 @@ public class HardwareTest2
      public DcMotor  Wheelintake = null;
      public Servo Launcher = null;
      public Servo rampservo = null;
-    public Servo wobblegoaler = null;
+     public Servo wobblegoaler = null;
     //public Servo extra = null;
 
 

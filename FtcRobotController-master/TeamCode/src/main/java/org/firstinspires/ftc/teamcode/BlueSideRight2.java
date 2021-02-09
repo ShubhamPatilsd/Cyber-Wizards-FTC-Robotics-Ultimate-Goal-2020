@@ -33,13 +33,14 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
+
+import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.core.Point;
 import org.opencv.core.Rect;
 import org.opencv.core.Scalar;
 import org.opencv.imgproc.Imgproc;
-import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
 import org.openftc.easyopencv.OpenCvCamera;
 import org.openftc.easyopencv.OpenCvCameraFactory;
 import org.openftc.easyopencv.OpenCvCameraRotation;
@@ -72,9 +73,9 @@ import org.openftc.easyopencv.OpenCvPipeline;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@Autonomous(name="BlueSideRight", group="Pushbot")
+@Autonomous(name="BlueSideRight2", group="Pushbot")
 //@Disabled
-public class BlueSideRight extends LinearOpMode {
+public class BlueSideRight2 extends LinearOpMode {
 
     /* Declare OpMode members. */
     HardwareTest2 robot   = new HardwareTest2();   // Use a Pushbot's hardware
@@ -154,40 +155,38 @@ public class BlueSideRight extends LinearOpMode {
         robot.frontright.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         robot.downleft.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         robot.downright.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        encoderDrive(1.0,84,0.45,-84,0.85,-84,1.0,84,5.0);
         sleep(1000);
-
         phoneCam.stopStreaming();
-        sleep(500);
-        /*if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.ONE) {
+        encoderDrive(0.45,187,0.45,187,0.45,187,0.45,187,5.0);
+        robot.wobblegoalarm.setPower(-0.35);
+        sleep(550);
+        for(int i=0;i<3;i++) {
+            robot.shooterone.setPower(-1.0);
+            sleep(2000);
+            robot.Launcher.setPosition(1.0);
+            sleep(500);
+            robot.Launcher.setPosition(0.0);
+        }
+
+
+
+
+
+        if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.ONE) {
             phoneCam.stopStreaming();
             phoneCam.closeCameraDevice();
-            encoderDrive(DRIVE_SPEED,3.5,1,3.5,1,5.0);
-            encoderDrive(DRIVE_SPEED,145,145,145,145,5.0);
-            encoderDrive(DRIVE_SPEED,-1.5,2.5,-1.5,2.5,5.0);
-            encoderDrive(DRIVE_SPEED,84,-84,-84,84,5.0);
-            encoderDrive(DRIVE_SPEED,20,20,20,20,5.0);
-            encoderDrive(DRIVE_SPEED,-2,1,-2,1,5.0);
-            encoderDrive(DRIVE_SPEED,5,-5,-5,5,5.0);
+            encoderDrive(0.5,90,0.5,90,0.5,90,0.5,90,5.0);
             robot.wobblegoalarm.setPower(-0.45);
             sleep(600);
             robot.wobblegoaler.setPosition(0.0);
-            encoderDrive(DRIVE_SPEED4,10,-10,-10,10,5.0);
+            encoderDrive(0.8,10,0.4,-10,1.0,-10,1.0,10,5.0);
             sleep(500);
             robot.wobblegoaler.setPosition(1.0);
-            encoderDrive(DRIVE_SPEED,1,-2,1,-2,5.0);
-            encoderDrive(DRIVE_SPEED4,-53,-53,-53,-53,5.0);
-            encoderDrive(DRIVE_SPEED,-8.5,8.5,8.5,-8.5,5.0);
-            encoderDrive(DRIVE_SPEED,-1,0.5,-1,0.5,5.0);
+            encoderDrive(0.5,-80,0.5,-80,0.5,-80,0.5,-80,5.0);
 
-            for(int i=0;i<3;i++){
-                robot.shooterone.setPower(-1.0);
-                sleep(2000);
-                robot.Launcher.setPosition(1.0);
-                sleep(500);
-                robot.Launcher.setPosition(0.0);
 
-            }
+
+
 
 
 
@@ -196,75 +195,38 @@ public class BlueSideRight extends LinearOpMode {
         } else if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.FOUR) {
             phoneCam.stopStreaming();
             phoneCam.closeCameraDevice();
-            encoderDrive(DRIVE_SPEED,4,1.5,4,1.5,5.0);
-
-            encoderDrive(DRIVE_SPEED,180,180,180,180,5.0);
+            encoderDrive(0.5,140,0.5,140,0.5,140,0.5,140,5.0);
+            encoderDrive(0.5,-100,0.5,100,0.5,100,0.5,-100,5.0);
             robot.wobblegoalarm.setPower(-0.45);
             sleep(600);
             robot.wobblegoaler.setPosition(0.0);
-            encoderDrive(DRIVE_SPEED4,20,-20,-20,20,5.0);
+            encoderDrive(0.8,10,0.4,-10,1.0,-10,1.0,10,5.0);
             sleep(500);
             robot.wobblegoaler.setPosition(1.0);
-            encoderDrive(DRIVE_SPEED,-2,2.5,-2,2.5,5.0);
-            encoderDrive(DRIVE_SPEED,90,-90,-90,90,5.0);
-            encoderDrive(DRIVE_SPEED,-65,-65,-65,-65,5.0);
-            encoderDrive(DRIVE_SPEED,-20,20,20,-20,5.0);
-            encoderDrive(DRIVE_SPEED,7,9,7,9,5.0);
-            for(int i=0;i<3;i++){
-                robot.shooterone.setPower(-1.0);
-                sleep(2000);
-                robot.Launcher.setPosition(1.0);
-                sleep(500);
-                robot.Launcher.setPosition(0.0);
+            encoderDrive(0.5,-90,0.5,-90,0.5,-90,0.5,-90,5.0);
 
-            }
+
 
 
 
         }else if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.NONE) {
             phoneCam.stopStreaming();
             phoneCam.closeCameraDevice();
-            encoderDrive(DRIVE_SPEED,4,1.5,4,1.5,5.0);
-            encoderDrive(DRIVE_SPEED,105,105,105,105,5.0);
-            encoderDrive(DRIVE_SPEED,5,-5,-5,5,5.0);
+            encoderDrive(0.5,50,0.5,50,0.5,50,0.5,50,5.0);
+            encoderDrive(0.5,-160,0.5,160,0.5,160,0.5,-160,5.0);
             robot.wobblegoalarm.setPower(-0.45);
             sleep(600);
             robot.wobblegoaler.setPosition(0.0);
-            encoderDrive(DRIVE_SPEED4,17,-17,-17,17,5.0);
+            encoderDrive(0.8,10,0.4,-10,1.0,-10,1.0,10,5.0);
             sleep(500);
             robot.wobblegoaler.setPosition(1.0);
-            encoderDrive(DRIVE_SPEED,-2,2.5,-2,2.5,5.0);
-            encoderDrive(DRIVE_SPEED,62,-62,-62,62,5.0);
-            encoderDrive(DRIVE_SPEED,7,8,7,8,5.0);
-            for(int i=0;i<3;i++){
-                robot.shooterone.setPower(-1.0);
-                sleep(2000);
-                robot.Launcher.setPosition(1.0);
-                sleep(500);
-                robot.Launcher.setPosition(0.0);
 
-            }
 
 
 
         }
 
-        /*encoderDrive(DRIVE_SPEED2,40,-40,-40,40,5.0);
-        encoderDrive(DRIVE_SPEED2,-25,-25,-25,-25,5.0);
-        sleep(1000);
-        for(int i=0;i<2;i++){
-            robot.intakepusher.setPosition(0.0);
-            sleep(500);
-            robot.intakepusher.setPosition(1.0);
-            sleep(500);
 
-            robot.shooterone.setPower(1.0);
-            robot.shootertwo.setPower(1.0);
-            sleep(3000);
-        }
-        encoderDrive(DRIVE_SPEED4,24,24,24,24,5.0);
-
-         */
 
 
 
@@ -395,7 +357,7 @@ public class BlueSideRight extends LinearOpMode {
         /*
          * The core values which define the location and size of the sample regions
          */
-        static final Point REGION1_TOPLEFT_ANCHOR_POINT = new Point(215,30);
+        static final Point REGION1_TOPLEFT_ANCHOR_POINT = new Point(28,30);
 
         static final int REGION_WIDTH = 25;
         static final int REGION_HEIGHT = 35;
@@ -419,7 +381,7 @@ public class BlueSideRight extends LinearOpMode {
         int avg1;
 
         // Volatile since accessed by OpMode thread w/o synchronization
-        private volatile SkystoneDeterminationPipeline.RingPosition position = SkystoneDeterminationPipeline.RingPosition.FOUR;
+        private volatile RingPosition position = RingPosition.FOUR;
 
         /*
          * This function takes the RGB frame, converts to YCrCb,
@@ -453,13 +415,13 @@ public class BlueSideRight extends LinearOpMode {
                     BLUE, // The color the rectangle is drawn in
                     2); // Thickness of the rectangle lines
 
-            position = SkystoneDeterminationPipeline.RingPosition.FOUR; // Record our analysis
+            position = RingPosition.FOUR; // Record our analysis
             if(avg1 > FOUR_RING_THRESHOLD){
-                position = SkystoneDeterminationPipeline.RingPosition.FOUR;
+                position = RingPosition.FOUR;
             }else if (avg1 > ONE_RING_THRESHOLD){
-                position = SkystoneDeterminationPipeline.RingPosition.ONE;
+                position = RingPosition.ONE;
             }else{
-                position = SkystoneDeterminationPipeline.RingPosition.NONE;
+                position = RingPosition.NONE;
             }
 
             Imgproc.rectangle(

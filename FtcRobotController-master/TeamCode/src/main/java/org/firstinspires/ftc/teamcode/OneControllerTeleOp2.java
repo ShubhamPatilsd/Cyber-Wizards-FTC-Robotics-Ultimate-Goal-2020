@@ -189,7 +189,13 @@ public class OneControllerTeleOp2 extends LinearOpMode {
                 robot.downright.setPower(1.0);
                 robot.frontleft.setPower(-1.0);
                 robot.frontright.setPower(1.0);
-            } else if(gamepad1.right_stick_x>0.5){
+            }  else {
+                robot.downleft.setPower(0.0);
+                robot.downright.setPower(0.0);
+                robot.frontleft.setPower(0.0);
+                robot.frontright.setPower(0.0);
+            }
+            if(gamepad1.right_stick_x>0.5){
                 robot.downleft.setPower(1.0);
                 robot.downright.setPower(-1.0);
                 robot.frontleft.setPower(1.0);
