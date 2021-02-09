@@ -181,7 +181,43 @@ public class OneControllerTeleOp extends LinearOpMode {
             robot.frontleft.setPower(Math.sin(angle+(Math.PI/4))* magnitude+gamepad1.right_stick_x);
             robot.downleft.setPower(Math.sin(angle-(Math.PI)/4)* magnitude+gamepad1.right_stick_x);
             robot.frontright.setPower(Math.sin(angle-(Math.PI/4))* magnitude - gamepad1.right_stick_x);
-            robot.downright.setPower(Math.sin(angle+(Math.PI/4))* magnitude - gamepad1.right_stick_x);
+            robot.downright.setPower(Math.sin(angle+(Math.PI/4))* magnitude - gamepad1.right_stick_x);*/
+
+            double y = -gamepad1.left_stick_y;
+            double x = gamepad1.left_stick_x*1.5;
+            double rx = gamepad1.right_stick_x;
+
+
+            double frontLeftPower = y+x+rx;
+            double backLeftPower = y-x+rx;
+            double frontRightPower = y-x-rx;
+            double backRightPower = y+x-rx;
+
+
+            if (Math.abs(frontLeftPower) > 1 || Math.abs(backLeftPower) > 1 ||
+                    Math.abs(frontRightPower) > 1 || Math.abs(backRightPower) > 1 ) {
+                // Find the largest power
+                double max = 0;
+                max = Math.max(Math.abs(frontLeftPower), Math.abs(backLeftPower));
+                max = Math.max(Math.abs(frontRightPower), max);
+                max = Math.max(Math.abs(backRightPower), max);
+
+                // Divide everything by max (it's positive so we don't need to worry
+                // about signs)
+                frontLeftPower /= max;
+                backLeftPower /= max;
+                frontRightPower /= max;
+                backRightPower /= max;
+            }
+
+            robot.frontleft.setPower(frontLeftPower);
+            robot.downleft.setPower(backLeftPower);
+            robot.frontright.setPower(frontRightPower);
+            robot.downright.setPower(backRightPower);
+
+
+
+
 
             /*If the gamepad's right stick y value is greater than zero, give the sucker power.
             If the y value is less than zero, give it negative power. If the y value is zero, we give it no power. */
