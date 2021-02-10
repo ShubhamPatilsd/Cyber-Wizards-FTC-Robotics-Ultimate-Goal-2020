@@ -73,9 +73,9 @@ import org.openftc.easyopencv.OpenCvPipeline;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@Autonomous(name="BlueSideRight2", group="Pushbot")
+@Autonomous(name="BlueSideRight3", group="Pushbot")
 //@Disabled
-public class BlueSideRight2 extends LinearOpMode {
+public class BlueSideRight3 extends LinearOpMode {
 
     /* Declare OpMode members. */
     HardwareTest2 robot   = new HardwareTest2();   // Use a Pushbot's hardware
@@ -157,7 +157,7 @@ public class BlueSideRight2 extends LinearOpMode {
         robot.downright.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         sleep(1000);
         phoneCam.stopStreaming();
-        encoderDrive(0.45,190,0.45,186,0.45,190,0.45,186,5.0);
+        encoderDrive(0.45,186,0.45,182,0.45,186,0.45,182,5.0);
         encoderDrive(0.0,187,0.0,187,0.0,187,0.0,187,1.0);
         robot.wobblegoalarm.setPower(-0.35);
         sleep(550);
@@ -208,6 +208,26 @@ public class BlueSideRight2 extends LinearOpMode {
             sleep(500);
             robot.wobblegoaler.setPosition(1.0);
             encoderDrive(0.5,-130,0.5,-130,0.5,-130,0.5,-130,5.0);
+            encoderDrive(1.0,-100,1.0,50,1.0,-100,1.0,50,5.0);
+            encoderDrive(0.0,187,0.0,187,0.0,187,0.0,187,1.0);
+            for(int i=0;i<3;i++) {
+                encoderDrive(1.0,15,1.0,15,1.0,15,1.0,15,5.0);
+                encoderDrive(1.0,-15,1.0,-15,1.0,-15,1.0,-15,5.0);
+
+            }
+            robot.rampservo.setPosition(0.6);
+            robot.Wheelintake.setPower(1.0);
+            robot.sucker.setPower(1.0);
+            encoderDrive(1.0,25,1.0,25,1.0,25,1.0,25,5.0);
+            sleep(3000);
+            encoderDrive(1.0,100,1.0,-50,1.0,100,1.0,-50,5.0);
+            encoderDrive(1.0,25,1.0,25,1.0,25,1.0,25,5.0);
+            robot.shooterone.setPower(-1.0);
+            sleep(2000);
+            robot.Launcher.setPosition(1.0);
+            sleep(500);
+            robot.Launcher.setPosition(0.0);
+            encoderDrive(1.0,15,1.0,15,1.0,15,1.0,15,5.0);
 
 
 
