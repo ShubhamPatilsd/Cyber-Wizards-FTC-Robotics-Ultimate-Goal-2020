@@ -122,7 +122,7 @@ public class HardwareTest2
         Launcher.setPosition(0.0);
         rampservo.setPosition(0.0);
         wobblegoaler.setPosition(1.0);
-        wobblestop.setPosition(0.0);
+        wobblestop.setPosition(1.0);
 
         //extra.setPosition(1.0);
 

@@ -180,7 +180,7 @@ public class BlueSideRight3 extends LinearOpMode {
             phoneCam.stopStreaming();
             phoneCam.closeCameraDevice();
             encoderDrive(0.5,90,0.5,90,0.5,90,0.5,90,5.0);
-            robot.wobblestop.setPosition(1.0);
+            robot.wobblestop.setPosition(0.0);
             sleep(500);
             robot.wobblegoalarm.setPower(-0.45);
             sleep(600);
@@ -203,7 +203,7 @@ public class BlueSideRight3 extends LinearOpMode {
             phoneCam.closeCameraDevice();
             encoderDrive(0.5,170,0.5,170,0.5,170,0.5,170,5.0);
             encoderDrive(0.5,-80,0.5,80,0.5,80,0.5,-80,5.0);
-            robot.wobblestop.setPosition(1.0);
+            robot.wobblestop.setPosition(0.0);
             sleep(500);
             robot.wobblegoalarm.setPower(-0.45);
             sleep(600);
@@ -242,7 +242,7 @@ public class BlueSideRight3 extends LinearOpMode {
             phoneCam.closeCameraDevice();
             encoderDrive(0.5,15,0.5,15,0.5,15,0.5,15,5.0);
             encoderDrive(0.5,-80,0.5,80,0.5,80,0.5,-80,5.0);
-            robot.wobblestop.setPosition(1.0);
+            robot.wobblestop.setPosition(0.0);
             sleep(500);
             robot.wobblegoalarm.setPower(-0.45);
             sleep(600);
