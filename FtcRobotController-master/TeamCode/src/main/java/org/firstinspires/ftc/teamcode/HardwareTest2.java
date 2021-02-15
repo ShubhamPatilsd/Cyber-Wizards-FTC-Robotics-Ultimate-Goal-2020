@@ -65,7 +65,7 @@ public class HardwareTest2
      public Servo Launcher = null;
      public Servo rampservo = null;
      public Servo wobblegoaler = null;
-    //public Servo extra = null;
+     public Servo wobblestop = null;
 
 
 
@@ -103,6 +103,7 @@ public class HardwareTest2
         Launcher = this.hwMap.get(Servo.class,"Launcher");
         rampservo = this.hwMap.get(Servo.class,"rampservo");
         wobblegoaler = this.hwMap.get(Servo.class,"wobblegoaler");
+        wobblestop = this.hwMap.get(Servo.class,"wobblestop");
 
 
 
@@ -121,7 +122,7 @@ public class HardwareTest2
         Launcher.setPosition(0.0);
         rampservo.setPosition(0.0);
         wobblegoaler.setPosition(1.0);
-
+        wobblestop.setPosition(0.0);
 
         //extra.setPosition(1.0);
 

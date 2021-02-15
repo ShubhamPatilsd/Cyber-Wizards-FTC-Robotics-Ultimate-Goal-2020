@@ -160,6 +160,7 @@ public class BlueSideRight3 extends LinearOpMode {
         encoderDrive(0.45,186,0.45,182,0.45,186,0.45,182,5.0);
         encoderDrive(0.0,187,0.0,187,0.0,187,0.0,187,1.0);
         robot.wobblegoalarm.setPower(-0.35);
+
         sleep(550);
         for(int i=0;i<3;i++) {
             robot.shooterone.setPower(-1.0);
@@ -169,8 +170,7 @@ public class BlueSideRight3 extends LinearOpMode {
             robot.Launcher.setPosition(0.0);
         }
         robot.shooterone.setPower(0.0);
-        robot.wobblegoalarm.setPower(0.35);
-        sleep(550);
+
 
 
 
@@ -180,6 +180,8 @@ public class BlueSideRight3 extends LinearOpMode {
             phoneCam.stopStreaming();
             phoneCam.closeCameraDevice();
             encoderDrive(0.5,90,0.5,90,0.5,90,0.5,90,5.0);
+            robot.wobblestop.setPosition(1.0);
+            sleep(500);
             robot.wobblegoalarm.setPower(-0.45);
             sleep(600);
             robot.wobblegoaler.setPosition(0.0);
@@ -201,6 +203,8 @@ public class BlueSideRight3 extends LinearOpMode {
             phoneCam.closeCameraDevice();
             encoderDrive(0.5,170,0.5,170,0.5,170,0.5,170,5.0);
             encoderDrive(0.5,-80,0.5,80,0.5,80,0.5,-80,5.0);
+            robot.wobblestop.setPosition(1.0);
+            sleep(500);
             robot.wobblegoalarm.setPower(-0.45);
             sleep(600);
             robot.wobblegoaler.setPosition(0.0);
@@ -208,7 +212,7 @@ public class BlueSideRight3 extends LinearOpMode {
             sleep(500);
             robot.wobblegoaler.setPosition(1.0);
             encoderDrive(0.5,-130,0.5,-130,0.5,-130,0.5,-130,5.0);
-            encoderDrive(1.0,-100,1.0,50,1.0,-100,1.0,50,5.0);
+            /*encoderDrive(1.0,-100,1.0,50,1.0,-100,1.0,50,5.0);
             encoderDrive(0.0,187,0.0,187,0.0,187,0.0,187,1.0);
             for(int i=0;i<3;i++) {
                 encoderDrive(1.0,15,1.0,15,1.0,15,1.0,15,5.0);
@@ -228,7 +232,7 @@ public class BlueSideRight3 extends LinearOpMode {
             sleep(500);
             robot.Launcher.setPosition(0.0);
             encoderDrive(1.0,15,1.0,15,1.0,15,1.0,15,5.0);
-
+*/
 
 
 
@@ -238,6 +242,8 @@ public class BlueSideRight3 extends LinearOpMode {
             phoneCam.closeCameraDevice();
             encoderDrive(0.5,15,0.5,15,0.5,15,0.5,15,5.0);
             encoderDrive(0.5,-80,0.5,80,0.5,80,0.5,-80,5.0);
+            robot.wobblestop.setPosition(1.0);
+            sleep(500);
             robot.wobblegoalarm.setPower(-0.45);
             sleep(600);
             robot.wobblegoaler.setPosition(0.0);

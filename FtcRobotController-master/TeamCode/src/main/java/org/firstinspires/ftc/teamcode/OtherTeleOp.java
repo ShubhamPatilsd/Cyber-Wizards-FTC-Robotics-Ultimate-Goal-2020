@@ -153,7 +153,7 @@ public class OtherTeleOp extends LinearOpMode {
                 robot.frontright.setPower(0.0);
             }
 
-            robot.wobblegoalarm.setPower(gamepad2.right_trigger-gamepad2.left_trigger*0.5);
+            robot.wobblegoalarm.setPower(gamepad2.right_trigger*0.5-gamepad2.left_trigger*0.5);
             if (gamepad2.left_stick_y > 0) {
                 robot.Wheelintake.setPower(1.0);
                 robot.sucker.setPower(1.0);
@@ -186,6 +186,11 @@ public class OtherTeleOp extends LinearOpMode {
             }else{
                 robot.wobblegoaler.setPosition(1.0);
 
+            }
+            if(gamepad2.x){
+                robot.wobblestop.setPosition(1.0);
+            } else {
+                robot.wobblestop.setPosition(0.0);
             }
         }
     }
