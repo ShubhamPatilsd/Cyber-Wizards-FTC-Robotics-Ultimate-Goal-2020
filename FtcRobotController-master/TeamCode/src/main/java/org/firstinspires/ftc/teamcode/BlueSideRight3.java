@@ -157,14 +157,14 @@ public class BlueSideRight3 extends LinearOpMode {
         robot.downright.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         sleep(1000);
         phoneCam.stopStreaming();
-        encoderDrive(0.45,186,0.45,182,0.45,186,0.45,182,5.0);
+        encoderDrive(0.45,190,0.45,182,0.45,190,0.45,182,5.0);
         encoderDrive(0.0,187,0.0,187,0.0,187,0.0,187,1.0);
         robot.wobblegoalarm.setPower(-0.35);
 
         sleep(550);
         for(int i=0;i<3;i++) {
             robot.shooterone.setPower(-1.0);
-            sleep(2000);
+            sleep(2250);
             robot.Launcher.setPosition(1.0);
             sleep(500);
             robot.Launcher.setPosition(0.0);

@@ -130,7 +130,7 @@ public class OtherTeleOp extends LinearOpMode {
 
 
 
-            if(gamepad1.right_stick_x<-0.5){
+            if(gamepad1.right_stick_x<0){
                 robot.downleft.setPower(-1.0);
                 robot.downright.setPower(1.0);
                 robot.frontleft.setPower(-1.0);
@@ -141,7 +141,7 @@ public class OtherTeleOp extends LinearOpMode {
                 robot.frontleft.setPower(0.0);
                 robot.frontright.setPower(0.0);
             }
-            if(gamepad1.right_stick_x>0.5){
+            if(gamepad1.right_stick_x>0){
                 robot.downleft.setPower(1.0);
                 robot.downright.setPower(-1.0);
                 robot.frontleft.setPower(1.0);
@@ -153,7 +153,7 @@ public class OtherTeleOp extends LinearOpMode {
                 robot.frontright.setPower(0.0);
             }
 
-            robot.wobblegoalarm.setPower(gamepad2.right_trigger*0.33-gamepad2.left_trigger*0.33);
+            robot.wobblegoalarm.setPower(gamepad2.right_trigger*0.7-gamepad2.left_trigger*0.33);
             if (gamepad2.left_stick_y > 0) {
                 robot.Wheelintake.setPower(1.0);
                 robot.sucker.setPower(1.0);
@@ -167,12 +167,21 @@ public class OtherTeleOp extends LinearOpMode {
             }else{
                 robot.rampservo.setPosition(0.0);
             }
+
             if(gamepad2.right_stick_y < 0){
                 robot.shooterone.setPower(-1.0);
             }
             else{
                 robot.shooterone.setPower(0.0);
             }
+            if(gamepad2.right_stick_y > 0){
+                robot.shooterone.setPower(-0.65);
+            }
+            else{
+                robot.shooterone.setPower(0.0);
+            }
+
+
             if(gamepad2.right_bumper){
                 robot.Launcher.setPosition(1.0);
             }else{
@@ -192,11 +201,7 @@ public class OtherTeleOp extends LinearOpMode {
             } else {
                 robot.wobblestop.setPosition(1.0);
             }
-            if(gamepad2.y){
-                robot.shooterone.setPower(0.65);
-            } else {
-                robot.shooterone.setPower(0.0);
-            }
+
         }
     }
 }
