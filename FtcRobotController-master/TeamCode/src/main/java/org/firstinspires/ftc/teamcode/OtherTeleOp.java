@@ -174,12 +174,7 @@ public class OtherTeleOp extends LinearOpMode {
             else{
                 robot.shooterone.setPower(0.0);
             }
-            if(gamepad2.right_stick_y > 0){
-                robot.shooterone.setPower(-0.65);
-            }
-            else{
-                robot.shooterone.setPower(0.0);
-            }
+                       
 
 
             if(gamepad2.right_bumper){
