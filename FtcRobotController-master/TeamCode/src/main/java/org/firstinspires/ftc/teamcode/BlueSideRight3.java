@@ -157,17 +157,24 @@ public class BlueSideRight3 extends LinearOpMode {
         robot.downright.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         sleep(1000);
         phoneCam.stopStreaming();
-        encoderDrive(0.45,190,0.45,182,0.45,190,0.45,182,5.0);
-        encoderDrive(0.0,187,0.0,187,0.0,187,0.0,187,1.0);
-        robot.wobblegoalarm.setPower(-0.35);
+        encoderDrive(0.5,-7,0.5,7,0.5,7,0.5,-7,5.0);
+        encoderDrive(0.5,-10,0.5,-10,0.5,-10,0.5,-10,5.0);
 
+        encoderDrive(0.45,152,0.45,152,0.45,152,0.45,152,5.0);
+        encoderDrive(0.45,1,0.45,7.5,0.45,1,0.45,7.5,5.0);
+
+        encoderDrive(0.0,0,0.0,0,0.0,0,0.0,0,1.5);
+        robot.wobblegoalarm.setPower(-0.35);
         sleep(550);
+        robot.wobblegoalarm.setPower(0.0);
+        robot.shooterone.setPower(-1.0);
+        sleep(3000);
         for(int i=0;i<3;i++) {
             robot.shooterone.setPower(-1.0);
-            sleep(2250);
+            sleep(3000);
             robot.Launcher.setPosition(1.0);
             sleep(500);
-            robot.Launcher.setPosition(0.0);
+            robot.Launcher.setPosition(0.1);
         }
         robot.shooterone.setPower(0.0);
 
@@ -179,13 +186,13 @@ public class BlueSideRight3 extends LinearOpMode {
         if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.ONE) {
             phoneCam.stopStreaming();
             phoneCam.closeCameraDevice();
-            encoderDrive(0.5,90,0.5,90,0.5,90,0.5,90,5.0);
+            encoderDrive(0.5,110,0.5,110,0.5,110,0.5,110,5.0);
             robot.wobblestop.setPosition(0.0);
-            sleep(500);
+            sleep(1000);
             robot.wobblegoalarm.setPower(-0.45);
             sleep(600);
             robot.wobblegoaler.setPosition(0.0);
-            encoderDrive(0.8,10,0.4,-10,1.0,-10,1.0,10,5.0);
+            encoderDrive(0.8,15,0.4,-15,1.0,-15,1.0,15,5.0);
             sleep(500);
             robot.wobblegoaler.setPosition(1.0);
             encoderDrive(0.5,-50,0.5,-50,0.5,-50,0.5,-50,5.0);
@@ -201,17 +208,17 @@ public class BlueSideRight3 extends LinearOpMode {
         } else if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.FOUR) {
             phoneCam.stopStreaming();
             phoneCam.closeCameraDevice();
-            encoderDrive(0.5,170,0.5,170,0.5,170,0.5,170,5.0);
+            encoderDrive(0.5,200,0.5,200,0.5,200,0.5,200,5.0);
             encoderDrive(0.5,-80,0.5,80,0.5,80,0.5,-80,5.0);
             robot.wobblestop.setPosition(0.0);
-            sleep(500);
+            sleep(1000);
             robot.wobblegoalarm.setPower(-0.45);
             sleep(600);
             robot.wobblegoaler.setPosition(0.0);
-            encoderDrive(0.8,10,0.4,-10,1.0,-10,1.0,10,5.0);
+            encoderDrive(0.8,15,0.4,-15,1.5,-15,1.0,10,5.0);
             sleep(500);
             robot.wobblegoaler.setPosition(1.0);
-            encoderDrive(0.5,-130,0.5,-130,0.5,-130,0.5,-130,5.0);
+            encoderDrive(0.5,-110,0.5,-110,0.5,-110,0.5,-110,5.0);
             /*encoderDrive(1.0,-100,1.0,50,1.0,-100,1.0,50,5.0);
             encoderDrive(0.0,187,0.0,187,0.0,187,0.0,187,1.0);
             for(int i=0;i<3;i++) {
@@ -240,14 +247,14 @@ public class BlueSideRight3 extends LinearOpMode {
         }else if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.NONE) {
             phoneCam.stopStreaming();
             phoneCam.closeCameraDevice();
-            encoderDrive(0.5,15,0.5,15,0.5,15,0.5,15,5.0);
+            encoderDrive(0.5,60,0.5,60,0.5,60,0.5,60,5.0);
             encoderDrive(0.5,-80,0.5,80,0.5,80,0.5,-80,5.0);
             robot.wobblestop.setPosition(0.0);
-            sleep(500);
+            sleep(1000);
             robot.wobblegoalarm.setPower(-0.45);
             sleep(600);
             robot.wobblegoaler.setPosition(0.0);
-            encoderDrive(0.8,10,0.4,-10,1.0,-10,1.0,10,5.0);
+            encoderDrive(0.8,15,0.4,-15,1.0,-15,1.0,15,5.0);
             sleep(500);
             robot.wobblegoaler.setPosition(1.0);
 
