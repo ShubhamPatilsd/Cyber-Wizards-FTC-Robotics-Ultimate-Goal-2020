@@ -92,6 +92,7 @@ public class BlueSideRight3 extends LinearOpMode {
     static final double     DRIVE_SPEED2            = 0.45;
     static final double     DRIVE_SPEED3            = 0.2;
     static final double     DRIVE_SPEED4            = 0.75;
+    static final double     Turn1         = 21.5;
 
     @Override
     public void runOpMode() {
@@ -157,26 +158,50 @@ public class BlueSideRight3 extends LinearOpMode {
         robot.downright.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         sleep(1000);
         phoneCam.stopStreaming();
-        encoderDrive(0.5,-7,0.5,7,0.5,7,0.5,-7,5.0);
-        encoderDrive(0.5,-10,0.5,-10,0.5,-10,0.5,-10,5.0);
 
-        encoderDrive(0.45,152,0.45,152,0.45,152,0.45,152,5.0);
-        encoderDrive(0.45,1,0.45,7.5,0.45,1,0.45,7.5,5.0);
+        encoderDrive(0.35,152,0.35,152,0.35,152,0.35,152,5.0);
+        encoderDrive(0.0,1,0.0,0,0.0,0,0.0,0,2.0);
+        sleep(500);
+        //Heres the turn
+        encoderDrive(0.3,-Turn1,0.3,Turn1,0.3,-Turn1,0.3,Turn1,5.0);
+        sleep(500);
+        //Stop to prevent momentum of the motors
+        encoderDrive(0.0,1,0.0,0,0.0,0,0.0,0,1.5);
 
-        encoderDrive(0.0,0,0.0,0,0.0,0,0.0,0,1.5);
         robot.wobblegoalarm.setPower(-0.35);
         sleep(550);
         robot.wobblegoalarm.setPower(0.0);
+
         robot.shooterone.setPower(-1.0);
-        sleep(3000);
-        for(int i=0;i<3;i++) {
-            robot.shooterone.setPower(-1.0);
-            sleep(3000);
-            robot.Launcher.setPosition(1.0);
-            sleep(500);
-            robot.Launcher.setPosition(0.1);
-        }
+        sleep(4000);
+        robot.Launcher.setPosition(1.0);
+        sleep(650);
+        robot.Launcher.setPosition(0.1);
+        robot.shooterone.setPower(-1.0);
+        sleep(1500);
+        robot.Launcher.setPosition(1.0);
+        sleep(650);
+        robot.Launcher.setPosition(0.1);
+        robot.shooterone.setPower(-1.0);
+        sleep(1000);
+        robot.Launcher.setPosition(1.0);
+        sleep(650);
+        robot.Launcher.setPosition(0.1);
+//        robot.shooterone.setPower(-1.0);
+//        sleep(2500);
+//        for(int i=0;i<3;i++) {
+//            robot.shooterone.setPower(-1.0);
+////            if(i == 0) {
+////                sleep(4000);
+////            }
+//            sleep(2000);
+//            robot.Launcher.setPosition(1.0);
+//            sleep(650);
+//            robot.Launcher.setPosition(0.1);
+//        }
         robot.shooterone.setPower(0.0);
+        encoderDrive(0.3,Turn1,0.3,-Turn1,0.3,Turn1,0.3,-Turn1,5.0);
+
 
 
 
@@ -186,16 +211,18 @@ public class BlueSideRight3 extends LinearOpMode {
         if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.ONE) {
             phoneCam.stopStreaming();
             phoneCam.closeCameraDevice();
-            encoderDrive(0.5,110,0.5,110,0.5,110,0.5,110,5.0);
+            encoderDrive(0.5,150,0.5,150,0.5,150,0.5,10,5.0);
             robot.wobblestop.setPosition(0.0);
             sleep(1000);
             robot.wobblegoalarm.setPower(-0.45);
             sleep(600);
             robot.wobblegoaler.setPosition(0.0);
-            encoderDrive(0.8,15,0.4,-15,1.0,-15,1.0,15,5.0);
             sleep(500);
-            robot.wobblegoaler.setPosition(1.0);
-            encoderDrive(0.5,-50,0.5,-50,0.5,-50,0.5,-50,5.0);
+            robot.wobblegoalarm.setPower(0.45);
+            sleep(500);
+            robot.wobblestop.setPosition(1.0);
+            sleep(500);
+            encoderDrive(0.5,-30,0.5,-30,0.5,-30,0.5,-30,5.0);
 
 
 
@@ -208,55 +235,38 @@ public class BlueSideRight3 extends LinearOpMode {
         } else if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.FOUR) {
             phoneCam.stopStreaming();
             phoneCam.closeCameraDevice();
-            encoderDrive(0.5,200,0.5,200,0.5,200,0.5,200,5.0);
+            encoderDrive(0.5,235,0.5,235,0.5,235,0.5,235,5.0);
             encoderDrive(0.5,-80,0.5,80,0.5,80,0.5,-80,5.0);
             robot.wobblestop.setPosition(0.0);
             sleep(1000);
             robot.wobblegoalarm.setPower(-0.45);
             sleep(600);
             robot.wobblegoaler.setPosition(0.0);
-            encoderDrive(0.8,15,0.4,-15,1.5,-15,1.0,10,5.0);
             sleep(500);
-            robot.wobblegoaler.setPosition(1.0);
+            robot.wobblegoalarm.setPower(0.45);
+            sleep(500);
+            robot.wobblestop.setPosition(1.0);
+            sleep(500);
             encoderDrive(0.5,-110,0.5,-110,0.5,-110,0.5,-110,5.0);
-            /*encoderDrive(1.0,-100,1.0,50,1.0,-100,1.0,50,5.0);
-            encoderDrive(0.0,187,0.0,187,0.0,187,0.0,187,1.0);
-            for(int i=0;i<3;i++) {
-                encoderDrive(1.0,15,1.0,15,1.0,15,1.0,15,5.0);
-                encoderDrive(1.0,-15,1.0,-15,1.0,-15,1.0,-15,5.0);
-
-            }
-            robot.rampservo.setPosition(0.6);
-            robot.Wheelintake.setPower(1.0);
-            robot.sucker.setPower(1.0);
-            encoderDrive(1.0,25,1.0,25,1.0,25,1.0,25,5.0);
-            sleep(3000);
-            encoderDrive(1.0,100,1.0,-50,1.0,100,1.0,-50,5.0);
-            encoderDrive(1.0,25,1.0,25,1.0,25,1.0,25,5.0);
-            robot.shooterone.setPower(-1.0);
-            sleep(2000);
-            robot.Launcher.setPosition(1.0);
-            sleep(500);
-            robot.Launcher.setPosition(0.0);
-            encoderDrive(1.0,15,1.0,15,1.0,15,1.0,15,5.0);
-*/
-
+            encoderDrive(0.0,1,0.0,0,0.0,0,0.0,0,1.5);
 
 
 
         }else if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.NONE) {
             phoneCam.stopStreaming();
             phoneCam.closeCameraDevice();
-            encoderDrive(0.5,60,0.5,60,0.5,60,0.5,60,5.0);
+            encoderDrive(0.5,95,0.5,95,0.5,95,0.5,95,5.0);
             encoderDrive(0.5,-80,0.5,80,0.5,80,0.5,-80,5.0);
             robot.wobblestop.setPosition(0.0);
             sleep(1000);
             robot.wobblegoalarm.setPower(-0.45);
             sleep(600);
             robot.wobblegoaler.setPosition(0.0);
-            encoderDrive(0.8,15,0.4,-15,1.0,-15,1.0,15,5.0);
             sleep(500);
-            robot.wobblegoaler.setPosition(1.0);
+            robot.wobblegoalarm.setPower(0.45);
+            sleep(500);
+            robot.wobblestop.setPosition(1.0);
+            sleep(500);
 
 
 

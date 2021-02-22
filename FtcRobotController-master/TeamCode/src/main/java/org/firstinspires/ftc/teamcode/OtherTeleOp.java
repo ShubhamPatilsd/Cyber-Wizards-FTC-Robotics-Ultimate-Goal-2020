@@ -197,6 +197,10 @@ public class OtherTeleOp extends LinearOpMode {
                 robot.wobblestop.setPosition(1.0);
             }
 
+            if(gamepad2.y){
+                robot.shooterone.setPower(-0.65);
+            }
+
         }
     }
 }
