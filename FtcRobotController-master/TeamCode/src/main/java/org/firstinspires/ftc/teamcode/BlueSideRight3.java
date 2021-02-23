@@ -92,7 +92,7 @@ public class BlueSideRight3 extends LinearOpMode {
     static final double     DRIVE_SPEED2            = 0.45;
     static final double     DRIVE_SPEED3            = 0.2;
     static final double     DRIVE_SPEED4            = 0.75;
-    static final double     Turn1         = 21.5;
+    static final double     Turn1         = 21 ;
 
     @Override
     public void runOpMode() {
@@ -211,7 +211,7 @@ public class BlueSideRight3 extends LinearOpMode {
         if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.ONE) {
             phoneCam.stopStreaming();
             phoneCam.closeCameraDevice();
-            encoderDrive(0.5,150,0.5,150,0.5,150,0.5,10,5.0);
+            encoderDrive(0.5,150,0.5,150,0.5,150,0.5,150,5.0);
             robot.wobblestop.setPosition(0.0);
             sleep(1000);
             robot.wobblegoalarm.setPower(-0.45);
