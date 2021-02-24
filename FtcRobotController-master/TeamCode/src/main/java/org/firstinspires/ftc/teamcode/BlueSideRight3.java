@@ -92,7 +92,9 @@ public class BlueSideRight3 extends LinearOpMode {
     static final double     DRIVE_SPEED2            = 0.45;
     static final double     DRIVE_SPEED3            = 0.2;
     static final double     DRIVE_SPEED4            = 0.75;
-    static final double     Turn1         = 21 ;
+    static final double     MOTOR_SPEED           = 1.0;
+
+    static final double     Turn1         = 22.5 ;
 
     @Override
     public void runOpMode() {
@@ -132,6 +134,11 @@ public class BlueSideRight3 extends LinearOpMode {
         robot.frontright.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         robot.downleft.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         robot.downright.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        //sets them to brake at zero power
+        robot.frontleft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        robot.frontright.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        robot.downleft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        robot.downright.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
         phoneCam.openCameraDeviceAsync(new OpenCvCamera.AsyncCameraOpenListener()
         {
@@ -158,8 +165,9 @@ public class BlueSideRight3 extends LinearOpMode {
         robot.downright.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         sleep(1000);
         phoneCam.stopStreaming();
+        encoderDrive(DRIVE_SPEED3+0.05,152,DRIVE_SPEED3+0.05,152,DRIVE_SPEED3+0.05,152,DRIVE_SPEED3+0.05,152,5.0);
+        encoderDrive(DRIVE_SPEED3+0.05,230,DRIVE_SPEED3+0.05,230,DRIVE_SPEED3+0.05,230,DRIVE_SPEED3+0.05,220,5.0);
 
-        encoderDrive(0.35,152,0.35,152,0.35,152,0.35,152,5.0);
         encoderDrive(0.0,1,0.0,0,0.0,0,0.0,0,2.0);
         sleep(500);
         //Heres the turn
@@ -172,18 +180,18 @@ public class BlueSideRight3 extends LinearOpMode {
         sleep(550);
         robot.wobblegoalarm.setPower(0.0);
 
-        robot.shooterone.setPower(-1.0);
+        robot.shooterone.setPower(-MOTOR_SPEED);
         sleep(4000);
         robot.Launcher.setPosition(1.0);
         sleep(650);
         robot.Launcher.setPosition(0.1);
-        robot.shooterone.setPower(-1.0);
-        sleep(1500);
+        robot.shooterone.setPower(-MOTOR_SPEED);
+        sleep(2500);
         robot.Launcher.setPosition(1.0);
         sleep(650);
         robot.Launcher.setPosition(0.1);
-        robot.shooterone.setPower(-1.0);
-        sleep(1000);
+        robot.shooterone.setPower(-MOTOR_SPEED);
+        sleep(1500);
         robot.Launcher.setPosition(1.0);
         sleep(650);
         robot.Launcher.setPosition(0.1);
@@ -211,7 +219,7 @@ public class BlueSideRight3 extends LinearOpMode {
         if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.ONE) {
             phoneCam.stopStreaming();
             phoneCam.closeCameraDevice();
-            encoderDrive(0.5,150,0.5,150,0.5,150,0.5,150,5.0);
+            encoderDrive(0.5,100,0.5,100,0.5,100,0.5,100,5.0);
             robot.wobblestop.setPosition(0.0);
             sleep(1000);
             robot.wobblegoalarm.setPower(-0.45);
@@ -222,7 +230,7 @@ public class BlueSideRight3 extends LinearOpMode {
             sleep(500);
             robot.wobblestop.setPosition(1.0);
             sleep(500);
-            encoderDrive(0.5,-30,0.5,-30,0.5,-30,0.5,-30,5.0);
+            encoderDrive(0.5,-60,0.5,-60,0.5,-60,0.5,-60,5.0);
 
 
 
@@ -235,8 +243,8 @@ public class BlueSideRight3 extends LinearOpMode {
         } else if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.FOUR) {
             phoneCam.stopStreaming();
             phoneCam.closeCameraDevice();
-            encoderDrive(0.5,235,0.5,235,0.5,235,0.5,235,5.0);
-            encoderDrive(0.5,-80,0.5,80,0.5,80,0.5,-80,5.0);
+            encoderDrive(0.5,170,0.5,170,0.5,170,0.5,170,5.0);
+            encoderDrive(0.5,-110,0.5,110,0.5,110,0.5,-110,5.0);
             robot.wobblestop.setPosition(0.0);
             sleep(1000);
             robot.wobblegoalarm.setPower(-0.45);
@@ -247,7 +255,7 @@ public class BlueSideRight3 extends LinearOpMode {
             sleep(500);
             robot.wobblestop.setPosition(1.0);
             sleep(500);
-            encoderDrive(0.5,-110,0.5,-110,0.5,-110,0.5,-110,5.0);
+            encoderDrive(0.5,-130,0.5,-130,0.5,-130,0.5,-130,5.0);
             encoderDrive(0.0,1,0.0,0,0.0,0,0.0,0,1.5);
 
 
@@ -255,8 +263,8 @@ public class BlueSideRight3 extends LinearOpMode {
         }else if (pipeline.position == SkystoneDeterminationPipeline.RingPosition.NONE) {
             phoneCam.stopStreaming();
             phoneCam.closeCameraDevice();
-            encoderDrive(0.5,95,0.5,95,0.5,95,0.5,95,5.0);
-            encoderDrive(0.5,-80,0.5,80,0.5,80,0.5,-80,5.0);
+            encoderDrive(0.5,35,0.5,35,0.5,35,0.5,35,5.0);
+            encoderDrive(0.5,-95,0.5,95,0.5,95,0.5,-95,5.0);
             robot.wobblestop.setPosition(0.0);
             sleep(1000);
             robot.wobblegoalarm.setPower(-0.45);

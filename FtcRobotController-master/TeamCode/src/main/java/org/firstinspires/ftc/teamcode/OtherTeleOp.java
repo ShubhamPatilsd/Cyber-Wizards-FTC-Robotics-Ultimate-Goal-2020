@@ -70,6 +70,11 @@ public class OtherTeleOp extends LinearOpMode {
         robot.downleft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         robot.downright.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
+        robot.frontleft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        robot.frontright.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        robot.downleft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        robot.downright.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+
         waitForStart();
         runtime.reset();
 
@@ -170,6 +175,8 @@ public class OtherTeleOp extends LinearOpMode {
 
             if(gamepad2.right_stick_y < 0){
                 robot.shooterone.setPower(-1.0);
+            } else if(gamepad2.y){
+                robot.shooterone.setPower(-0.65);
             }
             else{
                 robot.shooterone.setPower(0.0);
@@ -197,9 +204,7 @@ public class OtherTeleOp extends LinearOpMode {
                 robot.wobblestop.setPosition(1.0);
             }
 
-            if(gamepad2.y){
-                robot.shooterone.setPower(-0.65);
-            }
+
 
         }
     }
